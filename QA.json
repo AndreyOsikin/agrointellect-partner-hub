@@ -1,0 +1,13 @@
+{
+  "version": "github-final",
+  "js_syntax": "OK",
+  "headings_fixed": [
+    "Продукты",
+    "Контакты",
+    "Документы"
+  ],
+  "heading_max_desktop_px": 40,
+  "password_gate": false,
+  "self_contained_html": true,
+  "missing_local_references": []
+}
