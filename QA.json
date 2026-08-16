@@ -1,31 +1,16 @@
 {
-  "version": "final-responsive",
-  "js_syntax": "OK",
-  "responsive": {
-    "desktop": true,
-    "tablet": true,
-    "mobile": true,
-    "mobile_bottom_navigation": true,
-    "mobile_search": true,
-    "mobile_drawer_fullscreen": true
-  },
-  "document_viewer": {
-    "internal_drawer": true,
-    "loading_animation": true,
-    "blocked_iframe_fallback": true,
-    "external_open_button": true
-  },
-  "duplicate_html_ids": [
-    "docFallback",
-    "docLoader",
-    "fallbackDismiss",
-    "fallbackOpen"
+  "version": "final-mobile-nav",
+  "github_pages": true,
+  "responsive": ["desktop", "tablet", "mobile"],
+  "mobile_hotfixes": [
+    "search collapses after scrolling",
+    "fixed back button",
+    "back closes overlays before browser navigation"
   ],
-  "missing_required_ids": [],
-  "missing_core_functions": [],
-  "local_file_references": [],
-  "notes": [
-    "External providers may block iframe embedding; fallback opens original in a new tab.",
-    "Mobile navigation replaces hidden desktop rail below 700px."
-  ]
+  "favicon": ["favicon.ico", "favicon.png", "apple-touch-icon.png"],
+  "contact_hotfix": {
+    "name": "Ганган Елизавета",
+    "role": "Менеджер по сопровождению",
+    "phone": "8 911 867-37-36"
+  }
 }
