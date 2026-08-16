@@ -1,13 +1,31 @@
 {
-  "version": "github-final",
+  "version": "final-responsive",
   "js_syntax": "OK",
-  "headings_fixed": [
-    "Продукты",
-    "Контакты",
-    "Документы"
+  "responsive": {
+    "desktop": true,
+    "tablet": true,
+    "mobile": true,
+    "mobile_bottom_navigation": true,
+    "mobile_search": true,
+    "mobile_drawer_fullscreen": true
+  },
+  "document_viewer": {
+    "internal_drawer": true,
+    "loading_animation": true,
+    "blocked_iframe_fallback": true,
+    "external_open_button": true
+  },
+  "duplicate_html_ids": [
+    "docFallback",
+    "docLoader",
+    "fallbackDismiss",
+    "fallbackOpen"
   ],
-  "heading_max_desktop_px": 40,
-  "password_gate": false,
-  "self_contained_html": true,
-  "missing_local_references": []
+  "missing_required_ids": [],
+  "missing_core_functions": [],
+  "local_file_references": [],
+  "notes": [
+    "External providers may block iframe embedding; fallback opens original in a new tab.",
+    "Mobile navigation replaces hidden desktop rail below 700px."
+  ]
 }
