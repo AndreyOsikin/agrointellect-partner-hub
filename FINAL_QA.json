@@ -1,18 +1,12 @@
 {
-  "version": "FIXED_V13",
-  "critical_fix": "Код калькулятора больше не попадает видимым текстом в раздел Контакты.",
-  "structure": {
-    "html_close": 1,
-    "body_close": 1,
-    "head_close": 1
-  },
-  "tested": [
-    "contacts -> calculator on desktop",
-    "contacts -> calculator on mobile",
-    "2nd farm addition",
-    "no horizontal overflow"
+  "version": "GLASS_V14",
+  "base": "FIXED_V13",
+  "changes": [
+    "Apple-like glass visual layer for calculator",
+    "custom discount modal 0–100%",
+    "custom discount trigger integrated into payment area",
+    "existing multi-farm/product/period logic retained",
+    "PDF/share logic from fixed V13 retained"
   ],
-  "pdf": "PDF screenshot generation when libraries load; print-to-PDF fallback",
-  "share": "PDF file via Web Share when supported; text fallback",
-  "js_syntax": "OK"
+  "injected_js_syntax": "OK"
 }

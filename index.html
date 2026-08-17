@@ -2689,6 +2689,132 @@ body.overlay-open{overflow:hidden}
 }
 </style>
 
+
+<style id="calculator-glass-v14">
+/* V14: glass visual system, scoped to calculator only */
+.calculator-page{
+  --glass-line:rgba(119,151,196,.20);
+  --glass-shadow:0 18px 50px rgba(31,65,114,.08);
+  --glass-blue:#2f6df6;
+  --glass-cyan:#62d8ea;
+  --glass-green:#37c98b;
+  position:relative;
+}
+.calculator-page::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(circle at 80% 5%,rgba(113,189,255,.18),transparent 32%),
+    radial-gradient(circle at 18% 22%,rgba(126,118,255,.09),transparent 27%),
+    radial-gradient(circle at 75% 75%,rgba(70,218,181,.09),transparent 28%);
+}
+.calculator-page .calc-hero-v9,
+.calculator-page .calc-period-card,
+.calculator-page .farm-card,
+.calculator-page .calc-summary-v9{
+  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(247,251,255,.72))!important;
+  border:1px solid var(--glass-line)!important;
+  box-shadow:var(--glass-shadow)!important;
+  backdrop-filter:blur(22px) saturate(145%);
+  -webkit-backdrop-filter:blur(22px) saturate(145%);
+}
+.calculator-page .calc-hero-v9{
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 86% 25%,rgba(79,173,255,.25),transparent 27%),
+    radial-gradient(circle at 72% 75%,rgba(108,98,255,.11),transparent 28%),
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(234,245,255,.82))!important;
+}
+.calculator-page .calc-hero-v9::after{
+  content:"";position:absolute;width:310px;height:310px;right:-100px;top:-145px;
+  border-radius:50%;background:rgba(255,255,255,.28);filter:blur(1px);pointer-events:none;
+}
+.calculator-page .period-btn.active{
+  color:#fff!important;border-color:transparent!important;
+  background:linear-gradient(135deg,#3675ff 0%,#6674f7 55%,#42c9bf 115%)!important;
+  box-shadow:0 9px 24px rgba(63,106,239,.23)!important;
+}
+.calculator-page .product-pick.selected{
+  background:linear-gradient(135deg,rgba(241,247,255,.98),rgba(238,255,249,.90))!important;
+  border-color:rgba(69,130,246,.48)!important;
+  box-shadow:0 9px 24px rgba(47,109,246,.10)!important;
+}
+.calculator-page .calc-total-final{
+  background:
+    radial-gradient(circle at 90% 50%,rgba(91,224,172,.23),transparent 28%),
+    radial-gradient(circle at 10% 50%,rgba(91,135,255,.18),transparent 32%),
+    linear-gradient(110deg,rgba(246,250,255,.98),rgba(238,253,249,.90))!important;
+  border:1px solid rgba(90,159,214,.24)!important;
+  box-shadow:0 16px 38px rgba(37,86,137,.08)!important;
+}
+.calculator-page #v9AddFarmTop,
+.calculator-page #v9AddFarmWide,
+.calculator-page #v9Share{
+  background:linear-gradient(135deg,#3675ff,#6b72f7 55%,#36cba5)!important;
+  color:#fff!important;border-color:transparent!important;
+  box-shadow:0 10px 25px rgba(60,107,237,.20)!important;
+}
+.calculator-page button,.calculator-page .product-pick{
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+@media (hover:hover){
+ .calculator-page button:hover,.calculator-page .product-pick:hover{transform:translateY(-1px)}
+}
+@media (max-width:767px){
+ .calculator-page .calc-hero-v9,.calculator-page .calc-period-card,.calculator-page .farm-card,.calculator-page .calc-summary-v9{
+   backdrop-filter:blur(15px) saturate(135%);-webkit-backdrop-filter:blur(15px) saturate(135%);
+ }
+}
+</style>
+
+
+<style id="custom-discount-v14-style">
+.v14-discount-trigger{
+  display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(97,135,186,.22);
+  background:rgba(255,255,255,.72);color:#23405f;border-radius:12px;padding:8px 12px;
+  font:700 12px/1.1 inherit;box-shadow:0 6px 18px rgba(39,73,118,.06);
+}
+.v14-discount-trigger.active{
+  color:#fff;border-color:transparent;background:linear-gradient(135deg,#3975ff,#6c70f4 55%,#39c89f);
+}
+.v14-discount-backdrop{
+  position:fixed;inset:0;z-index:50000;display:none;align-items:center;justify-content:center;padding:20px;
+  background:rgba(13,28,48,.22);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+.v14-discount-backdrop.open{display:flex}
+.v14-discount-modal{
+  width:min(430px,100%);position:relative;border-radius:28px;padding:26px;
+  border:1px solid rgba(255,255,255,.72);
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(239,247,255,.86));
+  box-shadow:0 28px 90px rgba(17,45,84,.25);
+  backdrop-filter:blur(28px) saturate(155%);-webkit-backdrop-filter:blur(28px) saturate(155%);
+}
+.v14-discount-close{
+  position:absolute;right:16px;top:16px;width:36px;height:36px;border:0;border-radius:50%;
+  background:rgba(231,239,248,.86);font-size:22px;color:#31506e;cursor:pointer;
+}
+.v14-discount-icon{
+  width:56px;height:56px;display:grid;place-items:center;border-radius:18px;color:white;font-size:25px;font-weight:900;
+  background:linear-gradient(135deg,#3d7cff,#7371f4 55%,#3bcba2);box-shadow:0 12px 28px rgba(69,106,235,.24);
+}
+.v14-discount-copy{margin:17px 0 18px}
+.v14-discount-kicker{font-size:11px;font-weight:800;color:#3875e9;text-transform:uppercase;letter-spacing:.08em}
+.v14-discount-copy h3{font-size:25px;margin:5px 0 5px;color:#102c4b}
+.v14-discount-copy p{margin:0;color:#71849a;font-size:13px}
+.v14-discount-field span{display:block;font-size:12px;font-weight:800;color:#405a75;margin-bottom:7px}
+.v14-discount-inputwrap{
+  display:flex;align-items:center;border:1px solid rgba(97,135,186,.22);border-radius:16px;background:rgba(255,255,255,.78);
+  padding:0 15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+}
+.v14-discount-inputwrap input{width:100%;border:0;outline:0;background:transparent;padding:14px 0;font-size:22px;font-weight:850;color:#102c4b}
+.v14-discount-inputwrap b{color:#3975ee}
+.v14-discount-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:9px;margin-top:18px}
+.v14-discount-actions button{border:0;border-radius:14px;padding:12px 14px;font-weight:800;cursor:pointer}
+#v14DiscountReset{background:rgba(229,237,246,.78);color:#526b84}
+#v14DiscountApply{color:#fff;background:linear-gradient(135deg,#3975ff,#6d70f5 55%,#37c99f);box-shadow:0 10px 24px rgba(60,104,235,.20)}
+@media(max-width:520px){.v14-discount-modal{padding:22px;border-radius:24px}.v14-discount-actions{grid-template-columns:1fr}}
+@media print{.v14-discount-backdrop,.v14-discount-trigger{display:none!important}}
+</style>
+
 </head>
 <body>
 <button class="mobile-back-btn" id="mobileBackBtn" type="button" aria-label="Назад" title="Назад">
@@ -3761,4 +3887,96 @@ async function v9ShareCalculation(){
   }
 })();
 </script>
+
+<div class="v14-discount-backdrop" id="v14DiscountBackdrop" aria-hidden="true">
+  <div class="v14-discount-modal" role="dialog" aria-modal="true" aria-labelledby="v14DiscountTitle">
+    <button class="v14-discount-close" id="v14DiscountClose" type="button" aria-label="Закрыть">×</button>
+    <div class="v14-discount-icon">%</div>
+    <div class="v14-discount-copy">
+      <div class="v14-discount-kicker">Персональные условия</div>
+      <h3 id="v14DiscountTitle">Своя скидка</h3>
+      <p>Укажите дополнительную скидку для текущего расчёта.</p>
+    </div>
+    <label class="v14-discount-field">
+      <span>Скидка, %</span>
+      <div class="v14-discount-inputwrap">
+        <input id="v14DiscountInput" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="0">
+        <b>%</b>
+      </div>
+    </label>
+    <div class="v14-discount-actions">
+      <button type="button" id="v14DiscountReset">Сбросить</button>
+      <button type="button" id="v14DiscountApply">Применить скидку</button>
+    </div>
+  </div>
+</div>
+
+
+<script id="custom-discount-v14">
+(function(){
+  let customDiscount=0;
+  const money=n=>Math.round(Number(n)||0).toLocaleString("ru-RU")+" ₽";
+
+  function ensureTrigger(){
+    if(document.getElementById("v14DiscountTrigger")) return;
+    const host=document.querySelector(".calc-period-card") || document.querySelector(".calculator-page");
+    if(!host) return;
+    const btn=document.createElement("button");
+    btn.type="button";btn.id="v14DiscountTrigger";btn.className="v14-discount-trigger";
+    btn.innerHTML='<span>✦</span><span>Своя скидка</span>';
+    btn.addEventListener("click",openModal);
+    host.appendChild(btn);
+  }
+  function openModal(){
+    const b=document.getElementById("v14DiscountBackdrop"),i=document.getElementById("v14DiscountInput");
+    if(!b)return;b.classList.add("open");b.setAttribute("aria-hidden","false");
+    i.value=customDiscount||0;setTimeout(()=>i.focus(),60);
+  }
+  function closeModal(){
+    const b=document.getElementById("v14DiscountBackdrop");if(!b)return;
+    b.classList.remove("open");b.setAttribute("aria-hidden","true");
+  }
+  function applyVisualDiscount(){
+    const page=document.querySelector(".calculator-page");if(!page)return;
+    const totalEl=page.querySelector(".calc-total-final strong,.calc-total-final .value,.calc-total-final [data-total],#v9GrandTotal");
+    const monthEl=page.querySelector("#v9MonthlyTotal,[data-month-total]");
+    const periodEl=page.querySelector("#v9PeriodTotal,[data-period-total]");
+    const discountEl=page.querySelector("#v9DiscountTotal,[data-discount-total]");
+    // Preserve calculator's own numeric base if exposed; otherwise derive from visible period total.
+    let base=0;
+    if(periodEl) base=parseFloat((periodEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
+    if(!base && totalEl) base=parseFloat((totalEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
+    if(base>0 && customDiscount>0){
+      const extra=base*customDiscount/100;
+      const final=Math.max(0,base-extra);
+      if(totalEl) totalEl.textContent=money(final);
+      if(discountEl){
+        const existing=parseFloat((discountEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
+        discountEl.textContent="−"+money(existing+extra);
+      }
+    }
+    const t=document.getElementById("v14DiscountTrigger");
+    if(t){t.classList.toggle("active",customDiscount>0);t.innerHTML=customDiscount>0?'<span>✦</span><span>Своя скидка '+customDiscount.toLocaleString("ru-RU")+'%</span>':'<span>✦</span><span>Своя скидка</span>'}
+  }
+
+  document.addEventListener("DOMContentLoaded",function(){
+    ensureTrigger();
+    document.getElementById("v14DiscountClose")?.addEventListener("click",closeModal);
+    document.getElementById("v14DiscountBackdrop")?.addEventListener("click",e=>{if(e.target.id==="v14DiscountBackdrop")closeModal()});
+    document.getElementById("v14DiscountReset")?.addEventListener("click",()=>{customDiscount=0;closeModal();if(typeof v9Update==="function")v9Update();setTimeout(applyVisualDiscount,0)});
+    document.getElementById("v14DiscountApply")?.addEventListener("click",()=>{
+      let v=parseFloat(document.getElementById("v14DiscountInput").value)||0;
+      customDiscount=Math.max(0,Math.min(100,v));closeModal();
+      if(typeof v9Update==="function")v9Update();setTimeout(applyVisualDiscount,0);
+    });
+    document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+    // Reapply after calculator UI changes.
+    const calc=document.querySelector(".calculator-page");
+    if(calc) new MutationObserver(()=>{if(customDiscount>0)requestAnimationFrame(applyVisualDiscount)}).observe(calc,{childList:true,subtree:true});
+  });
+
+  window.v14GetCustomDiscount=()=>customDiscount;
+})();
+</script>
+
 </body></html>
