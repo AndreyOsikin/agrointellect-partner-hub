@@ -1681,10 +1681,7 @@ body.overlay-open{overflow:hidden}
 
 
 /* FAST HOME V3 — lighter navigation, less monotony */
-.brand-mark{width:100%;height:100%;display:block}
 .logo{box-shadow:none!important;background:transparent!important}
-.logo .brand-mark{width:39px;height:39px}
-.top-brand .brand-mark{width:27px;height:27px;flex:0 0 27px}
 
 .rail{width:68px!important;padding:12px 8px!important}
 .shell{grid-template-columns:68px minmax(0,1fr)!important}
@@ -1735,7 +1732,6 @@ body.overlay-open{overflow:hidden}
  background:rgba(255,255,255,.78);border:1px solid rgba(217,230,242,.86);
  margin-bottom:18px;box-shadow:0 14px 32px rgba(28,73,116,.08);
 }
-.hero-svg{width:88px;height:80px}
 .hero-brand-text strong{display:block;font-size:20px;color:#173a5e;letter-spacing:.01em}
 .hero-brand-text span{display:block;margin-top:6px;font-size:12px;line-height:1.5;color:#6f8499}
 .hero-mini-stats{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}
@@ -1791,13 +1787,78 @@ body.overlay-open{overflow:hidden}
  .hero-search-v3{height:50px!important}
  .hero-brand-v3{padding:18px;grid-template-columns:78px 1fr;gap:14px}
  .hero-brand-mark{width:78px;height:74px;border-radius:20px}
- .hero-svg{width:60px;height:56px}
- .hero-brand-text strong{font-size:17px}
+  .hero-brand-text strong{font-size:17px}
  .hero-mini-stats{grid-column:1/3;margin-top:4px}
  .home-title-v3{display:block}.home-title-v3>p{margin-top:6px}
  .home-title-v3 h2{font-size:24px!important}
  .journey-v3{grid-template-columns:1fr}
  .popular-grid-v3{grid-template-columns:1fr}
+}
+
+
+/* LOGO + TYPOGRAPHY V4 */
+.logo{
+  width:52px!important;height:52px!important;border-radius:15px!important;
+  background:#fff!important;padding:5px!important;box-shadow:0 8px 24px rgba(20,55,90,.08)!important;
+}
+.logo img{width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+
+.top-brand{display:flex!important;align-items:center!important;gap:10px!important}
+.top-brand img{
+  width:40px!important;height:40px!important;object-fit:contain!important;
+  border-radius:11px;background:#fff;padding:3px;
+}
+.top-brand strong{font-size:15px!important;letter-spacing:.005em!important}
+
+.hero-brand-mark{
+  width:230px!important;height:145px!important;border-radius:22px!important;
+  padding:14px 16px!important;background:rgba(255,255,255,.9)!important;
+  display:grid!important;place-items:center!important;
+}
+.hero-brand-mark img{width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+.hero-brand-text strong{font-size:24px!important;line-height:1.2!important}
+.hero-brand-text span{font-size:15px!important;line-height:1.55!important}
+
+.hero-copy-v3 h1{
+  font-size:clamp(44px,4.2vw,64px)!important;
+  line-height:1.02!important;
+  letter-spacing:-.042em!important;
+}
+.hero-copy-v3 .lead{
+  font-size:20px!important;
+  line-height:1.62!important;
+  max-width:760px!important;
+}
+.kicker{font-size:13px!important;letter-spacing:.09em!important}
+.hero-link{font-size:14px!important;min-height:46px!important;padding:0 16px!important}
+
+.home-title-v3 h2{font-size:32px!important;line-height:1.16!important}
+.home-title-v3>p{font-size:15px!important;line-height:1.6!important}
+.journey-v3 button span{font-size:12px!important}
+.journey-v3 button b{font-size:17px!important}
+.journey-v3 button small{font-size:13px!important;line-height:1.55!important}
+.viewer-tip-v3 p{font-size:13px!important;line-height:1.5!important}
+
+.popular-grid-v3 .popular-card h3{font-size:17px!important}
+.popular-grid-v3 .popular-card p{font-size:13px!important}
+.popular-type{font-size:10px!important}
+
+@media(max-width:1050px){
+  .hero-brand-mark{width:190px!important;height:120px!important}
+}
+@media(max-width:767px){
+  .logo{width:46px!important;height:46px!important}
+  .top-brand img{width:34px!important;height:34px!important}
+  .top-brand strong{font-size:13px!important}
+  .hero-copy-v3 h1{font-size:38px!important}
+  .hero-copy-v3 .lead{font-size:17px!important}
+  .hero-brand-mark{width:150px!important;height:96px!important}
+  .hero-brand-text strong{font-size:20px!important}
+  .hero-brand-text span{font-size:14px!important}
+  .home-title-v3 h2{font-size:27px!important}
+  .home-title-v3>p{font-size:14px!important}
+  .journey-v3 button b{font-size:16px!important}
+  .journey-v3 button small{font-size:13px!important}
 }
 
 </style>
@@ -1819,9 +1880,7 @@ body.overlay-open{overflow:hidden}
 
 <div class="shell">
  <aside class="rail">
-  <div class="logo"><svg class="brand-mark" viewBox="0 0 120 104" aria-hidden="true">
-<path fill="#74BDF5" d="M11 12 29 28l-4 21 14 12 13 6h16l13-6 14-12-4-21 18-16 5 31-9 30-19 11-6 19H40l-6-19-19-11-9-30 5-31Zm29 73 6 9h28l6-9-10 5H50l-10-5Z"/>
-</svg></div>
+  <div class="logo"><img src="assets/agrointellect-logo-tile.webp" alt="АГРОИНТЕЛЛЕКТ"></div>
   <nav class="railnav">
    <button class="railbtn active" data-route="home" aria-label="Главная"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="tip">Главная</span></button>
    <button class="railbtn" data-route="products" aria-label="Продукты"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg><span class="tip">Продукты</span></button>
@@ -1836,9 +1895,7 @@ body.overlay-open{overflow:hidden}
  </aside>
  <main class="main">
   <header class="topbar">
-   <div class="top-brand"><svg class="brand-mark" viewBox="0 0 120 104" aria-hidden="true">
-<path fill="#74BDF5" d="M11 12 29 28l-4 21 14 12 13 6h16l13-6 14-12-4-21 18-16 5 31-9 30-19 11-6 19H40l-6-19-19-11-9-30 5-31Zm29 73 6 9h28l6-9-10 5H50l-10-5Z"/>
-</svg><strong>АГРОИНТЕЛЛЕКТ</strong></div><div class="breadcrumb" id="crumb"><b>Partner Workspace</b></div>
+   <div class="top-brand"><img src="assets/agrointellect-logo-tile.webp" alt="АГРОИНТЕЛЛЕКТ"><strong>АГРОИНТЕЛЛЕКТ</strong></div><div class="breadcrumb" id="crumb"><b>Partner Workspace</b></div>
    <div class="search"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg><input id="globalSearch" placeholder="Найти продукт, документ или интеграцию…"></div>
   <button class="mobile-search-toggle" id="mobileSearchToggle" aria-label="Поиск"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></button>
   </header>
@@ -2001,7 +2058,7 @@ function renderHome(){
      </div>
    </div>
    <aside class="hero-brand-v3">
-     <div class="hero-brand-mark">${`<svg class="brand-mark hero-svg" viewBox="0 0 120 104" aria-hidden="true"><path fill="#74BDF5" d="M11 12 29 28l-4 21 14 12 13 6h16l13-6 14-12-4-21 18-16 5 31-9 30-19 11-6 19H40l-6-19-19-11-9-30 5-31Zm29 73 6 9h28l6-9-10 5H50l-10-5Z"/></svg>`}</div>
+     <div class="hero-brand-mark"><img src="assets/agrointellect-logo-full.webp" alt="АГРОИНТЕЛЛЕКТ"></div>
      <div class="hero-brand-text">
        <strong>АГРОИНТЕЛЛЕКТ</strong>
        <span>Цифровые решения для молочного животноводства</span>
