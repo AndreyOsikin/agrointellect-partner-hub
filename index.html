@@ -2081,6 +2081,268 @@ body.overlay-open{overflow:hidden}
   }
 }
 
+
+/* =========================================================
+   MOBILE QA V6 — clean mobile interaction layer
+   ========================================================= */
+.mobile-search-overlay{display:none}
+
+@media(max-width:767px){
+  :root{--mobile-bottom-nav-h:72px;--mobile-vvh:100dvh}
+
+  html,body{max-width:100%;overflow-x:hidden}
+  body.mobile-search-open,
+  body.overlay-open{overflow:hidden!important;touch-action:none}
+
+  /* Native page content */
+  .content{
+    padding:16px 14px calc(var(--mobile-bottom-nav-h) + 42px + env(safe-area-inset-bottom))!important;
+  }
+
+  /* Top app bar is intentionally minimal on mobile */
+  .topbar{
+    position:relative!important;
+    height:54px!important;
+    min-height:54px!important;
+    padding:0 14px!important;
+    background:#fff!important;
+    border-bottom:1px solid #edf1f5!important;
+    backdrop-filter:none!important;
+  }
+  .topbar .search{display:none!important}
+  .breadcrumb{display:none!important}
+  .top-brand{margin:0!important;padding:0!important;border:0!important;gap:8px!important}
+  .top-brand img{width:32px!important;height:32px!important;padding:2px!important}
+  .top-brand strong{font-size:13px!important;line-height:1!important}
+
+  .mobile-search-toggle{
+    display:grid!important;
+    margin-left:auto!important;
+    width:42px!important;height:42px!important;
+    border-radius:13px!important;
+    background:#f7fafc!important;
+  }
+
+  /* Old inline mobile search panel is retired; V6 uses one dedicated overlay. */
+  .mobile-search-panel{display:none!important}
+
+  /* Inline autocomplete dropdowns are desktop/tablet-only. */
+  .smart-search>.search-suggestions{display:none!important}
+
+  /* Hero */
+  .home-hero-v3{display:block!important;margin:0 0 22px!important}
+  .hero-copy-v3{padding:21px 18px!important;border-radius:20px!important}
+  .hero-copy-v3 h1{
+    font-size:34px!important;line-height:1.08!important;
+    letter-spacing:-.035em!important;margin:8px 0 12px!important;
+  }
+  .hero-copy-v3 .lead{font-size:16px!important;line-height:1.55!important}
+  .hero-search-v3{
+    height:52px!important;margin-top:18px!important;border-radius:15px!important;
+    position:relative!important;z-index:1!important;
+  }
+  .hero-search-v3 input{font-size:16px!important;min-width:0!important}
+
+  .hero-links-v3{
+    display:grid!important;grid-template-columns:1fr 1fr!important;
+    gap:10px!important;margin-top:14px!important;
+  }
+  .hero-link{
+    width:100%!important;min-height:52px!important;padding:0 15px!important;
+    justify-content:space-between!important;font-size:15px!important;border-radius:15px!important;
+  }
+
+  .hero-brand-v3{display:block!important;margin-top:12px!important;padding:16px!important;border-radius:20px!important}
+  .hero-brand-mark{width:100%!important;height:auto!important;padding:10px!important;margin:0!important;border-radius:17px!important}
+  .hero-brand-mark img{display:block!important;width:100%!important;height:auto!important;max-height:180px!important;object-fit:contain!important}
+  .hero-brand-text{display:none!important}
+  .hero-mini-stats{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:7px!important;margin-top:10px!important}
+  .hero-mini-stats span{padding:9px 5px!important;font-size:10.5px!important;text-align:center!important;white-space:normal!important}
+  .hero-mini-stats b{display:block!important;font-size:16px!important;margin-bottom:1px!important}
+
+  /* Work flow */
+  .home-block-v3{margin-top:24px!important}
+  .home-title-v3{display:block!important;margin-bottom:12px!important}
+  .home-title-v3 h2{font-size:28px!important;line-height:1.13!important}
+  .home-title-v3>p{font-size:14px!important;line-height:1.55!important;margin-top:7px!important}
+  .journey-v3{display:grid!important;grid-template-columns:1fr!important;gap:7px!important;padding:7px!important;border-radius:18px!important}
+  .journey-v3>i{display:none!important}
+  .journey-v3 button{padding:14px!important}
+  .journey-v3 button b{font-size:17px!important}
+  .journey-v3 button small{font-size:13.5px!important;line-height:1.5!important}
+
+  /* Product/detail page */
+  .workspace-head{display:block!important;padding:4px 0 16px!important}
+  .workspace-head h1,.integration-intro h1,.docs-hero h1{
+    font-size:29px!important;line-height:1.1!important;overflow-wrap:anywhere!important;
+  }
+  .workspace-head .lead,.integration-intro p{font-size:14px!important;line-height:1.55!important}
+  .workspace-actions{display:flex!important;gap:8px!important;flex-wrap:wrap!important;margin-top:12px!important}
+  .workspace-actions .btn{min-height:44px!important}
+
+  .tabs{
+    margin:0 -14px 18px!important;padding:0 14px!important;
+    overflow-x:auto!important;scroll-snap-type:x proximity!important;
+  }
+  .tab{min-height:46px!important;scroll-snap-align:start!important}
+
+  .overview,.benefit-grid,.contacts-grid,.room-grid,.integration-grid,.milk-facts{
+    grid-template-columns:1fr!important;gap:11px!important;
+  }
+  .overview-main,.quick-panel,.section-card,.integration-intro,.calc{
+    padding:18px!important;border-radius:18px!important;
+  }
+  .benefit,.doc,.integration-card,.person{padding:17px!important;border-radius:17px!important}
+
+  /* Files */
+  .library{border-radius:17px!important}
+  .file-row{
+    grid-template-columns:40px minmax(0,1fr) auto!important;
+    gap:9px!important;padding:12px 11px!important;
+  }
+  .file-row strong{font-size:13px!important;line-height:1.35!important}
+  .file-row small{font-size:11px!important}
+  .file-type,.file-purpose{display:none!important}
+  .iconbtn{min-width:44px!important;height:40px!important;padding:0 10px!important}
+
+  /* Contacts / resources */
+  .employee-photo{width:82px!important;height:82px!important}
+  .resource-list{grid-template-columns:1fr 1fr!important}
+  .resource-list a{min-height:46px!important}
+
+  /* Credentials */
+  .demo-credentials{grid-template-columns:1fr!important}
+  .copy-btn{width:38px!important;height:38px!important;flex:0 0 38px!important}
+
+  /* Full-screen document drawer */
+  .drawerpanel{width:100vw!important;max-width:none!important}
+  .drawerhead{
+    min-height:62px!important;height:auto!important;padding:9px 10px 9px 12px!important;
+    gap:6px!important;flex-wrap:nowrap!important;
+  }
+  .drawerhead>div{min-width:0!important;flex:1!important}
+  .drawerhead strong{font-size:13px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .drawerhead span{font-size:10px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+  .drawer-external{width:44px!important;min-width:44px!important;height:42px!important;padding:0!important;font-size:0!important}
+  .drawer-external::before{content:"↗";font-size:19px}
+  .drawerhead .close{width:42px!important;height:42px!important;flex:0 0 42px!important}
+  .doc-fallback{
+    left:10px!important;right:10px!important;bottom:10px!important;width:auto!important;
+    grid-template-columns:38px minmax(0,1fr)!important;padding:12px 48px 12px 12px!important;
+  }
+  .doc-fallback .btn{grid-column:1/3!important;width:100%!important;min-height:44px!important}
+
+  /* Help */
+  .help-panel{
+    left:10px!important;right:10px!important;bottom:calc(var(--mobile-bottom-nav-h) + 16px + env(safe-area-inset-bottom))!important;
+    width:auto!important;max-height:calc(var(--mobile-vvh) - 120px)!important;overflow:auto!important;
+  }
+
+  /* Bottom navigation */
+  .mobile-nav{
+    display:grid!important;
+    position:fixed!important;left:8px!important;right:8px!important;
+    bottom:calc(8px + env(safe-area-inset-bottom))!important;
+    height:64px!important;padding:5px!important;z-index:60!important;
+    grid-template-columns:repeat(6,1fr)!important;border-radius:20px!important;
+  }
+  .mobile-nav-btn{min-height:52px!important}
+  .mobile-nav-btn svg{width:19px!important;height:19px!important}
+  .mobile-nav-btn span{font-size:8px!important}
+  body.mobile-search-open .mobile-nav{display:none!important}
+
+  /* Back button only where it is useful, above bottom nav */
+  .mobile-back-btn{
+    display:none!important;
+    position:fixed!important;left:14px!important;
+    top:auto!important;bottom:calc(var(--mobile-bottom-nav-h) + 18px + env(safe-area-inset-bottom))!important;
+    width:44px!important;height:44px!important;padding:0!important;
+    z-index:58!important;border-radius:50%!important;
+  }
+  body.mobile-has-back .mobile-back-btn{display:flex!important}
+  .mobile-back-btn .mobile-back-label{display:none!important}
+
+  /* Dedicated mobile search — no overlapping results */
+  .mobile-search-overlay{
+    display:none;position:fixed;inset:0;z-index:10000;
+    width:100vw;height:var(--mobile-vvh);
+    background:#f5f7fa;
+    overscroll-behavior:contain;
+  }
+  .mobile-search-overlay.show{display:block}
+  .mobile-search-sheet{
+    width:100%;height:100%;display:flex;flex-direction:column;
+    background:#f5f7fa;padding:
+      max(10px,env(safe-area-inset-top))
+      12px
+      max(10px,env(safe-area-inset-bottom));
+  }
+  .mobile-search-head{
+    display:grid;grid-template-columns:44px minmax(0,1fr);gap:8px;
+    flex:0 0 auto;align-items:center;
+  }
+  .mobile-search-overlay-close{
+    width:44px;height:44px;border:0;border-radius:14px;background:#fff;
+    color:#4f657b;font-size:25px;line-height:1;box-shadow:0 5px 18px rgba(18,48,78,.06);
+  }
+  .mobile-search-field{
+    height:52px;border-radius:16px;background:#fff;border:1px solid #dfe7ef;
+    display:flex;align-items:center;gap:10px;padding:0 14px;
+    box-shadow:0 5px 18px rgba(18,48,78,.05);
+  }
+  .mobile-search-field svg{width:19px;stroke:#8196aa;stroke-width:1.8;flex:0 0 auto}
+  .mobile-search-field input{
+    width:100%;min-width:0;border:0;outline:0;background:transparent;
+    color:#223b55;font-size:16px;line-height:1.2;padding:0;
+  }
+  .mobile-search-overlay-results{
+    flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:10px 0 2px;overscroll-behavior:contain;
+  }
+  .mobile-search-empty{
+    padding:38px 18px;text-align:center;color:#72869a;font-size:14px;
+  }
+  .mobile-search-result-list{display:grid;gap:7px}
+  .mobile-search-result{
+    width:100%;min-height:68px;border:1px solid #e1e8ef;border-radius:16px;
+    background:#fff;color:#223b55;padding:11px 12px;
+    display:grid;grid-template-columns:40px minmax(0,1fr) 24px;
+    gap:10px;align-items:center;text-align:left;
+  }
+  .mobile-search-result:active{background:#eef6ff}
+  .mobile-search-result-icon{
+    width:40px;height:40px;border-radius:12px;background:#edf6ff;
+    color:#1477d5;display:grid;place-items:center;font-size:11px;font-weight:800;
+  }
+  .mobile-search-result-copy{min-width:0}
+  .mobile-search-result-copy b{
+    display:block;font-size:14px;line-height:1.3;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mobile-search-result-copy small{
+    display:block;margin-top:3px;font-size:11px;line-height:1.25;color:#788da1;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .mobile-search-result-open{font-size:16px;color:#8da1b4;text-align:center}
+  .mobile-search-show-all{
+    width:100%;min-height:52px;margin-top:8px;border:1px solid #d7e5f2;border-radius:15px;
+    background:#eaf5ff;color:#116fcb;font-size:14px;font-weight:750;
+    display:flex;align-items:center;justify-content:space-between;padding:0 15px;
+  }
+
+  /* search results page */
+  .search-results-grid{grid-template-columns:1fr!important;gap:10px!important}
+  .search-result-card{min-height:130px!important;padding:16px!important}
+
+  /* Very small phones */
+  @media(max-width:360px){
+    .hero-links-v3{grid-template-columns:1fr!important}
+    .hero-mini-stats{grid-template-columns:1fr 1fr 1fr!important}
+    .mobile-nav{left:4px!important;right:4px!important}
+    .mobile-nav-btn span{font-size:7px!important}
+  }
+}
+
 </style>
 
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -2132,6 +2394,20 @@ body.overlay-open{overflow:hidden}
   <button class="mobile-nav-btn" data-route="contacts" aria-label="Контакты"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5.5 20c.8-4.2 3-6 6.5-6s5.7 1.8 6.5 6"/></svg><span>Контакты</span></button>
   <button class="mobile-nav-btn" onclick="window.open('https://chat.qwen.ai/s/deploy/t_ddf92d9b-e502-486b-a0df-6dc19d8b8397','_blank')" aria-label="Калькулятор"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span>Расчёт</span></button>
 </nav>
+
+<div class="mobile-search-overlay" id="mobileSearchOverlay" aria-hidden="true">
+  <div class="mobile-search-sheet" role="dialog" aria-modal="true" aria-label="Поиск по партнёрскому кабинету">
+    <div class="mobile-search-head">
+      <button class="mobile-search-overlay-close" id="mobileSearchOverlayClose" type="button" aria-label="Закрыть поиск">×</button>
+      <div class="mobile-search-field">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+        <input id="mobileSearchOverlayInput" type="search" autocomplete="off" enterkeyhint="search" placeholder="Найти продукт, документ или интеграцию…">
+      </div>
+    </div>
+    <div class="mobile-search-overlay-results" id="mobileSearchOverlayResults"></div>
+  </div>
+</div>
+
 <div class="drawer" id="drawer">
  <div class="shade" onclick="closeDrawer()"></div>
  <div class="drawerpanel">
@@ -2249,9 +2525,11 @@ async function copyValue(value,btn){
  }catch(e){alert("Скопируйте вручную: "+value);}
 }
 function route(name,product=null,tab="overview"){
+ closeMobileSearch(true);
  const next={route:name,product,tab};
  if(!suppressHistory && !sameView(current,next) && current) appHistory.push({...current});
  current=next;
+ document.body.classList.toggle("mobile-has-back",isPhoneUI() && name!=="home");
  document.getElementById("mobileSearchPanel")?.classList.remove("show");
  document.querySelectorAll(".railbtn[data-route],.mobile-nav-btn[data-route]").forEach(b=>b.classList.toggle("active",b.dataset.route===name||(name==="product"&&b.dataset.route==="products")));
  if(name==="home")renderHome(); else if(name==="products")renderProducts(); else if(name==="product")renderProduct(product,tab); else if(name==="documents")renderDocuments(); else if(name==="integrations")renderIntegrations(); else if(name==="contacts")renderContacts(); else if(name==="calculator")renderCalculator(); else if(name==="search")renderSearchResults(product||"");
@@ -2322,7 +2600,7 @@ function renderHome(){
      ${homePopularCard("document","skolkovo","PDF","Выписка Сколково","Статус компании")}
    </div>
  </section>`;
- setupSearchAutocomplete(document.getElementById("homeSearch"));
+ setupSearchAutocomplete(document.getElementById("homeSearch")); installMobileSearchTrigger(document.getElementById("homeSearch"));
 }
 function homePopularCard(kind,id,type,title,desc){
  return `<button class="popular-card" onclick="openItem('${id}','${kind}')"><span class="popular-type">${type}</span><div><h3>${title}</h3><p>${desc}</p></div><span class="popular-arrow">→</span></button>`;
@@ -2559,6 +2837,7 @@ function hideAllSuggestions(){
 }
 function setupSearchAutocomplete(input){
  if(!input||input.dataset.autocompleteReady)return;
+ if(isPhoneUI&&isPhoneUI()){installMobileSearchTrigger(input);return;}
  input.dataset.autocompleteReady="1";
  const host=input.parentElement;host.classList.add("smart-search");
  let box=host.querySelector(".search-suggestions");
@@ -2593,18 +2872,116 @@ function renderSearchResults(q){
  <div class="search-results-grid">${results.length?results.map((r,i)=>`<button class="search-result-card" data-result="${i}"><span class="result-kind">${r.meta}</span><h3>${r.title}</h3><p>${r.kind==="product"?(PRODUCTS[r.id]?.subtitle||""):r.kind==="document"?(DOCUMENTS.find(x=>x.id===r.id)?.desc||""):r.kind==="material"?(MATERIALS.find(x=>x.id===r.id)?.desc||""):r.kind==="integration"?(INTEGRATIONS[Number(r.id)]?.desc||""):r.kind==="contact"?(CONTACTS[Number(r.id)]?.role||""):"Открыть инструмент"}</p><span class="result-arrow">→</span></button>`).join(""):`<div class="empty">Попробуйте другое название или более короткий запрос.</div>`}</div>`;
  app.querySelectorAll(".search-result-card").forEach(btn=>btn.onclick=()=>executeSearchResult(results[Number(btn.dataset.result)]));
 }
+
+const mobileSearchOverlay=document.getElementById("mobileSearchOverlay");
+const mobileSearchOverlayInput=document.getElementById("mobileSearchOverlayInput");
+const mobileSearchOverlayResults=document.getElementById("mobileSearchOverlayResults");
+const mobileSearchOverlayClose=document.getElementById("mobileSearchOverlayClose");
+
+function isPhoneUI(){return window.matchMedia("(max-width:767px)").matches}
+
+function setMobileViewportHeight(){
+  const h=(window.visualViewport?.height||window.innerHeight);
+  document.documentElement.style.setProperty("--mobile-vvh",`${Math.round(h)}px`);
+}
+setMobileViewportHeight();
+window.visualViewport?.addEventListener("resize",setMobileViewportHeight);
+window.visualViewport?.addEventListener("scroll",setMobileViewportHeight);
+window.addEventListener("orientationchange",()=>setTimeout(setMobileViewportHeight,120));
+
+function renderMobileSearchResults(){
+  if(!mobileSearchOverlayResults)return;
+  const q=(mobileSearchOverlayInput?.value||"").trim();
+  if(!q){
+    mobileSearchOverlayResults.innerHTML='<div class="mobile-search-empty">Начните вводить название продукта, документа или интеграции.</div>';
+    return;
+  }
+  const results=getSearchResults(q,20);
+  const top=results.slice(0,5);
+  if(!top.length){
+    mobileSearchOverlayResults.innerHTML='<div class="mobile-search-empty">Ничего не найдено. Попробуйте сократить запрос или использовать другое слово.</div>';
+    return;
+  }
+  const iconFor=r=>({product:"P",material:r.meta.startsWith("Видео")?"▶":"M",document:"DOC",integration:"I",contact:"@",calculator:"₽"})[r.kind]||"•";
+  mobileSearchOverlayResults.innerHTML=`<div class="mobile-search-result-list">${top.map((r,i)=>`
+    <button type="button" class="mobile-search-result" data-mobile-result="${i}">
+      <span class="mobile-search-result-icon">${iconFor(r)}</span>
+      <span class="mobile-search-result-copy"><b>${r.title}</b><small>${r.meta}</small></span>
+      <span class="mobile-search-result-open">›</span>
+    </button>`).join("")}</div>
+    ${results.length>5?`<button type="button" class="mobile-search-show-all">Показать все результаты <span>${results.length}</span></button>`:""}`;
+  mobileSearchOverlayResults.querySelectorAll("[data-mobile-result]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const item=top[Number(btn.dataset.mobileResult)];
+      closeMobileSearch(true);
+      setTimeout(()=>executeSearchResult(item),30);
+    });
+  });
+  mobileSearchOverlayResults.querySelector(".mobile-search-show-all")?.addEventListener("click",()=>{
+    const query=mobileSearchOverlayInput.value.trim();
+    closeMobileSearch(true);
+    setTimeout(()=>route("search",query),30);
+  });
+}
+
+function openMobileSearch(seed=""){
+  if(!isPhoneUI()||!mobileSearchOverlay)return false;
+  hideAllSuggestions();
+  setMobileViewportHeight();
+  mobileSearchOverlay.classList.add("show");
+  mobileSearchOverlay.setAttribute("aria-hidden","false");
+  document.body.classList.add("mobile-search-open");
+  mobileSearchOverlayInput.value=seed||"";
+  renderMobileSearchResults();
+  requestAnimationFrame(()=>setTimeout(()=>{
+    mobileSearchOverlayInput.focus({preventScroll:true});
+    try{mobileSearchOverlayInput.setSelectionRange(mobileSearchOverlayInput.value.length,mobileSearchOverlayInput.value.length)}catch(e){}
+  },30));
+  return true;
+}
+function closeMobileSearch(keepKeyboardClosed=false){
+  if(!mobileSearchOverlay)return;
+  mobileSearchOverlay.classList.remove("show");
+  mobileSearchOverlay.setAttribute("aria-hidden","true");
+  document.body.classList.remove("mobile-search-open");
+  mobileSearchOverlayInput?.blur();
+}
+mobileSearchOverlayInput?.addEventListener("input",renderMobileSearchResults);
+mobileSearchOverlayInput?.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){e.preventDefault();closeMobileSearch()}
+  if(e.key==="Enter"){
+    const first=getSearchResults(mobileSearchOverlayInput.value,1)[0];
+    if(first){e.preventDefault();closeMobileSearch(true);setTimeout(()=>executeSearchResult(first),30)}
+  }
+});
+mobileSearchOverlayClose?.addEventListener("click",()=>closeMobileSearch());
+
+function installMobileSearchTrigger(input){
+  if(!input||input.dataset.mobileSearchTrigger)return;
+  input.dataset.mobileSearchTrigger="1";
+  input.addEventListener("focus",()=>{
+    if(!isPhoneUI()||document.body.classList.contains("mobile-search-open"))return;
+    const seed=input.value;
+    requestAnimationFrame(()=>{input.blur();openMobileSearch(seed)});
+  });
+  input.addEventListener("click",()=>{
+    if(isPhoneUI()&&!document.body.classList.contains("mobile-search-open"))openMobileSearch(input.value);
+  });
+}
+
 setupSearchAutocomplete(document.getElementById("globalSearch"));
 const mobileSearchToggle=document.getElementById("mobileSearchToggle");
 const mobileSearchPanel=document.getElementById("mobileSearchPanel");
 const mobileSearch=document.getElementById("mobileSearch");
 const mobileSearchClose=document.getElementById("mobileSearchClose");
-mobileSearchToggle?.addEventListener("click",e=>{e.stopPropagation();mobileSearchPanel.classList.toggle("show");if(mobileSearchPanel.classList.contains("show"))setTimeout(()=>mobileSearch.focus(),50)});
-mobileSearchClose?.addEventListener("click",()=>mobileSearchPanel.classList.remove("show"));
-setupSearchAutocomplete(mobileSearch);
-document.addEventListener("click",e=>{if(mobileSearchPanel?.classList.contains("show")&&!mobileSearchPanel.contains(e.target)&&!mobileSearchToggle.contains(e.target))mobileSearchPanel.classList.remove("show")});
+mobileSearchToggle?.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();openMobileSearch("")});
+installMobileSearchTrigger(document.getElementById("homeSearch"));
+installMobileSearchTrigger(document.getElementById("globalSearch"));
+installMobileSearchTrigger(mobileSearch);
 document.addEventListener("keydown",e=>{
  if(e.key!=="Escape")return;
- if(document.getElementById("drawer")?.classList.contains("show"))closeDrawer();
+ if(document.getElementById("mobileSearchOverlay")?.classList.contains("show"))closeMobileSearch();
+ else if(document.getElementById("drawer")?.classList.contains("show"))closeDrawer();
  else if(document.getElementById("helpPanel")?.classList.contains("show"))toggleHelp(false);
  else if(document.getElementById("mobileSearchPanel")?.classList.contains("show"))document.getElementById("mobileSearchPanel").classList.remove("show");
 });
