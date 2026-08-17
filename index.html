@@ -2343,6 +2343,287 @@ body.overlay-open{overflow:hidden}
   }
 }
 
+
+
+/* =========================================================
+   CALCULATOR V9 — MULTI FARM
+   ========================================================= */
+.calculator-page{display:grid;gap:18px}
+.calc-hero-v9{
+  display:flex;align-items:end;justify-content:space-between;gap:24px;
+  border:1px solid #dfe8f1;border-radius:26px;padding:28px 30px;
+  background:radial-gradient(circle at 92% 8%,rgba(106,191,255,.16),transparent 27%),linear-gradient(145deg,#fff,#f8fbff);
+  box-shadow:0 15px 45px rgba(23,54,88,.055)
+}
+.calc-hero-v9 h1{font-size:42px;margin:7px 0 9px;line-height:1.04}
+.calc-hero-v9 p{font-size:15px;color:#667b90;max-width:760px;margin:0;line-height:1.55}
+.calc-hero-meta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.calc-hero-meta span{padding:8px 11px;border-radius:11px;background:#fff;border:1px solid #e3eaf1;font-size:11px;color:#688097;white-space:nowrap}
+.calc-hero-meta b{color:#1687f8}
+
+.calc-period-card{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.55fr);gap:16px;
+  background:#fff;border:1px solid #e1e9f0;border-radius:22px;padding:18px;
+  box-shadow:0 10px 30px rgba(25,58,94,.04)
+}
+.calc-period-left h2{font-size:21px;margin:0 0 5px}
+.calc-period-left p{font-size:12.5px;color:#778a9e;margin:0 0 13px}
+.calc-period-options{display:flex;gap:8px;flex-wrap:wrap}
+.period-chip{
+  min-height:44px;border:1px solid #dce6ee;border-radius:13px;background:#fff;
+  color:#48627b;padding:0 14px;font-size:13px;font-weight:700;transition:.16s
+}
+.period-chip.active{background:#173f68;border-color:#173f68;color:#fff;box-shadow:0 8px 20px rgba(23,63,104,.13)}
+.period-custom{
+  display:none;margin-top:10px;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center
+}
+.period-custom.show{display:grid}
+.period-custom input{
+  height:46px;border:1px solid #dce5ed;border-radius:13px;padding:0 13px;outline:0;font-size:14px;color:#29455f;background:#fbfdff
+}
+.period-custom small{font-size:11px;color:#758a9f}
+.calc-period-summary{
+  border-radius:18px;padding:15px 17px;background:linear-gradient(145deg,#eef7ff,#f9fcff);border:1px solid #dcebf8;
+  display:flex;flex-direction:column;justify-content:center
+}
+.calc-period-summary small{font-size:11px;color:#6f8499}
+.calc-period-summary strong{font-size:23px;color:#173f68;margin:2px 0}
+.calc-period-summary span{font-size:12px;color:#1687f8;font-weight:700}
+
+.farms-head{display:flex;justify-content:space-between;align-items:end;gap:18px}
+.farms-head h2{font-size:28px;margin:0}.farms-head p{font-size:13px;color:#75889b;margin:4px 0 0}
+.add-farm-btn{
+  min-height:46px;border:1px solid #bcdcff;border-radius:14px;background:#eef7ff;color:#1375d4;
+  padding:0 15px;font-size:13px;font-weight:800;display:flex;align-items:center;gap:8px
+}
+.add-farm-btn:hover{background:#e4f2ff}
+
+.farms-list{display:grid;gap:13px}
+.farm-card{
+  border:1px solid #e0e8f0;border-radius:22px;background:#fff;padding:18px;
+  box-shadow:0 9px 28px rgba(25,58,94,.04);animation:farmIn .22s ease
+}
+@keyframes farmIn{from{opacity:.2;transform:translateY(8px) scale(.995)}to{opacity:1;transform:none}}
+.farm-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;margin-bottom:15px}
+.farm-title{display:flex;align-items:center;gap:12px;min-width:0}
+.farm-index{
+  width:42px;height:42px;border-radius:13px;background:#edf6ff;color:#1478d5;
+  display:grid;place-items:center;font-size:13px;font-weight:900;flex:0 0 42px
+}
+.farm-name-wrap{min-width:0}
+.farm-name-wrap b{display:block;font-size:17px;color:#263f59}
+.farm-name-input{
+  margin-top:4px;border:0;border-bottom:1px dashed #cfdae4;outline:0;background:transparent;
+  width:min(360px,100%);font-size:12px;color:#74889b;padding:2px 0
+}
+.farm-delete{
+  width:40px;height:40px;border:0;border-radius:12px;background:#f5f7fa;color:#8393a3;font-size:17px
+}
+.farm-delete:hover{background:#fff0f0;color:#c75a5a}
+
+.farm-body{display:grid;grid-template-columns:220px minmax(0,1fr) 180px;gap:14px;align-items:stretch}
+.farm-herd{
+  border:1px solid #e4ebf2;border-radius:17px;background:#fafcff;padding:14px
+}
+.farm-herd label{font-size:11px;font-weight:800;color:#6c8196;display:block;margin-bottom:7px}
+.farm-herd input{
+  width:100%;height:48px;border:1px solid #dce5ed;border-radius:13px;background:#fff;
+  padding:0 13px;font-size:18px;font-weight:800;color:#23415e;outline:0
+}
+.farm-herd small{display:block;font-size:10.5px;color:#8a9baa;margin-top:6px}
+
+.farm-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.farm-product{
+  border:1px solid #e0e8ef;border-radius:16px;background:#fff;padding:11px;
+  min-height:116px;text-align:left;color:#314c66;position:relative;transition:.16s
+}
+.farm-product:hover{transform:translateY(-1px);border-color:#c8dceb}
+.farm-product.selected{background:#f2f8ff;border-color:#87c2ff;box-shadow:0 7px 20px rgba(22,135,248,.06)}
+.farm-product img{
+  width:38px;height:38px;object-fit:contain;border-radius:10px;background:#fff;border:1px solid #e8edf2;padding:4px
+}
+.farm-product b{display:block;margin-top:8px;font-size:12.5px;line-height:1.25}
+.farm-product span{display:block;margin-top:3px;font-size:10px;color:#8496a8}
+.farm-product .product-check{
+  position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;border:1px solid #d1dce6;
+  background:#fff;color:transparent;display:grid;place-items:center;font-size:11px;font-weight:900;transition:.16s
+}
+.farm-product.selected .product-check{background:#1687f8;border-color:#1687f8;color:#fff;transform:scale(1.05)}
+
+.farm-total{
+  border-radius:17px;background:#f4f9fd;border:1px solid #e0eaf3;padding:14px;
+  display:flex;flex-direction:column;justify-content:center
+}
+.farm-total small{font-size:10.5px;color:#7c8fa1}.farm-total strong{font-size:21px;color:#173f68;margin-top:3px}
+.farm-total span{font-size:10.5px;color:#1687f8;margin-top:3px}
+
+.add-farm-wide{
+  min-height:58px;border:1.5px dashed #bad8f1;border-radius:18px;background:#f8fbfe;color:#3377b6;
+  display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:800
+}
+.add-farm-wide:hover{background:#eef7ff}
+
+.calc-summary-v9{
+  border:1px solid #dde7ef;border-radius:24px;background:#fff;padding:21px;
+  box-shadow:0 12px 36px rgba(25,58,94,.05)
+}
+.summary-top{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:13px}
+.summary-top h2{font-size:27px;margin:0}.summary-top p{margin:4px 0 0;font-size:12.5px;color:#76899c}
+.summary-period-badge{padding:8px 11px;border-radius:11px;background:#eef7ff;color:#1475d0;font-size:11.5px;font-weight:800}
+.summary-farms{display:grid;gap:7px}
+.summary-farm{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:12px 13px;border-radius:15px;background:#fbfdff;border:1px solid #e7edf3
+}
+.summary-farm b{font-size:13px;color:#304b66}.summary-farm small{display:block;font-size:10.5px;color:#8496a7;margin-top:2px}
+.summary-farm-price{text-align:right}.summary-farm-price strong{font-size:14px;color:#23415e}.summary-farm-price span{display:block;font-size:10px;color:#8496a8}
+
+.summary-metrics{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:13px
+}
+.summary-metric{border-radius:16px;padding:14px;border:1px solid #dfe8f1;background:#f8fbfe}
+.summary-metric small{display:block;font-size:10.5px;color:#75899d}.summary-metric strong{display:block;font-size:22px;color:#173f68;margin-top:3px}
+.summary-metric.discount{background:#f5fbf7;border-color:#dbede0}.summary-metric.discount strong{color:#2a8a54}
+.summary-final{
+  margin-top:10px;border-radius:18px;padding:17px 18px;background:linear-gradient(135deg,#173f68,#126fc6);color:#fff;
+  display:flex;justify-content:space-between;align-items:center;gap:20px
+}
+.summary-final small{display:block;color:#cfe7ff;font-size:11.5px}.summary-final strong{display:block;font-size:31px;margin-top:2px}
+.summary-final span{font-size:12px;color:#d6eaff;text-align:right}
+
+.calc-share-bar{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid #edf1f5
+}
+.calc-action{
+  min-height:44px;border:1px solid #dbe5ed;border-radius:13px;background:#fff;color:#456079;
+  padding:0 13px;font-size:12px;font-weight:800;display:flex;align-items:center;gap:8px
+}
+.calc-action.primary{background:#edf7ff;border-color:#cfe6fb;color:#1474d0}
+.calc-action:hover{transform:translateY(-1px)}
+.calc-action.done{background:#effaf3;color:#278553;border-color:#d8ebdf}
+
+.calc-help{
+  display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:16px;background:#f6f9fc;border:1px solid #e4ebf1
+}
+.calc-help i{width:28px;height:28px;flex:0 0 28px;border-radius:9px;background:#fff;color:#1687f8;display:grid;place-items:center;font-style:normal;font-weight:900}
+.calc-help p{margin:0;font-size:12px;color:#6f8396;line-height:1.55}.calc-help b{color:#39566f}
+
+@media(max-width:1100px){
+ .farm-body{grid-template-columns:190px minmax(0,1fr)}
+ .farm-total{grid-column:1/3;display:grid;grid-template-columns:1fr auto;align-items:center}
+}
+@media(max-width:860px){
+ .calc-hero-v9{display:block}.calc-hero-meta{justify-content:flex-start;margin-top:14px}
+ .calc-period-card{grid-template-columns:1fr}
+ .farm-body{grid-template-columns:1fr}
+ .farm-total{grid-column:auto}
+ .farm-products{grid-template-columns:repeat(3,1fr)}
+ .summary-metrics{grid-template-columns:1fr 1fr}.summary-metric:last-child{grid-column:1/3}
+}
+@media(max-width:767px){
+ .calculator-page{gap:14px}
+ .calc-hero-v9{padding:20px 17px;border-radius:20px}.calc-hero-v9 h1{font-size:31px}.calc-hero-v9 p{font-size:14px}
+ .calc-hero-meta span{font-size:10px}
+ .calc-period-card{padding:14px;border-radius:18px}.calc-period-left h2{font-size:19px}
+ .calc-period-options{display:grid;grid-template-columns:1fr 1fr}.period-chip{width:100%}
+ .period-custom{grid-template-columns:1fr}.period-custom small{padding-left:2px}
+ .farms-head{display:block}.farms-head .add-farm-btn{margin-top:10px;width:100%;justify-content:center}
+ .farm-card{padding:13px;border-radius:18px}.farm-head{margin-bottom:11px}
+ .farm-index{width:38px;height:38px;flex-basis:38px}.farm-name-wrap b{font-size:15px}
+ .farm-body{grid-template-columns:1fr;gap:9px}.farm-herd{padding:12px}
+ .farm-products{grid-template-columns:1fr}
+ .farm-product{min-height:74px;display:grid;grid-template-columns:42px minmax(0,1fr);column-gap:10px;align-items:center;padding:9px 42px 9px 9px}
+ .farm-product img{grid-row:1/3}.farm-product b{margin:0;font-size:13px}.farm-product span{margin:0}
+ .farm-product .product-check{top:50%;transform:translateY(-50%);right:12px}.farm-product.selected .product-check{transform:translateY(-50%) scale(1.05)}
+ .farm-total{display:block;padding:12px}.farm-total strong{font-size:20px}
+ .calc-summary-v9{padding:14px;border-radius:19px}.summary-top{display:block}.summary-period-badge{display:inline-block;margin-top:8px}
+ .summary-farm{padding:10px}.summary-metrics{grid-template-columns:1fr}.summary-metric:last-child{grid-column:auto}
+ .summary-final{display:block}.summary-final strong{font-size:29px}.summary-final span{display:block;text-align:left;margin-top:6px}
+ .calc-share-bar{display:grid;grid-template-columns:1fr 1fr}.calc-action{justify-content:center}.calc-action:last-child{grid-column:1/3}
+}
+
+
+/* CALCULATOR V10 — refined final payment card */
+.summary-final{
+  margin-top:12px!important;
+  border-radius:20px!important;
+  padding:19px 20px!important;
+  background:
+    radial-gradient(circle at 92% 14%,rgba(112,190,255,.12),transparent 28%),
+    linear-gradient(145deg,#ffffff 0%,#f7fbff 100%)!important;
+  border:1px solid #dbe7f1!important;
+  color:#173f68!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:18px!important;
+  box-shadow:0 10px 30px rgba(23,63,104,.06)!important;
+  position:relative!important;
+  overflow:hidden!important;
+}
+.summary-final::before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;top:14px!important;bottom:14px!important;
+  width:4px!important;border-radius:0 4px 4px 0!important;
+  background:linear-gradient(180deg,#7dc6ff,#8edcb0)!important;
+}
+.summary-final small{
+  display:block!important;
+  color:#72889d!important;
+  font-size:11.5px!important;
+  font-weight:700!important;
+  letter-spacing:.01em!important;
+}
+.summary-final strong{
+  display:block!important;
+  font-size:34px!important;
+  line-height:1.06!important;
+  margin-top:3px!important;
+  color:#173f68!important;
+  letter-spacing:-.025em!important;
+}
+.summary-final span{
+  font-size:12px!important;
+  color:#6e8296!important;
+  text-align:right!important;
+  line-height:1.45!important;
+  background:#f3f9f5!important;
+  border:1px solid #dcecdf!important;
+  border-radius:14px!important;
+  padding:10px 12px!important;
+  min-width:180px!important;
+}
+@media(max-width:767px){
+  .summary-final{
+    grid-template-columns:1fr!important;
+    padding:17px 16px!important;
+    gap:10px!important;
+  }
+  .summary-final strong{font-size:30px!important}
+  .summary-final span{
+    text-align:left!important;
+    min-width:0!important;
+    width:100%!important;
+  }
+}
+
+
+.calc-dairy-note{
+  margin:10px 0 14px;
+  padding:10px 13px;
+  border:1px solid #dce8f2;
+  border-radius:12px;
+  background:#f7fbff;
+  color:#5f7489;
+  font-size:12px;
+  line-height:1.45;
+  font-weight:600;
+}
+@media(max-width:767px){
+  .calc-dairy-note{font-size:11.5px;margin:8px 0 12px;padding:9px 11px}
+}
+
 </style>
 
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
@@ -2350,6 +2631,25 @@ body.overlay-open{overflow:hidden}
   <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
   <meta name="theme-color" content="#f7fbff">
   <meta name="description" content="Партнёрский кабинет АГРОИНТЕЛЛЕКТ: продукты, материалы, документы, интеграции, демо-доступы и контакты.">
+
+
+<style id="final-v12-print">
+@media print{
+ @page{size:A4;margin:10mm}
+ html,body{background:#fff!important;overflow:visible!important;height:auto!important}
+ .sidebar,.topbar,.mobile-nav,.mobile-back-btn,.drawer,.drawerpanel,
+ .calc-actions,.calculator-actions,#v9AddFarmTop,.farm-add,.add-farm,.remove-farm,.farm-remove{
+   display:none!important
+ }
+ .calculator-shell,.calculator-page,.calculator-wrap,.calc-shell,.calc-page,main,.main,.content{
+   width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important;transform:none!important
+ }
+ .farm-card,.summary-final,.summary-card,.calc-summary,.product-card,.period-card{
+   break-inside:avoid!important;page-break-inside:avoid!important
+ }
+ *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
 
 </head>
 <body>
@@ -2369,7 +2669,7 @@ body.overlay-open{overflow:hidden}
    <button class="railbtn" data-route="documents" aria-label="Документы"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5M10 12h5M10 16h5"/></svg><span class="tip">Документы</span></button>
    <button class="railbtn" data-route="integrations" aria-label="Интеграции"><svg viewBox="0 0 24 24"><path d="M8 7h8M8 17h8M7 8v3a1 1 0 0 0 1 1h8a1 1 0 0 1 1 1v3"/><circle cx="7" cy="6" r="2"/><circle cx="17" cy="18" r="2"/></svg><span class="tip">Интеграции</span></button>
    <button class="railbtn" data-route="contacts" aria-label="Контакты"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5.5 20c.8-4.2 3-6 6.5-6s5.7 1.8 6.5 6"/></svg><span class="tip">Контакты</span></button>
-   <button class="railbtn" onclick="window.open('https://chat.qwen.ai/s/deploy/t_ddf92d9b-e502-486b-a0df-6dc19d8b8397','_blank')" aria-label="Калькулятор"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span class="tip">Калькулятор стоимости</span></button>
+   <button class="railbtn" onclick="route('calculator')" data-route="calculator" aria-label="Калькулятор"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span class="tip">Калькулятор стоимости</span></button>
   </nav>
   <div class="railbottom">
    <button class="railbtn" onclick="toggleHelp()" aria-label="Помощь"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.7 2c-1 .6-1.5 1-1.5 2M12 17h.01"/></svg><span class="tip">Помощь</span></button>
@@ -2392,7 +2692,7 @@ body.overlay-open{overflow:hidden}
   <button class="mobile-nav-btn" data-route="documents" aria-label="Документы"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v5h5M10 12h5M10 16h5"/></svg><span>Документы</span></button>
   <button class="mobile-nav-btn" data-route="integrations" aria-label="Интеграции"><svg viewBox="0 0 24 24"><path d="M8 7h8M8 17h8M7 8v3a1 1 0 0 0 1 1h8a1 1 0 0 1 1 1v3"/><circle cx="7" cy="6" r="2"/><circle cx="17" cy="18" r="2"/></svg><span>Интеграции</span></button>
   <button class="mobile-nav-btn" data-route="contacts" aria-label="Контакты"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5.5 20c.8-4.2 3-6 6.5-6s5.7 1.8 6.5 6"/></svg><span>Контакты</span></button>
-  <button class="mobile-nav-btn" onclick="window.open('https://chat.qwen.ai/s/deploy/t_ddf92d9b-e502-486b-a0df-6dc19d8b8397','_blank')" aria-label="Калькулятор"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span>Расчёт</span></button>
+  <button class="mobile-nav-btn" onclick="route('calculator')" data-route="calculator" aria-label="Калькулятор"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg><span>Расчёт</span></button>
 </nav>
 
 <div class="mobile-search-overlay" id="mobileSearchOverlay" aria-hidden="true">
@@ -2552,7 +2852,7 @@ function renderHome(){
        <button class="hero-link primary" onclick="route('products')">Продукты <span>→</span></button>
        <button class="hero-link" onclick="route('documents')">Документы <span>→</span></button>
        <button class="hero-link" onclick="route('integrations')">Интеграции <span>→</span></button>
-       <button class="hero-link" onclick="window.open('https://chat.qwen.ai/s/deploy/t_ddf92d9b-e502-486b-a0df-6dc19d8b8397','_blank')">Калькулятор <span>↗</span></button>
+       <button class="hero-link" onclick="route('calculator')">Калькулятор <span>→</span></button>
      </div>
    </div>
    <aside class="hero-brand-v3">
@@ -2825,7 +3125,7 @@ function executeSearchResult(item){
    const g=INTEGRATIONS[Number(item.id)];route("integrations");setTimeout(()=>renderIntegrations(g?.group||item.title),80);return;
  }
  if(item.kind==="contact")return route("contacts");
- if(item.kind==="calculator")return window.open("https://chat.qwen.ai/s/deploy/t_ddf92d9b-e502-486b-a0df-6dc19d8b8397","_blank");
+ if(item.kind==="calculator")return route("calculator");
 }
 function search(q){
  const results=getSearchResults(q,1);
@@ -3014,6 +3314,367 @@ route("home");
   }, {passive:true});
   window.addEventListener('resize', syncMobileScroll, {passive:true});
   syncMobileScroll();
+})();
+</script>
+
+
+<script>
+const CALC_TIERS=[
+ {min:50,max:99,label:"до 100 голов",milk:{base:1000,extra:20},musoft:{base:3125,extra:62.5},onlinefarm:{base:25000,extra:0}},
+ {min:100,max:499,label:"100–499 голов",milk:{base:2000,extra:5},musoft:{base:6250,extra:29.375},onlinefarm:{base:25000,extra:0}},
+ {min:500,max:999,label:"500–999 голов",milk:{base:4000,extra:4.5},musoft:{base:18000,extra:14},onlinefarm:{base:25000,extra:30}},
+ {min:1000,max:1499,label:"1000–1499 голов",milk:{base:6250,extra:3.5},musoft:{base:25000,extra:14},onlinefarm:{base:40000,extra:30}},
+ {min:1500,max:1999,label:"1500–1999 голов",milk:{base:8000,extra:4},musoft:{base:32000,extra:16},onlinefarm:{base:55000,extra:30}},
+ {min:2000,max:Infinity,label:"2000+ голов",milk:{base:10000,extra:3},musoft:{base:40000,extra:12},onlinefarm:{base:70000,extra:22.5}}
+];
+const CALC_META={
+ onlinefarm:{name:"Онлайн-ферма",short:"Онлайн-ферма",logo:"assets/product-onlinefarm.webp"},
+ milk:{name:"Учёт молока",short:"Учёт молока",logo:"assets/product-milk.webp"},
+ musoft:{name:"Мусофт",short:"Мусофт",logo:"assets/product-musoft.webp"}
+};
+let calcV9={
+ farms:[{id:1,name:"",heads:500,products:{onlinefarm:true,milk:true,musoft:true}}],
+ months:12,periodMode:12,customPeriod:"",nextId:2
+};
+
+function v9Money(v){
+ return new Intl.NumberFormat("ru-RU",{maximumFractionDigits:2}).format(Math.round((Number(v)+Number.EPSILON)*100)/100)+" ₽";
+}
+function v9TierFor(heads){
+ const h=Math.max(1,Math.floor(Number(heads)||1));
+ if(h<100)return CALC_TIERS[0];
+ return CALC_TIERS.find(t=>h>=t.min&&h<=t.max)||CALC_TIERS[5];
+}
+function v9ProductPrice(key,heads){
+ const h=Math.max(1,Math.floor(Number(heads)||1)),t=v9TierFor(h),r=t[key],extra=Math.max(0,h-t.min);
+ return r.base+(extra*r.extra);
+}
+function v9FarmMonthly(farm){
+ return Object.keys(CALC_META).filter(k=>farm.products[k]).reduce((sum,k)=>sum+v9ProductPrice(k,farm.heads),0);
+}
+function v9Discount(months){
+ const m=Math.max(1,Number(months)||1);
+ return m>=12?20:m>=6?10:0;
+}
+function v9ParsePeriod(raw){
+ const s=String(raw||"").trim().toLowerCase().replace(",",".");
+ if(!s)return null;
+ const num=parseFloat(s.replace(/[^\d.]/g,""));
+ if(!Number.isFinite(num)||num<=0)return null;
+ if(/год|лет|year/.test(s))return Math.max(1,Math.round(num*12));
+ return Math.max(1,Math.round(num));
+}
+function v9PeriodLabel(months){
+ const m=Math.max(1,Number(months)||1);
+ if(m%12===0 && m>=12){
+   const y=m/12;
+   return `${y} ${y===1?"год":(y>=2&&y<=4?"года":"лет")} · ${m} мес.`;
+ }
+ return `${m} мес.`;
+}
+function v9Summary(){
+ const farms=calcV9.farms.map(f=>({
+   ...f,
+   selected:Object.keys(CALC_META).filter(k=>f.products[k]),
+   monthly:v9FarmMonthly(f)
+ }));
+ const monthly=farms.reduce((s,f)=>s+f.monthly,0);
+ const gross=monthly*calcV9.months;
+ const disc=v9Discount(calcV9.months);
+ const discountAmount=gross*disc/100;
+ return {farms,monthly,gross,disc,discountAmount,final:gross-discountAmount};
+}
+function v9ProductCount(){
+ return calcV9.farms.reduce((n,f)=>n+Object.values(f.products).filter(Boolean).length,0);
+}
+
+function renderCalculator(){
+ current={route:"calculator",product:null,tab:"overview"};
+ document.body.classList.toggle("mobile-has-back",isPhoneUI());
+ document.querySelectorAll(".railbtn[data-route],.mobile-nav-btn[data-route]").forEach(b=>b.classList.toggle("active",b.dataset.route==="calculator"));
+ crumb.innerHTML="<b>Калькулятор стоимости</b>";
+ app.innerHTML=`
+ <div class="calculator-page">
+   <section class="calc-hero-v9">
+     <div>
+       <div class="kicker">Коммерческий расчёт</div>
+       <h1>Рассчитать стоимость</h1>
+       <p>Добавьте хозяйства, укажите поголовье и выберите продукты для каждого хозяйства отдельно. Итог пересчитается автоматически.</p>
+     </div>
+     <div class="calc-hero-meta">
+       <span><b id="v9FarmCount">${calcV9.farms.length}</b> хозяйств</span>
+       <span><b id="v9ProductCount">${v9ProductCount()}</b> подключений</span>
+       <span><b id="v9PeriodTop">${calcV9.months}</b> мес.</span>
+     </div>
+   </section>
+
+   <section class="calc-period-card">
+     <div class="calc-period-left">
+       <h2>Период оплаты</h2>
+       <p>Выберите готовый период или укажите свой — например, «24 месяца» или «2 года».</p>
+       <div class="calc-period-options">
+         <button class="period-chip" data-period="1" type="button">1 месяц</button>
+         <button class="period-chip" data-period="6" type="button">6 месяцев</button>
+         <button class="period-chip" data-period="12" type="button">12 месяцев</button>
+         <button class="period-chip" data-period="custom" type="button">Другой период</button>
+       </div>
+       <div class="period-custom" id="v9CustomPeriodWrap">
+         <input id="v9CustomPeriod" type="text" inputmode="text" value="${calcV9.customPeriod}" placeholder="Например: 24 месяца или 2 года">
+         <small id="v9CustomPeriodHint"></small>
+       </div>
+     </div>
+     <div class="calc-period-summary">
+       <small>Условия расчёта</small>
+       <strong id="v9PeriodSummary">${v9PeriodLabel(calcV9.months)}</strong>
+       <span id="v9DiscountSummary">Скидка ${v9Discount(calcV9.months)}%</span>
+     </div>
+   </section>
+
+   <div class="calc-dairy-note">Стоимость рассчитывается по дойному поголовью каждого хозяйства.</div>
+<div class="farms-head">
+     <div><h2>Хозяйства</h2><p>У каждого хозяйства своё поголовье и свой набор продуктов.</p></div>
+     <button class="add-farm-btn" type="button" id="v9AddFarmTop"><span>＋</span> Добавить хозяйство</button>
+   </div>
+
+   <section class="farms-list" id="v9Farms"></section>
+   <button class="add-farm-wide" type="button" id="v9AddFarmWide">＋ Добавить ещё хозяйство</button>
+
+   <section class="calc-summary-v9">
+     <div class="summary-top">
+       <div><h2>Итог расчёта</h2><p id="v9SummarySubtitle"></p></div>
+       <div class="summary-period-badge" id="v9SummaryPeriod"></div>
+     </div>
+     <div class="summary-farms" id="v9SummaryFarms"></div>
+     <div class="summary-metrics">
+       <div class="summary-metric"><small>Стоимость в месяц</small><strong id="v9Monthly">0 ₽</strong></div>
+       <div class="summary-metric"><small>Стоимость за период</small><strong id="v9Gross">0 ₽</strong></div>
+       <div class="summary-metric discount"><small>Скидка</small><strong id="v9Discount">0 ₽</strong></div>
+     </div>
+     <div class="summary-final">
+       <div><small>Итого к оплате</small><strong id="v9Final">0 ₽</strong></div>
+       <span id="v9FinalNote"></span>
+     </div>
+     <div class="calc-share-bar">
+       <button class="calc-action primary" id="v9Copy" type="button">⧉ Скопировать расчёт</button>
+       <button class="calc-action" id="v9Print" type="button">PDF / Печать</button>
+       <button class="calc-action" id="v9Share" type="button">↗ Поделиться</button>
+     </div>
+   </section>
+
+   <div class="calc-help"><i>i</i><p><b>Тарифы считаются автоматически.</b> Пользователю достаточно указать хозяйства, поголовье, продукты и период оплаты. Внутренняя тарифная матрица в интерфейсе не показывается.</p></div>
+ </div>`;
+ bindV9Calculator();
+ renderV9CalculatorState();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function bindV9Calculator(){
+ document.getElementById("v9AddFarmTop")?.addEventListener("click",v9AddFarm);
+ document.getElementById("v9AddFarmWide")?.addEventListener("click",v9AddFarm);
+ document.querySelectorAll("[data-period]").forEach(btn=>btn.addEventListener("click",()=>{
+   const value=btn.dataset.period;
+   calcV9.periodMode=value;
+   if(value==="custom"){
+     document.getElementById("v9CustomPeriodWrap")?.classList.add("show");
+     setTimeout(()=>document.getElementById("v9CustomPeriod")?.focus(),30);
+   }else{
+     calcV9.months=Number(value);
+     calcV9.customPeriod="";
+     document.getElementById("v9CustomPeriodWrap")?.classList.remove("show");
+     renderV9CalculatorState();
+   }
+ }));
+ document.getElementById("v9CustomPeriod")?.addEventListener("input",e=>{
+   calcV9.customPeriod=e.target.value;
+   const parsed=v9ParsePeriod(e.target.value);
+   if(parsed)calcV9.months=parsed;
+   renderV9CalculatorState(false);
+ });
+ document.getElementById("v9Copy")?.addEventListener("click",v9CopyCalculation);
+ document.getElementById("v9Print")?.addEventListener("click",v9PrintCalculation);
+ document.getElementById("v9Share")?.addEventListener("click",v9ShareCalculation);
+}
+
+function v9AddFarm(){
+ calcV9.farms.push({id:calcV9.nextId++,name:"",heads:500,products:{onlinefarm:false,milk:false,musoft:false}});
+ renderV9CalculatorState();
+ requestAnimationFrame(()=>document.querySelector(`[data-farm-id="${calcV9.farms.at(-1).id}"]`)?.scrollIntoView({behavior:"smooth",block:"center"}));
+}
+function v9DeleteFarm(id){
+ if(calcV9.farms.length===1)return;
+ calcV9.farms=calcV9.farms.filter(f=>f.id!==id);
+ renderV9CalculatorState();
+}
+function v9UpdateFarm(id,field,value){
+ const f=calcV9.farms.find(x=>x.id===id);if(!f)return;
+ if(field==="heads")f.heads=Math.max(1,Math.floor(Number(value)||1));
+ if(field==="name")f.name=value;
+ renderV9CalculatorState(false);
+}
+function v9ToggleProduct(id,key){
+ const f=calcV9.farms.find(x=>x.id===id);if(!f)return;
+ f.products[key]=!f.products[key];
+ renderV9CalculatorState(false);
+}
+
+function renderV9Farms(){
+ const wrap=document.getElementById("v9Farms");if(!wrap)return;
+ wrap.innerHTML=calcV9.farms.map((f,i)=>{
+   const monthly=v9FarmMonthly(f),selected=Object.keys(CALC_META).filter(k=>f.products[k]);
+   return `<article class="farm-card" data-farm-id="${f.id}">
+     <div class="farm-head">
+       <div class="farm-title">
+         <div class="farm-index">${i+1}</div>
+         <div class="farm-name-wrap">
+           <b>Хозяйство №${i+1}</b>
+           <input class="farm-name-input" value="${String(f.name||"").replace(/"/g,"&quot;")}" placeholder="Название хозяйства — необязательно" data-farm-name="${f.id}">
+         </div>
+       </div>
+       ${calcV9.farms.length>1?`<button class="farm-delete" type="button" data-delete-farm="${f.id}" aria-label="Удалить хозяйство">×</button>`:""}
+     </div>
+     <div class="farm-body">
+       <div class="farm-herd">
+         <label>Дойное поголовье, голов</label>
+         <input type="number" min="1" step="1" inputmode="numeric" value="${f.heads}" data-farm-heads="${f.id}">
+         <small>Тариф определяется автоматически</small>
+       </div>
+       <div class="farm-products">
+         ${Object.keys(CALC_META).map(k=>`<button type="button" class="farm-product ${f.products[k]?"selected":""}" data-farm-product="${f.id}:${k}">
+           <img src="${CALC_META[k].logo}" alt=""><b>${CALC_META[k].name}</b><span>${f.products[k]?"Добавлено":"Добавить продукт"}</span><i class="product-check">✓</i>
+         </button>`).join("")}
+       </div>
+       <div class="farm-total"><small>Итого по хозяйству</small><strong>${v9Money(monthly)} / мес.</strong><span>${selected.length} ${selected.length===1?"продукт":"продукта"}</span></div>
+     </div>
+   </article>`;
+ }).join("");
+ wrap.querySelectorAll("[data-farm-heads]").forEach(el=>el.addEventListener("input",()=>v9UpdateFarm(Number(el.dataset.farmHeads),"heads",el.value)));
+ wrap.querySelectorAll("[data-farm-name]").forEach(el=>el.addEventListener("input",()=>v9UpdateFarm(Number(el.dataset.farmName),"name",el.value)));
+ wrap.querySelectorAll("[data-farm-product]").forEach(el=>el.addEventListener("click",()=>{
+   const [id,key]=el.dataset.farmProduct.split(":");v9ToggleProduct(Number(id),key);
+ }));
+ wrap.querySelectorAll("[data-delete-farm]").forEach(el=>el.addEventListener("click",()=>v9DeleteFarm(Number(el.dataset.deleteFarm))));
+}
+
+function renderV9CalculatorState(renderFarms=true){
+ if(renderFarms)renderV9Farms();
+ const s=v9Summary();
+ document.querySelectorAll("[data-period]").forEach(btn=>btn.classList.toggle("active",String(btn.dataset.period)===String(calcV9.periodMode)));
+ document.getElementById("v9CustomPeriodWrap")?.classList.toggle("show",calcV9.periodMode==="custom");
+ const hint=document.getElementById("v9CustomPeriodHint");
+ if(hint)hint.textContent=calcV9.periodMode==="custom"?(v9ParsePeriod(calcV9.customPeriod)?`Распознано: ${v9PeriodLabel(calcV9.months)}`:"Введите срок цифрами, месяцами или годами"):"";
+ const set=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val};
+ set("v9FarmCount",calcV9.farms.length);set("v9ProductCount",v9ProductCount());set("v9PeriodTop",calcV9.months);
+ set("v9PeriodSummary",v9PeriodLabel(calcV9.months));set("v9DiscountSummary",`Скидка ${s.disc}%`);
+ set("v9SummarySubtitle",`${calcV9.farms.length} хозяйств · ${v9ProductCount()} подключений`);
+ set("v9SummaryPeriod",v9PeriodLabel(calcV9.months));
+ const sf=document.getElementById("v9SummaryFarms");
+ if(sf)sf.innerHTML=s.farms.map((f,i)=>`<div class="summary-farm">
+   <div><b>${f.name||`Хозяйство №${i+1}`}</b><small>${f.heads} голов · ${f.selected.length?f.selected.map(k=>CALC_META[k].short).join(", "):"продукты не выбраны"}</small></div>
+   <div class="summary-farm-price"><strong>${v9Money(f.monthly)} / мес.</strong><span>${v9Money(f.monthly*calcV9.months)} за период</span></div>
+ </div>`).join("");
+ set("v9Monthly",v9Money(s.monthly));set("v9Gross",v9Money(s.gross));set("v9Discount",`−${v9Money(s.discountAmount)}`);set("v9Final",v9Money(s.final));
+ set("v9FinalNote",`${v9PeriodLabel(calcV9.months)} · скидка ${s.disc}%`);
+ if(!renderFarms){
+   // update visible farm totals without re-rendering fields currently being edited
+   calcV9.farms.forEach(f=>{
+     const card=document.querySelector(`[data-farm-id="${f.id}"]`);if(!card)return;
+     card.querySelectorAll("[data-farm-product]").forEach(btn=>{
+       const key=btn.dataset.farmProduct.split(":")[1],sel=!!f.products[key];
+       btn.classList.toggle("selected",sel);btn.querySelector("span").textContent=sel?"Добавлено":"Добавить продукт";
+     });
+     const total=card.querySelector(".farm-total strong");if(total)total.textContent=`${v9Money(v9FarmMonthly(f))} / мес.`;
+     const count=card.querySelector(".farm-total span"),n=Object.values(f.products).filter(Boolean).length;if(count)count.textContent=`${n} ${n===1?"продукт":"продукта"}`;
+   });
+ }
+}
+
+function v9CalculationText(){
+ const s=v9Summary();
+ const lines=["АГРОИНТЕЛЛЕКТ","Расчёт стоимости",""];
+ s.farms.forEach((f,i)=>{
+   lines.push(`${f.name||`Хозяйство №${i+1}`} — ${f.heads} голов`);
+   if(f.selected.length)f.selected.forEach(k=>lines.push(`• ${CALC_META[k].name}`));
+   else lines.push("• Продукты не выбраны");
+   lines.push(`Итого: ${v9Money(f.monthly)} / мес.`,"");
+ });
+ lines.push(`Период: ${v9PeriodLabel(calcV9.months)}`);
+ lines.push(`Стоимость в месяц: ${v9Money(s.monthly)}`);
+ lines.push(`Стоимость за период: ${v9Money(s.gross)}`);
+ lines.push(`Скидка: ${s.disc}% (${v9Money(s.discountAmount)})`);
+ lines.push(`ИТОГО К ОПЛАТЕ: ${v9Money(s.final)}`);
+ return lines.join("\n");
+}
+async function v9CopyCalculation(){
+ const btn=document.getElementById("v9Copy");
+ try{await navigator.clipboard.writeText(v9CalculationText());if(btn){const old=btn.innerHTML;btn.classList.add("done");btn.textContent="✓ Скопировано";setTimeout(()=>{btn.classList.remove("done");btn.innerHTML=old},1600)}}catch(e){alert(v9CalculationText())}
+}
+function v9PrintCalculation(){
+ const s=v9Summary();
+ const rows=s.farms.map((f,i)=>`<tr><td>${f.name||`Хозяйство №${i+1}`}<small>${f.heads} голов</small></td><td>${f.selected.map(k=>CALC_META[k].name).join(", ")||"—"}</td><td>${v9Money(f.monthly)}</td><td>${v9Money(f.monthly*calcV9.months)}</td></tr>`).join("");
+ const w=window.open("","_blank");
+ if(!w)return;
+ w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Расчёт АГРОИНТЕЛЛЕКТ</title><style>
+ body{font-family:Arial,sans-serif;color:#17324f;padding:34px}h1{font-size:28px;margin-bottom:4px}.muted{color:#718399;font-size:13px}
+ table{width:100%;border-collapse:collapse;margin-top:24px}th,td{padding:12px;border-bottom:1px solid #e2e8ef;text-align:left;font-size:13px}th{background:#f2f7fb}td small{display:block;color:#8090a0;margin-top:3px}
+ .total{margin-top:24px;background:#eef7ff;border-radius:16px;padding:18px}.total strong{font-size:28px;color:#126bc2}.line{display:flex;justify-content:space-between;margin:8px 0;font-size:14px}
+ @media print{button{display:none}}
+ </style>
+<style id="final-v12-print">
+@media print{
+ @page{size:A4;margin:10mm}
+ html,body{background:#fff!important;overflow:visible!important;height:auto!important}
+ .sidebar,.topbar,.mobile-nav,.mobile-back-btn,.drawer,.drawerpanel,
+ .calc-actions,.calculator-actions,#v9AddFarmTop,.farm-add,.add-farm,.remove-farm,.farm-remove{
+   display:none!important
+ }
+ .calculator-shell,.calculator-page,.calculator-wrap,.calc-shell,.calc-page,main,.main,.content{
+   width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important;transform:none!important
+ }
+ .farm-card,.summary-final,.summary-card,.calc-summary,.product-card,.period-card{
+   break-inside:avoid!important;page-break-inside:avoid!important
+ }
+ *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+}
+</style>
+
+</head><body><h1>АГРОИНТЕЛЛЕКТ — расчёт стоимости</h1><div class="muted">${v9PeriodLabel(calcV9.months)} · ${calcV9.farms.length} хозяйств</div>
+ <table><thead><tr><th>Хозяйство</th><th>Продукты</th><th>В месяц</th><th>За период</th></tr></thead><tbody>${rows}</tbody></table>
+ <div class="total"><div class="line"><span>Стоимость в месяц</span><b>${v9Money(s.monthly)}</b></div><div class="line"><span>Стоимость за период</span><b>${v9Money(s.gross)}</b></div><div class="line"><span>Скидка ${s.disc}%</span><b>−${v9Money(s.discountAmount)}</b></div><hr><div class="line"><span>Итого к оплате</span><strong>${v9Money(s.final)}</strong></div></div>
+ <script>setTimeout(()=>window.print(),250)<\/script>
+<script id="final-v12-pdf">
+(function(){
+ document.addEventListener("click",function(ev){
+   var b=ev.target.closest("button,a");
+   if(!b)return;
+   var t=(b.textContent||"").trim().toLowerCase();
+   if(!(t.indexOf("pdf")>=0||t.indexOf("печать")>=0))return;
+   ev.preventDefault();
+   setTimeout(function(){window.print();},50);
+ },true);
+})();
+</script>
+
+</body></html>`);
+ w.document.close();
+}
+async function v9ShareCalculation(){
+ const text=v9CalculationText();
+ if(navigator.share){try{await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text});return}catch(e){if(e.name==="AbortError")return}}
+ try{await navigator.clipboard.writeText(text);alert("Расчёт скопирован. Его можно вставить в Telegram, MAX, WhatsApp или письмо.")}catch(e){alert(text)}
+}
+</script>
+
+
+<script id="final-v12-pdf">
+(function(){
+ document.addEventListener("click",function(ev){
+   var b=ev.target.closest("button,a");
+   if(!b)return;
+   var t=(b.textContent||"").trim().toLowerCase();
+   if(!(t.indexOf("pdf")>=0||t.indexOf("печать")>=0))return;
+   ev.preventDefault();
+   setTimeout(function(){window.print();},50);
+ },true);
 })();
 </script>
 
