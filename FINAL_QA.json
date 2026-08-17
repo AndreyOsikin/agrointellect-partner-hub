@@ -1,7 +1,18 @@
 {
-  "version": "FINAL_V12",
-  "base": "V11",
-  "pdf": "Кнопка PDF/Печать открывает печать текущего расчета; пользователь выбирает «Сохранить как PDF».",
-  "print_layout": "Скрываются навигация и управляющие элементы; карточки расчета и итог сохраняются.",
-  "new_js_syntax": "OK"
+  "version": "FIXED_V13",
+  "critical_fix": "Код калькулятора больше не попадает видимым текстом в раздел Контакты.",
+  "structure": {
+    "html_close": 1,
+    "body_close": 1,
+    "head_close": 1
+  },
+  "tested": [
+    "contacts -> calculator on desktop",
+    "contacts -> calculator on mobile",
+    "2nd farm addition",
+    "no horizontal overflow"
+  ],
+  "pdf": "PDF screenshot generation when libraries load; print-to-PDF fallback",
+  "share": "PDF file via Web Share when supported; text fallback",
+  "js_syntax": "OK"
 }

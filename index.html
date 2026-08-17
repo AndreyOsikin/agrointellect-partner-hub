@@ -2632,22 +2632,60 @@ body.overlay-open{overflow:hidden}
   <meta name="theme-color" content="#f7fbff">
   <meta name="description" content="Партнёрский кабинет АГРОИНТЕЛЛЕКТ: продукты, материалы, документы, интеграции, демо-доступы и контакты.">
 
+<style id="mobile-document-ux-v7">
+@media(max-width:767px){
+  body.overlay-open .mobile-nav,body.overlay-open .mobile-back-btn{display:none!important}
+  .drawer{z-index:20000!important}
+  .drawerpanel{height:var(--mobile-vvh,100dvh)!important;min-height:0!important;overflow:hidden!important}
+  .drawerhead{position:relative!important;z-index:20!important;flex:0 0 auto!important}
+  .drawerbody{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important}
+  .drawerbody iframe{height:100%!important;min-height:0!important}
+  .doc-fallback{
+    position:absolute!important;left:10px!important;right:10px!important;top:10px!important;bottom:auto!important;
+    width:auto!important;max-width:none!important;transform:translateY(-8px)!important;
+    grid-template-columns:38px minmax(0,1fr)!important;gap:10px!important;
+    padding:12px 46px 12px 12px!important;border-radius:15px!important;
+    max-height:calc(var(--mobile-vvh,100dvh) - 100px)!important;overflow:auto!important;
+  }
+  .doc-fallback.show{transform:translateY(0)!important}
+  .doc-fallback strong{font-size:13px!important;line-height:1.3!important;padding-right:2px!important}
+  .doc-fallback p{font-size:11px!important;line-height:1.4!important}
+  .doc-fallback .btn{grid-column:1/3!important;width:100%!important;min-height:42px!important;margin-top:1px!important}
+  .fallback-close{position:absolute!important;top:8px!important;right:8px!important;width:32px!important;height:32px!important}
+}
+</style>
 
-<style id="final-v12-print">
+<script defer src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+<style id="v13-pdf-style">
+.pdf-capture-mode .topbar,
+.pdf-capture-mode .mobile-nav,
+.pdf-capture-mode .mobile-back-btn,
+.pdf-capture-mode .calc-share-bar,
+.pdf-capture-mode #v9AddFarmTop,
+.pdf-capture-mode #v9AddFarmWide,
+.pdf-capture-mode .farm-delete{
+  display:none!important;
+}
+.pdf-capture-mode{
+  background:#f6f8fa!important;
+  padding:12px!important;
+  border-radius:22px!important;
+}
 @media print{
- @page{size:A4;margin:10mm}
- html,body{background:#fff!important;overflow:visible!important;height:auto!important}
- .sidebar,.topbar,.mobile-nav,.mobile-back-btn,.drawer,.drawerpanel,
- .calc-actions,.calculator-actions,#v9AddFarmTop,.farm-add,.add-farm,.remove-farm,.farm-remove{
-   display:none!important
- }
- .calculator-shell,.calculator-page,.calculator-wrap,.calc-shell,.calc-page,main,.main,.content{
-   width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important;transform:none!important
- }
- .farm-card,.summary-final,.summary-card,.calc-summary,.product-card,.period-card{
-   break-inside:avoid!important;page-break-inside:avoid!important
- }
- *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  @page{size:A4;margin:9mm}
+  body{background:#fff!important}
+  .rail,.topbar,.mobile-nav,.mobile-back-btn,.calc-share-bar,
+  #v9AddFarmTop,#v9AddFarmWide,.farm-delete{display:none!important}
+  .main{grid-column:1!important}
+  .content{max-width:none!important;margin:0!important;padding:0!important}
+  .calculator-page{gap:10px!important}
+  .farm-card,.calc-summary-v9,.calc-period-card,.calc-hero-v9{
+    break-inside:avoid!important;page-break-inside:avoid!important;
+    -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important
+  }
 }
 </style>
 
@@ -3608,98 +3646,106 @@ async function v9CopyCalculation(){
  const btn=document.getElementById("v9Copy");
  try{await navigator.clipboard.writeText(v9CalculationText());if(btn){const old=btn.innerHTML;btn.classList.add("done");btn.textContent="✓ Скопировано";setTimeout(()=>{btn.classList.remove("done");btn.innerHTML=old},1600)}}catch(e){alert(v9CalculationText())}
 }
-function v9PrintCalculation(){
- const s=v9Summary();
- const rows=s.farms.map((f,i)=>`<tr><td>${f.name||`Хозяйство №${i+1}`}<small>${f.heads} голов</small></td><td>${f.selected.map(k=>CALC_META[k].name).join(", ")||"—"}</td><td>${v9Money(f.monthly)}</td><td>${v9Money(f.monthly*calcV9.months)}</td></tr>`).join("");
- const w=window.open("","_blank");
- if(!w)return;
- w.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Расчёт АГРОИНТЕЛЛЕКТ</title><style>
- body{font-family:Arial,sans-serif;color:#17324f;padding:34px}h1{font-size:28px;margin-bottom:4px}.muted{color:#718399;font-size:13px}
- table{width:100%;border-collapse:collapse;margin-top:24px}th,td{padding:12px;border-bottom:1px solid #e2e8ef;text-align:left;font-size:13px}th{background:#f2f7fb}td small{display:block;color:#8090a0;margin-top:3px}
- .total{margin-top:24px;background:#eef7ff;border-radius:16px;padding:18px}.total strong{font-size:28px;color:#126bc2}.line{display:flex;justify-content:space-between;margin:8px 0;font-size:14px}
- @media print{button{display:none}}
- </style>
-<style id="final-v12-print">
-@media print{
- @page{size:A4;margin:10mm}
- html,body{background:#fff!important;overflow:visible!important;height:auto!important}
- .sidebar,.topbar,.mobile-nav,.mobile-back-btn,.drawer,.drawerpanel,
- .calc-actions,.calculator-actions,#v9AddFarmTop,.farm-add,.add-farm,.remove-farm,.farm-remove{
-   display:none!important
- }
- .calculator-shell,.calculator-page,.calculator-wrap,.calc-shell,.calc-page,main,.main,.content{
-   width:100%!important;max-width:none!important;margin:0!important;box-shadow:none!important;transform:none!important
- }
- .farm-card,.summary-final,.summary-card,.calc-summary,.product-card,.period-card{
-   break-inside:avoid!important;page-break-inside:avoid!important
- }
- *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-}
-</style>
 
-</head><body><h1>АГРОИНТЕЛЛЕКТ — расчёт стоимости</h1><div class="muted">${v9PeriodLabel(calcV9.months)} · ${calcV9.farms.length} хозяйств</div>
- <table><thead><tr><th>Хозяйство</th><th>Продукты</th><th>В месяц</th><th>За период</th></tr></thead><tbody>${rows}</tbody></table>
- <div class="total"><div class="line"><span>Стоимость в месяц</span><b>${v9Money(s.monthly)}</b></div><div class="line"><span>Стоимость за период</span><b>${v9Money(s.gross)}</b></div><div class="line"><span>Скидка ${s.disc}%</span><b>−${v9Money(s.discountAmount)}</b></div><hr><div class="line"><span>Итого к оплате</span><strong>${v9Money(s.final)}</strong></div></div>
- <script>setTimeout(()=>window.print(),250)<\/script>
-<script id="final-v12-pdf">
-(function(){
- document.addEventListener("click",function(ev){
-   var b=ev.target.closest("button,a");
-   if(!b)return;
-   var t=(b.textContent||"").trim().toLowerCase();
-   if(!(t.indexOf("pdf")>=0||t.indexOf("печать")>=0))return;
-   ev.preventDefault();
-   setTimeout(function(){window.print();},50);
- },true);
-})();
-</script>
+async function v9BuildPdfFile(){
+  const target=document.querySelector(".calculator-page");
+  if(!target) throw new Error("Расчёт не найден");
 
-</body></html>`);
- w.document.close();
-}
-async function v9ShareCalculation(){
- const text=v9CalculationText();
- if(navigator.share){try{await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text});return}catch(e){if(e.name==="AbortError")return}}
- try{await navigator.clipboard.writeText(text);alert("Расчёт скопирован. Его можно вставить в Telegram, MAX, WhatsApp или письмо.")}catch(e){alert(text)}
-}
-</script>
+  // Prefer a real PDF screenshot when helper libraries are available.
+  if(window.html2canvas && window.jspdf && window.jspdf.jsPDF){
+    const previous=target.classList.contains("pdf-capture-mode");
+    target.classList.add("pdf-capture-mode");
+    try{
+      const canvas=await window.html2canvas(target,{
+        scale:Math.min(2,window.devicePixelRatio||1.5),
+        backgroundColor:"#f6f8fa",
+        useCORS:true,
+        logging:false,
+        scrollX:0,
+        scrollY:-window.scrollY
+      });
+      const {jsPDF}=window.jspdf;
+      const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
+      const pageW=210,pageH=297,margin=8;
+      const imgW=pageW-margin*2;
+      const ratio=imgW/canvas.width;
+      const pagePxH=(pageH-margin*2)/ratio;
+      let sourceY=0,page=0;
 
-
-<script id="final-v12-pdf">
-(function(){
- document.addEventListener("click",function(ev){
-   var b=ev.target.closest("button,a");
-   if(!b)return;
-   var t=(b.textContent||"").trim().toLowerCase();
-   if(!(t.indexOf("pdf")>=0||t.indexOf("печать")>=0))return;
-   ev.preventDefault();
-   setTimeout(function(){window.print();},50);
- },true);
-})();
-</script>
-
-</body></html><style id="mobile-document-ux-v7">
-@media(max-width:767px){
-  body.overlay-open .mobile-nav,body.overlay-open .mobile-back-btn{display:none!important}
-  .drawer{z-index:20000!important}
-  .drawerpanel{height:var(--mobile-vvh,100dvh)!important;min-height:0!important;overflow:hidden!important}
-  .drawerhead{position:relative!important;z-index:20!important;flex:0 0 auto!important}
-  .drawerbody{flex:1 1 auto!important;min-height:0!important;overflow:hidden!important}
-  .drawerbody iframe{height:100%!important;min-height:0!important}
-  .doc-fallback{
-    position:absolute!important;left:10px!important;right:10px!important;top:10px!important;bottom:auto!important;
-    width:auto!important;max-width:none!important;transform:translateY(-8px)!important;
-    grid-template-columns:38px minmax(0,1fr)!important;gap:10px!important;
-    padding:12px 46px 12px 12px!important;border-radius:15px!important;
-    max-height:calc(var(--mobile-vvh,100dvh) - 100px)!important;overflow:auto!important;
+      while(sourceY<canvas.height){
+        const sliceH=Math.min(pagePxH,canvas.height-sourceY);
+        const slice=document.createElement("canvas");
+        slice.width=canvas.width;
+        slice.height=Math.ceil(sliceH);
+        slice.getContext("2d").drawImage(canvas,0,sourceY,canvas.width,sliceH,0,0,canvas.width,sliceH);
+        const data=slice.toDataURL("image/jpeg",0.94);
+        if(page>0)pdf.addPage();
+        pdf.addImage(data,"JPEG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
+        sourceY+=sliceH;
+        page++;
+      }
+      return new File([pdf.output("blob")],`AGROINTELLECT-raschet-${new Date().toISOString().slice(0,10)}.pdf`,{type:"application/pdf"});
+    }finally{
+      if(!previous)target.classList.remove("pdf-capture-mode");
+    }
   }
-  .doc-fallback.show{transform:translateY(0)!important}
-  .doc-fallback strong{font-size:13px!important;line-height:1.3!important;padding-right:2px!important}
-  .doc-fallback p{font-size:11px!important;line-height:1.4!important}
-  .doc-fallback .btn{grid-column:1/3!important;width:100%!important;min-height:42px!important;margin-top:1px!important}
-  .fallback-close{position:absolute!important;top:8px!important;right:8px!important;width:32px!important;height:32px!important}
+  return null;
 }
-</style>
+
+async function v9PrintCalculation(){
+  const btn=document.getElementById("v9Print");
+  const old=btn?.textContent;
+  if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
+  try{
+    const file=await v9BuildPdfFile();
+    if(file){
+      const url=URL.createObjectURL(file);
+      const a=document.createElement("a");
+      a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1200);
+      if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
+      return;
+    }
+    // Safe fallback: print the current calculation page, which can be saved as PDF.
+    window.print();
+  }catch(e){
+    console.error(e);
+    window.print();
+  }finally{
+    setTimeout(()=>{if(btn){btn.disabled=false;btn.classList.remove("done");btn.textContent=old||"PDF / Печать";}},1400);
+  }
+}
+
+async function v9ShareCalculation(){
+  const btn=document.getElementById("v9Share");
+  const old=btn?.textContent;
+  if(btn){btn.disabled=true;btn.textContent="Готовим…";}
+  try{
+    const file=await v9BuildPdfFile();
+    if(file && navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+      await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",files:[file]});
+      return;
+    }
+    const text=v9CalculationText();
+    if(navigator.share){
+      try{await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text});return}
+      catch(e){if(e.name==="AbortError")return}
+    }
+    await navigator.clipboard.writeText(text);
+    alert("Расчёт скопирован. Его можно вставить в Telegram, MAX, WhatsApp или письмо.");
+  }catch(e){
+    if(e?.name!=="AbortError"){
+      try{await navigator.clipboard.writeText(v9CalculationText());alert("Расчёт скопирован.");}
+      catch(_){alert(v9CalculationText())}
+    }
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent=old||"↗ Поделиться";}
+  }
+}
+
+</script>
+
+
 <script>
 /* MOBILE DOCUMENT UX V7 */
 (function(){
@@ -3715,3 +3761,4 @@ async function v9ShareCalculation(){
   }
 })();
 </script>
+</body></html>
