@@ -2690,129 +2690,178 @@ body.overlay-open{overflow:hidden}
 </style>
 
 
-<style id="calculator-glass-v14">
-/* V14: glass visual system, scoped to calculator only */
+<style id="calculator-sky-glass-v15">
 .calculator-page{
-  --glass-line:rgba(119,151,196,.20);
-  --glass-shadow:0 18px 50px rgba(31,65,114,.08);
-  --glass-blue:#2f6df6;
-  --glass-cyan:#62d8ea;
-  --glass-green:#37c98b;
+  --sky-ink:#18324d;
+  --sky-muted:#71879b;
+  --sky-line:rgba(121,165,202,.22);
+  --sky-blue:#8cccf7;
+  --sky-blue-2:#b9e4fb;
+  --sky-mint:#9fdfc8;
+  --sky-card:rgba(255,255,255,.80);
+  --sky-shadow:0 16px 46px rgba(45,87,123,.075);
   position:relative;
 }
 .calculator-page::before{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
   background:
-    radial-gradient(circle at 80% 5%,rgba(113,189,255,.18),transparent 32%),
-    radial-gradient(circle at 18% 22%,rgba(126,118,255,.09),transparent 27%),
-    radial-gradient(circle at 75% 75%,rgba(70,218,181,.09),transparent 28%);
+    radial-gradient(circle at 82% 7%,rgba(129,205,249,.18),transparent 30%),
+    radial-gradient(circle at 10% 35%,rgba(180,227,250,.16),transparent 28%),
+    radial-gradient(circle at 78% 82%,rgba(161,224,201,.10),transparent 25%);
 }
 .calculator-page .calc-hero-v9,
 .calculator-page .calc-period-card,
 .calculator-page .farm-card,
 .calculator-page .calc-summary-v9{
-  background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(247,251,255,.72))!important;
-  border:1px solid var(--glass-line)!important;
-  box-shadow:var(--glass-shadow)!important;
-  backdrop-filter:blur(22px) saturate(145%);
-  -webkit-backdrop-filter:blur(22px) saturate(145%);
+  background:linear-gradient(145deg,rgba(255,255,255,.93),rgba(246,251,255,.76))!important;
+  border:1px solid var(--sky-line)!important;
+  box-shadow:var(--sky-shadow)!important;
+  backdrop-filter:blur(22px) saturate(138%);
+  -webkit-backdrop-filter:blur(22px) saturate(138%);
 }
 .calculator-page .calc-hero-v9{
   overflow:hidden;
   background:
-    radial-gradient(circle at 86% 25%,rgba(79,173,255,.25),transparent 27%),
-    radial-gradient(circle at 72% 75%,rgba(108,98,255,.11),transparent 28%),
-    linear-gradient(135deg,rgba(255,255,255,.96),rgba(234,245,255,.82))!important;
+    radial-gradient(circle at 90% 16%,rgba(141,207,247,.25),transparent 28%),
+    radial-gradient(circle at 72% 72%,rgba(190,231,250,.16),transparent 25%),
+    linear-gradient(135deg,rgba(255,255,255,.96),rgba(238,248,255,.86))!important;
 }
 .calculator-page .calc-hero-v9::after{
-  content:"";position:absolute;width:310px;height:310px;right:-100px;top:-145px;
-  border-radius:50%;background:rgba(255,255,255,.28);filter:blur(1px);pointer-events:none;
+  content:"";position:absolute;right:-75px;top:-130px;width:300px;height:300px;border-radius:50%;
+  background:linear-gradient(145deg,rgba(255,255,255,.42),rgba(179,226,249,.10));pointer-events:none;
 }
-.calculator-page .period-btn.active{
-  color:#fff!important;border-color:transparent!important;
-  background:linear-gradient(135deg,#3675ff 0%,#6674f7 55%,#42c9bf 115%)!important;
-  box-shadow:0 9px 24px rgba(63,106,239,.23)!important;
+.calculator-page .period-chip.active{
+  background:linear-gradient(135deg,#a5d9f7,#7fc5ee)!important;
+  border-color:#79bfe8!important;color:#173c5c!important;
+  box-shadow:0 8px 20px rgba(76,149,197,.14)!important;
 }
-.calculator-page .product-pick.selected{
-  background:linear-gradient(135deg,rgba(241,247,255,.98),rgba(238,255,249,.90))!important;
-  border-color:rgba(69,130,246,.48)!important;
-  box-shadow:0 9px 24px rgba(47,109,246,.10)!important;
+.calculator-page .farm-product.selected{
+  background:linear-gradient(145deg,rgba(243,250,255,.98),rgba(241,252,249,.94))!important;
+  border-color:rgba(106,180,226,.55)!important;
+  box-shadow:0 8px 22px rgba(72,141,187,.08)!important;
 }
-.calculator-page .calc-total-final{
-  background:
-    radial-gradient(circle at 90% 50%,rgba(91,224,172,.23),transparent 28%),
-    radial-gradient(circle at 10% 50%,rgba(91,135,255,.18),transparent 32%),
-    linear-gradient(110deg,rgba(246,250,255,.98),rgba(238,253,249,.90))!important;
-  border:1px solid rgba(90,159,214,.24)!important;
-  box-shadow:0 16px 38px rgba(37,86,137,.08)!important;
+.calculator-page .farm-product.selected .product-check{
+  background:#76bfe9!important;border-color:#76bfe9!important;
 }
-.calculator-page #v9AddFarmTop,
-.calculator-page #v9AddFarmWide,
+.calculator-page .farm-index{
+  background:linear-gradient(145deg,#c9ebfb,#a7daf4)!important;color:#1c5277!important;
+}
+.calculator-page .add-farm-btn,
+.calculator-page .add-farm-wide,
 .calculator-page #v9Share{
-  background:linear-gradient(135deg,#3675ff,#6b72f7 55%,#36cba5)!important;
-  color:#fff!important;border-color:transparent!important;
-  box-shadow:0 10px 25px rgba(60,107,237,.20)!important;
+  background:linear-gradient(135deg,#b9e4fb,#8dcef2 58%,#9edfc9)!important;
+  border-color:rgba(99,169,211,.34)!important;color:#174b6c!important;
+  box-shadow:0 9px 24px rgba(63,139,189,.12)!important;
 }
-.calculator-page button,.calculator-page .product-pick{
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+.calculator-page .add-farm-btn:hover,
+.calculator-page .add-farm-wide:hover,
+.calculator-page #v9Share:hover{filter:brightness(.99)}
+.calculator-page .summary-metric{
+  background:linear-gradient(145deg,rgba(250,253,255,.96),rgba(242,249,254,.88))!important;
+  border-color:rgba(128,170,205,.20)!important;
 }
-@media (hover:hover){
- .calculator-page button:hover,.calculator-page .product-pick:hover{transform:translateY(-1px)}
+.calculator-page .summary-metric.discount{
+  background:linear-gradient(145deg,rgba(247,253,249,.98),rgba(237,250,244,.90))!important;
+  border-color:rgba(109,184,145,.22)!important;
 }
-@media (max-width:767px){
- .calculator-page .calc-hero-v9,.calculator-page .calc-period-card,.calculator-page .farm-card,.calculator-page .calc-summary-v9{
-   backdrop-filter:blur(15px) saturate(135%);-webkit-backdrop-filter:blur(15px) saturate(135%);
- }
+.calculator-page .summary-final{
+  background:
+    radial-gradient(circle at 90% 50%,rgba(157,224,199,.25),transparent 30%),
+    radial-gradient(circle at 12% 50%,rgba(158,214,247,.24),transparent 34%),
+    linear-gradient(120deg,rgba(248,252,255,.98),rgba(241,251,248,.92))!important;
+  border:1px solid rgba(116,171,207,.24)!important;
+  box-shadow:0 14px 34px rgba(54,113,151,.08)!important;
+  color:var(--sky-ink)!important;
+}
+.calculator-page .summary-final small,
+.calculator-page .summary-final strong,
+.calculator-page .summary-final span{color:var(--sky-ink)!important}
+.calculator-page .summary-final span{
+  background:rgba(255,255,255,.58)!important;border:1px solid rgba(112,171,146,.18)!important;
+  border-radius:13px!important;padding:8px 11px!important;
+}
+.calculator-page .calc-action.primary{
+  background:linear-gradient(145deg,#eef8fe,#e7f5fc)!important;border-color:#cde7f6!important;color:#285b79!important;
+}
+.calculator-page button,.calculator-page .farm-product{transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+@media(hover:hover){.calculator-page button:hover,.calculator-page .farm-product:hover{transform:translateY(-1px)}}
+@media(max-width:767px){
+  .calculator-page .calc-hero-v9,.calculator-page .calc-period-card,.calculator-page .farm-card,.calculator-page .calc-summary-v9{
+    backdrop-filter:blur(15px) saturate(132%);-webkit-backdrop-filter:blur(15px) saturate(132%);
+  }
 }
 </style>
 
 
-<style id="custom-discount-v14-style">
-.v14-discount-trigger{
-  display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(97,135,186,.22);
-  background:rgba(255,255,255,.72);color:#23405f;border-radius:12px;padding:8px 12px;
-  font:700 12px/1.1 inherit;box-shadow:0 6px 18px rgba(39,73,118,.06);
+<style id="custom-discount-v15-style">
+.v15-discount-trigger{
+  display:inline-flex;align-items:center;gap:7px;margin-top:11px;
+  border:1px solid rgba(116,164,199,.24);background:rgba(255,255,255,.72);color:#315b78;
+  border-radius:12px;padding:9px 12px;font-weight:800;font-size:12px;box-shadow:0 6px 18px rgba(54,103,137,.055)
 }
-.v14-discount-trigger.active{
-  color:#fff;border-color:transparent;background:linear-gradient(135deg,#3975ff,#6c70f4 55%,#39c89f);
+.v15-discount-trigger.active{
+  background:linear-gradient(135deg,#c5eafb,#9fd7f2 58%,#b0e4d2);color:#174b68;border-color:rgba(87,157,198,.30)
 }
-.v14-discount-backdrop{
-  position:fixed;inset:0;z-index:50000;display:none;align-items:center;justify-content:center;padding:20px;
-  background:rgba(13,28,48,.22);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+.v15-discount-backdrop{
+  position:fixed;inset:0;z-index:50000;display:none;align-items:center;justify-content:center;padding:18px;
+  background:rgba(20,43,64,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)
 }
-.v14-discount-backdrop.open{display:flex}
-.v14-discount-modal{
-  width:min(430px,100%);position:relative;border-radius:28px;padding:26px;
-  border:1px solid rgba(255,255,255,.72);
-  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(239,247,255,.86));
-  box-shadow:0 28px 90px rgba(17,45,84,.25);
-  backdrop-filter:blur(28px) saturate(155%);-webkit-backdrop-filter:blur(28px) saturate(155%);
+.v15-discount-backdrop.open{display:flex}
+.v15-discount-modal{
+  position:relative;width:min(430px,100%);border-radius:28px;padding:25px;
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(239,249,255,.88));
+  border:1px solid rgba(255,255,255,.82);box-shadow:0 28px 90px rgba(20,54,82,.22);
+  backdrop-filter:blur(30px) saturate(145%);-webkit-backdrop-filter:blur(30px) saturate(145%)
 }
-.v14-discount-close{
-  position:absolute;right:16px;top:16px;width:36px;height:36px;border:0;border-radius:50%;
-  background:rgba(231,239,248,.86);font-size:22px;color:#31506e;cursor:pointer;
+.v15-discount-close{
+  position:absolute;right:15px;top:15px;width:36px;height:36px;border:0;border-radius:50%;
+  background:rgba(232,242,249,.88);color:#45677f;font-size:21px
 }
-.v14-discount-icon{
-  width:56px;height:56px;display:grid;place-items:center;border-radius:18px;color:white;font-size:25px;font-weight:900;
-  background:linear-gradient(135deg,#3d7cff,#7371f4 55%,#3bcba2);box-shadow:0 12px 28px rgba(69,106,235,.24);
+.v15-discount-icon{
+  width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:24px;font-weight:900;color:#225675;
+  background:linear-gradient(145deg,#d8f1fc,#a9daf2 60%,#b7e6d6);box-shadow:0 11px 26px rgba(74,144,184,.15)
 }
-.v14-discount-copy{margin:17px 0 18px}
-.v14-discount-kicker{font-size:11px;font-weight:800;color:#3875e9;text-transform:uppercase;letter-spacing:.08em}
-.v14-discount-copy h3{font-size:25px;margin:5px 0 5px;color:#102c4b}
-.v14-discount-copy p{margin:0;color:#71849a;font-size:13px}
-.v14-discount-field span{display:block;font-size:12px;font-weight:800;color:#405a75;margin-bottom:7px}
-.v14-discount-inputwrap{
-  display:flex;align-items:center;border:1px solid rgba(97,135,186,.22);border-radius:16px;background:rgba(255,255,255,.78);
-  padding:0 15px;box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
+.v15-discount-kicker{margin-top:17px;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:#5d9fc8}
+.v15-discount-modal h3{font-size:25px;margin:4px 0 5px;color:#173b58}
+.v15-discount-modal p{font-size:13px;color:#71879a;margin:0 0 17px}
+.v15-discount-field>span{display:block;font-size:12px;font-weight:800;color:#46647b;margin-bottom:7px}
+.v15-discount-inputwrap{
+  display:flex;align-items:center;border:1px solid rgba(114,162,198,.25);border-radius:16px;background:rgba(255,255,255,.82);padding:0 14px
 }
-.v14-discount-inputwrap input{width:100%;border:0;outline:0;background:transparent;padding:14px 0;font-size:22px;font-weight:850;color:#102c4b}
-.v14-discount-inputwrap b{color:#3975ee}
-.v14-discount-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:9px;margin-top:18px}
-.v14-discount-actions button{border:0;border-radius:14px;padding:12px 14px;font-weight:800;cursor:pointer}
-#v14DiscountReset{background:rgba(229,237,246,.78);color:#526b84}
-#v14DiscountApply{color:#fff;background:linear-gradient(135deg,#3975ff,#6d70f5 55%,#37c99f);box-shadow:0 10px 24px rgba(60,104,235,.20)}
-@media(max-width:520px){.v14-discount-modal{padding:22px;border-radius:24px}.v14-discount-actions{grid-template-columns:1fr}}
-@media print{.v14-discount-backdrop,.v14-discount-trigger{display:none!important}}
+.v15-discount-inputwrap input{width:100%;border:0;outline:0;background:transparent;padding:14px 0;font-size:22px;font-weight:850;color:#173b58}
+.v15-discount-inputwrap b{color:#5aa5d0}
+.v15-discount-help{margin-top:7px!important;font-size:11px!important;color:#8697a7!important}
+.v15-discount-actions{display:grid;grid-template-columns:1fr 1.4fr;gap:9px;margin-top:17px}
+.v15-discount-actions button{border:0;border-radius:14px;padding:12px 14px;font-weight:800}
+#v15DiscountReset{background:#edf4f8;color:#60788b}
+#v15DiscountApply{background:linear-gradient(135deg,#bce5f8,#8fcdeb 58%,#a8dfcb);color:#174b68;box-shadow:0 9px 22px rgba(72,144,186,.13)}
+@media(max-width:520px){.v15-discount-modal{padding:21px;border-radius:24px}.v15-discount-actions{grid-template-columns:1fr}}
+@media print{.v15-discount-backdrop,.v15-discount-trigger{display:none!important}}
+</style>
+
+
+<style id="pdf-v15-style">
+.pdf-capture-mode{
+  width:1180px!important;max-width:1180px!important;
+  background:#f7fafc!important;padding:24px!important;border-radius:0!important;
+  font-synthesis:none!important;
+}
+.pdf-capture-mode .calc-share-bar,
+.pdf-capture-mode #v9AddFarmTop,
+.pdf-capture-mode #v9AddFarmWide,
+.pdf-capture-mode .farm-delete,
+.pdf-capture-mode .v15-discount-trigger{display:none!important}
+.pdf-capture-mode .calc-hero-v9,
+.pdf-capture-mode .calc-period-card,
+.pdf-capture-mode .farm-card,
+.pdf-capture-mode .calc-summary-v9{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  background:#fff!important;
+  box-shadow:0 4px 16px rgba(30,63,92,.06)!important;
+}
+.pdf-capture-mode .summary-final{
+  background:linear-gradient(110deg,#f2f9fd,#eefaf5)!important;
+}
 </style>
 
 </head>
@@ -3498,7 +3547,7 @@ const CALC_META={
 };
 let calcV9={
  farms:[{id:1,name:"",heads:500,products:{onlinefarm:true,milk:true,musoft:true}}],
- months:12,periodMode:12,customPeriod:"",nextId:2
+ months:12,periodMode:12,customPeriod:"",nextId:2,manualDiscount:null
 };
 
 function v9Money(v){
@@ -3544,9 +3593,10 @@ function v9Summary(){
  }));
  const monthly=farms.reduce((s,f)=>s+f.monthly,0);
  const gross=monthly*calcV9.months;
- const disc=v9Discount(calcV9.months);
+ const standardDisc=v9Discount(calcV9.months);
+ const disc=calcV9.manualDiscount===null?standardDisc:Math.max(0,Math.min(100,Number(calcV9.manualDiscount)||0));
  const discountAmount=gross*disc/100;
- return {farms,monthly,gross,disc,discountAmount,final:gross-discountAmount};
+ return {farms,monthly,gross,disc,standardDisc,manualDiscount:calcV9.manualDiscount,discountAmount,final:gross-discountAmount};
 }
 function v9ProductCount(){
  return calcV9.farms.reduce((n,f)=>n+Object.values(f.products).filter(Boolean).length,0);
@@ -3582,6 +3632,10 @@ function renderCalculator(){
          <button class="period-chip" data-period="12" type="button">12 месяцев</button>
          <button class="period-chip" data-period="custom" type="button">Другой период</button>
        </div>
+
+       <button class="v15-discount-trigger" id="v15DiscountTrigger" type="button">
+         <span>✦</span><span id="v15DiscountTriggerText">Своя скидка</span>
+       </button>
        <div class="period-custom" id="v9CustomPeriodWrap">
          <input id="v9CustomPeriod" type="text" inputmode="text" value="${calcV9.customPeriod}" placeholder="Например: 24 месяца или 2 года">
          <small id="v9CustomPeriodHint"></small>
@@ -3657,6 +3711,8 @@ function bindV9Calculator(){
  document.getElementById("v9Copy")?.addEventListener("click",v9CopyCalculation);
  document.getElementById("v9Print")?.addEventListener("click",v9PrintCalculation);
  document.getElementById("v9Share")?.addEventListener("click",v9ShareCalculation);
+ document.getElementById("v15DiscountTrigger")?.addEventListener("click",v15OpenDiscount);
+ v15RefreshDiscountTrigger();
 }
 
 function v9AddFarm(){
@@ -3728,7 +3784,7 @@ function renderV9CalculatorState(renderFarms=true){
  if(hint)hint.textContent=calcV9.periodMode==="custom"?(v9ParsePeriod(calcV9.customPeriod)?`Распознано: ${v9PeriodLabel(calcV9.months)}`:"Введите срок цифрами, месяцами или годами"):"";
  const set=(id,val)=>{const el=document.getElementById(id);if(el)el.textContent=val};
  set("v9FarmCount",calcV9.farms.length);set("v9ProductCount",v9ProductCount());set("v9PeriodTop",calcV9.months);
- set("v9PeriodSummary",v9PeriodLabel(calcV9.months));set("v9DiscountSummary",`Скидка ${s.disc}%`);
+ set("v9PeriodSummary",v9PeriodLabel(calcV9.months));set("v9DiscountSummary",`${s.manualDiscount===null?"Стандартная":"Своя"} скидка ${s.disc}%`);
  set("v9SummarySubtitle",`${calcV9.farms.length} хозяйств · ${v9ProductCount()} подключений`);
  set("v9SummaryPeriod",v9PeriodLabel(calcV9.months));
  const sf=document.getElementById("v9SummaryFarms");
@@ -3737,7 +3793,7 @@ function renderV9CalculatorState(renderFarms=true){
    <div class="summary-farm-price"><strong>${v9Money(f.monthly)} / мес.</strong><span>${v9Money(f.monthly*calcV9.months)} за период</span></div>
  </div>`).join("");
  set("v9Monthly",v9Money(s.monthly));set("v9Gross",v9Money(s.gross));set("v9Discount",`−${v9Money(s.discountAmount)}`);set("v9Final",v9Money(s.final));
- set("v9FinalNote",`${v9PeriodLabel(calcV9.months)} · скидка ${s.disc}%`);
+ set("v9FinalNote",`${v9PeriodLabel(calcV9.months)} · ${s.manualDiscount===null?"стандартная":"своя"} скидка ${s.disc}%`);
  if(!renderFarms){
    // update visible farm totals without re-rendering fields currently being edited
    calcV9.farms.forEach(f=>{
@@ -3764,13 +3820,42 @@ function v9CalculationText(){
  lines.push(`Период: ${v9PeriodLabel(calcV9.months)}`);
  lines.push(`Стоимость в месяц: ${v9Money(s.monthly)}`);
  lines.push(`Стоимость за период: ${v9Money(s.gross)}`);
- lines.push(`Скидка: ${s.disc}% (${v9Money(s.discountAmount)})`);
+ lines.push(`${s.manualDiscount===null?"Стандартная":"Своя"} скидка: ${s.disc}% (${v9Money(s.discountAmount)})`);
  lines.push(`ИТОГО К ОПЛАТЕ: ${v9Money(s.final)}`);
  return lines.join("\n");
 }
 async function v9CopyCalculation(){
  const btn=document.getElementById("v9Copy");
  try{await navigator.clipboard.writeText(v9CalculationText());if(btn){const old=btn.innerHTML;btn.classList.add("done");btn.textContent="✓ Скопировано";setTimeout(()=>{btn.classList.remove("done");btn.innerHTML=old},1600)}}catch(e){alert(v9CalculationText())}
+}
+
+
+function v15RefreshDiscountTrigger(){
+ const btn=document.getElementById("v15DiscountTrigger");
+ const txt=document.getElementById("v15DiscountTriggerText");
+ if(!btn||!txt)return;
+ const active=calcV9.manualDiscount!==null;
+ btn.classList.toggle("active",active);
+ txt.textContent=active?`Своя скидка ${Number(calcV9.manualDiscount).toLocaleString("ru-RU")}%`:"Своя скидка";
+}
+function v15OpenDiscount(){
+ const b=document.getElementById("v15DiscountBackdrop"),i=document.getElementById("v15DiscountInput");
+ if(!b||!i)return;
+ i.value=calcV9.manualDiscount===null?v9Discount(calcV9.months):calcV9.manualDiscount;
+ b.classList.add("open");b.setAttribute("aria-hidden","false");setTimeout(()=>i.focus(),50);
+}
+function v15CloseDiscount(){
+ const b=document.getElementById("v15DiscountBackdrop");if(!b)return;
+ b.classList.remove("open");b.setAttribute("aria-hidden","true");
+}
+function v15ApplyDiscount(){
+ const i=document.getElementById("v15DiscountInput");
+ const raw=parseFloat(i?.value);
+ calcV9.manualDiscount=Math.max(0,Math.min(100,Number.isFinite(raw)?raw:0));
+ v15CloseDiscount();renderV9CalculatorState(false);v15RefreshDiscountTrigger();
+}
+function v15ResetDiscount(){
+ calcV9.manualDiscount=null;v15CloseDiscount();renderV9CalculatorState(false);v15RefreshDiscountTrigger();
 }
 
 async function v9BuildPdfFile(){
@@ -3783,8 +3868,8 @@ async function v9BuildPdfFile(){
     target.classList.add("pdf-capture-mode");
     try{
       const canvas=await window.html2canvas(target,{
-        scale:Math.min(2,window.devicePixelRatio||1.5),
-        backgroundColor:"#f6f8fa",
+        scale:Math.min(3.2,Math.max(2.4,(window.devicePixelRatio||1)*1.6)),
+        backgroundColor:"#f7fafc",
         useCORS:true,
         logging:false,
         scrollX:0,
@@ -3804,9 +3889,9 @@ async function v9BuildPdfFile(){
         slice.width=canvas.width;
         slice.height=Math.ceil(sliceH);
         slice.getContext("2d").drawImage(canvas,0,sourceY,canvas.width,sliceH,0,0,canvas.width,sliceH);
-        const data=slice.toDataURL("image/jpeg",0.94);
+        const data=slice.toDataURL("image/png");
         if(page>0)pdf.addPage();
-        pdf.addImage(data,"JPEG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
+        pdf.addImage(data,"PNG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
         sourceY+=sliceH;
         page++;
       }
@@ -3845,25 +3930,34 @@ async function v9PrintCalculation(){
 async function v9ShareCalculation(){
   const btn=document.getElementById("v9Share");
   const old=btn?.textContent;
-  if(btn){btn.disabled=true;btn.textContent="Готовим…";}
+  if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
   try{
     const file=await v9BuildPdfFile();
-    if(file && navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
-      await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",files:[file]});
+    if(file){
+      if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+        try{
+          await navigator.share({
+            title:"Расчёт АГРОИНТЕЛЛЕКТ",
+            text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",
+            files:[file]
+          });
+          return;
+        }catch(e){
+          if(e?.name==="AbortError")return;
+        }
+      }
+      const url=URL.createObjectURL(file);
+      const a=document.createElement("a");
+      a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),1500);
+      alert("PDF скачан. Если браузер не поддерживает отправку файла напрямую, прикрепите этот PDF в Telegram или другой мессенджер.");
       return;
     }
-    const text=v9CalculationText();
-    if(navigator.share){
-      try{await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text});return}
-      catch(e){if(e.name==="AbortError")return}
-    }
-    await navigator.clipboard.writeText(text);
-    alert("Расчёт скопирован. Его можно вставить в Telegram, MAX, WhatsApp или письмо.");
+    window.print();
   }catch(e){
-    if(e?.name!=="AbortError"){
-      try{await navigator.clipboard.writeText(v9CalculationText());alert("Расчёт скопирован.");}
-      catch(_){alert(v9CalculationText())}
-    }
+    console.error(e);
+    try{await navigator.clipboard.writeText(v9CalculationText())}catch(_){}
+    alert("Не удалось создать PDF автоматически. Расчёт скопирован, а PDF можно сохранить через «Печать».");
   }finally{
     if(btn){btn.disabled=false;btn.textContent=old||"↗ Поделиться";}
   }
@@ -3888,95 +3982,35 @@ async function v9ShareCalculation(){
 })();
 </script>
 
-<div class="v14-discount-backdrop" id="v14DiscountBackdrop" aria-hidden="true">
-  <div class="v14-discount-modal" role="dialog" aria-modal="true" aria-labelledby="v14DiscountTitle">
-    <button class="v14-discount-close" id="v14DiscountClose" type="button" aria-label="Закрыть">×</button>
-    <div class="v14-discount-icon">%</div>
-    <div class="v14-discount-copy">
-      <div class="v14-discount-kicker">Персональные условия</div>
-      <h3 id="v14DiscountTitle">Своя скидка</h3>
-      <p>Укажите дополнительную скидку для текущего расчёта.</p>
-    </div>
-    <label class="v14-discount-field">
-      <span>Скидка, %</span>
-      <div class="v14-discount-inputwrap">
-        <input id="v14DiscountInput" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="0">
+<div class="v15-discount-backdrop" id="v15DiscountBackdrop" aria-hidden="true">
+  <div class="v15-discount-modal" role="dialog" aria-modal="true" aria-labelledby="v15DiscountTitle">
+    <button type="button" class="v15-discount-close" id="v15DiscountClose" aria-label="Закрыть">×</button>
+    <div class="v15-discount-icon">%</div>
+    <div class="v15-discount-kicker">Персональные условия</div>
+    <h3 id="v15DiscountTitle">Своя скидка</h3>
+    <p>Своя скидка заменяет стандартную скидку периода для текущего расчёта.</p>
+    <label class="v15-discount-field">
+      <span>Размер скидки</span>
+      <div class="v15-discount-inputwrap">
+        <input id="v15DiscountInput" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="0">
         <b>%</b>
       </div>
     </label>
-    <div class="v14-discount-actions">
-      <button type="button" id="v14DiscountReset">Сбросить</button>
-      <button type="button" id="v14DiscountApply">Применить скидку</button>
+    <p class="v15-discount-help">Допустимое значение: от 0 до 100%.</p>
+    <div class="v15-discount-actions">
+      <button type="button" id="v15DiscountReset">Вернуть стандартную</button>
+      <button type="button" id="v15DiscountApply">Применить скидку</button>
     </div>
   </div>
 </div>
 
 
-<script id="custom-discount-v14">
-(function(){
-  let customDiscount=0;
-  const money=n=>Math.round(Number(n)||0).toLocaleString("ru-RU")+" ₽";
-
-  function ensureTrigger(){
-    if(document.getElementById("v14DiscountTrigger")) return;
-    const host=document.querySelector(".calc-period-card") || document.querySelector(".calculator-page");
-    if(!host) return;
-    const btn=document.createElement("button");
-    btn.type="button";btn.id="v14DiscountTrigger";btn.className="v14-discount-trigger";
-    btn.innerHTML='<span>✦</span><span>Своя скидка</span>';
-    btn.addEventListener("click",openModal);
-    host.appendChild(btn);
-  }
-  function openModal(){
-    const b=document.getElementById("v14DiscountBackdrop"),i=document.getElementById("v14DiscountInput");
-    if(!b)return;b.classList.add("open");b.setAttribute("aria-hidden","false");
-    i.value=customDiscount||0;setTimeout(()=>i.focus(),60);
-  }
-  function closeModal(){
-    const b=document.getElementById("v14DiscountBackdrop");if(!b)return;
-    b.classList.remove("open");b.setAttribute("aria-hidden","true");
-  }
-  function applyVisualDiscount(){
-    const page=document.querySelector(".calculator-page");if(!page)return;
-    const totalEl=page.querySelector(".calc-total-final strong,.calc-total-final .value,.calc-total-final [data-total],#v9GrandTotal");
-    const monthEl=page.querySelector("#v9MonthlyTotal,[data-month-total]");
-    const periodEl=page.querySelector("#v9PeriodTotal,[data-period-total]");
-    const discountEl=page.querySelector("#v9DiscountTotal,[data-discount-total]");
-    // Preserve calculator's own numeric base if exposed; otherwise derive from visible period total.
-    let base=0;
-    if(periodEl) base=parseFloat((periodEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
-    if(!base && totalEl) base=parseFloat((totalEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
-    if(base>0 && customDiscount>0){
-      const extra=base*customDiscount/100;
-      const final=Math.max(0,base-extra);
-      if(totalEl) totalEl.textContent=money(final);
-      if(discountEl){
-        const existing=parseFloat((discountEl.textContent||"").replace(/[^\d,.-]/g,"").replace(/\s/g,"").replace(",", "."))||0;
-        discountEl.textContent="−"+money(existing+extra);
-      }
-    }
-    const t=document.getElementById("v14DiscountTrigger");
-    if(t){t.classList.toggle("active",customDiscount>0);t.innerHTML=customDiscount>0?'<span>✦</span><span>Своя скидка '+customDiscount.toLocaleString("ru-RU")+'%</span>':'<span>✦</span><span>Своя скидка</span>'}
-  }
-
-  document.addEventListener("DOMContentLoaded",function(){
-    ensureTrigger();
-    document.getElementById("v14DiscountClose")?.addEventListener("click",closeModal);
-    document.getElementById("v14DiscountBackdrop")?.addEventListener("click",e=>{if(e.target.id==="v14DiscountBackdrop")closeModal()});
-    document.getElementById("v14DiscountReset")?.addEventListener("click",()=>{customDiscount=0;closeModal();if(typeof v9Update==="function")v9Update();setTimeout(applyVisualDiscount,0)});
-    document.getElementById("v14DiscountApply")?.addEventListener("click",()=>{
-      let v=parseFloat(document.getElementById("v14DiscountInput").value)||0;
-      customDiscount=Math.max(0,Math.min(100,v));closeModal();
-      if(typeof v9Update==="function")v9Update();setTimeout(applyVisualDiscount,0);
-    });
-    document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
-    // Reapply after calculator UI changes.
-    const calc=document.querySelector(".calculator-page");
-    if(calc) new MutationObserver(()=>{if(customDiscount>0)requestAnimationFrame(applyVisualDiscount)}).observe(calc,{childList:true,subtree:true});
-  });
-
-  window.v14GetCustomDiscount=()=>customDiscount;
-})();
+<script id="v15-discount-events">
+document.getElementById("v15DiscountClose")?.addEventListener("click",v15CloseDiscount);
+document.getElementById("v15DiscountApply")?.addEventListener("click",v15ApplyDiscount);
+document.getElementById("v15DiscountReset")?.addEventListener("click",v15ResetDiscount);
+document.getElementById("v15DiscountBackdrop")?.addEventListener("click",e=>{if(e.target.id==="v15DiscountBackdrop")v15CloseDiscount()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")v15CloseDiscount()});
 </script>
 
 </body></html>

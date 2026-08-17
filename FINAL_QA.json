@@ -1,12 +1,15 @@
 {
-  "version": "GLASS_V14",
+  "version": "SKY_GLASS_V15",
   "base": "FIXED_V13",
-  "changes": [
-    "Apple-like glass visual layer for calculator",
-    "custom discount modal 0–100%",
-    "custom discount trigger integrated into payment area",
-    "existing multi-farm/product/period logic retained",
-    "PDF/share logic from fixed V13 retained"
+  "design": "soft sky-blue glass, no saturated royal-blue blocks",
+  "custom_discount": "manual discount 0–100%; replaces standard period discount while active",
+  "pdf": "high-resolution html2canvas capture, PNG slices into A4 PDF",
+  "share": "Web Share sends generated PDF file when browser/OS supports file sharing; otherwise PDF downloads",
+  "tested": [
+    "desktop 1440x1000",
+    "mobile 390x844",
+    "custom discount apply/reset",
+    "contacts/calculator structure retained"
   ],
-  "injected_js_syntax": "OK"
+  "js_syntax": "OK"
 }
