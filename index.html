@@ -1861,6 +1861,226 @@ body.overlay-open{overflow:hidden}
   .journey-v3 button small{font-size:13px!important}
 }
 
+
+/* MOBILE FIX V5 */
+@media(max-width:767px){
+
+  html{
+    scroll-padding-top:0!important;
+  }
+  body{
+    overflow-x:hidden!important;
+  }
+
+  /* Убираем ощущение, что контент залезает под адресную строку браузера */
+  .topbar{
+    position:relative!important;
+    top:auto!important;
+    min-height:54px!important;
+    height:54px!important;
+    padding:0 14px!important;
+    background:#fff!important;
+    backdrop-filter:none!important;
+  }
+  .breadcrumb{
+    display:none!important;
+  }
+  .top-brand{
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+  }
+  .top-brand strong{
+    font-size:13px!important;
+    white-space:nowrap!important;
+  }
+  .top-brand img{
+    width:32px!important;
+    height:32px!important;
+  }
+
+  /* На телефоне глобальный поиск раскрывается отдельно и не занимает верх экрана */
+  .topbar .search{
+    display:none!important;
+  }
+
+  /* Плавающую кнопку назад убираем с верхнего края — она перекрывала контент */
+  .mobile-back-btn{
+    top:auto!important;
+    bottom:calc(86px + env(safe-area-inset-bottom))!important;
+    left:14px!important;
+    width:42px!important;
+    height:42px!important;
+    min-height:42px!important;
+    background:rgba(255,255,255,.96)!important;
+    box-shadow:0 10px 30px rgba(20,52,84,.16)!important;
+  }
+
+  .content{
+    padding:18px 14px calc(126px + env(safe-area-inset-bottom))!important;
+  }
+
+  /* Главный блок */
+  .home-hero-v3{
+    display:block!important;
+    margin:0 0 24px!important;
+  }
+  .hero-copy-v3{
+    padding:22px 18px 20px!important;
+    border-radius:20px!important;
+  }
+  .hero-copy-v3 .kicker{
+    font-size:12px!important;
+  }
+  .hero-copy-v3 h1{
+    font-size:34px!important;
+    line-height:1.08!important;
+    letter-spacing:-.035em!important;
+    margin:8px 0 12px!important;
+  }
+  .hero-copy-v3 .lead{
+    font-size:16px!important;
+    line-height:1.55!important;
+  }
+
+  .hero-search-v3{
+    height:50px!important;
+    margin-top:18px!important;
+    border-radius:15px!important;
+  }
+  .hero-search-v3 input{
+    font-size:15px!important;
+    min-width:0!important;
+  }
+
+  .hero-links-v3{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:10px!important;
+    margin-top:14px!important;
+  }
+  .hero-link{
+    width:100%!important;
+    min-height:54px!important;
+    justify-content:space-between!important;
+    border-radius:15px!important;
+    padding:0 16px!important;
+    font-size:15px!important;
+  }
+
+  /* Фирменная карточка: логотип больше не конфликтует с повторной надписью */
+  .hero-brand-v3{
+    display:block!important;
+    margin-top:12px!important;
+    padding:18px!important;
+    border-radius:20px!important;
+  }
+  .hero-brand-mark{
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:12px!important;
+    margin:0!important;
+    border-radius:18px!important;
+  }
+  .hero-brand-mark img{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    max-height:210px!important;
+    object-fit:contain!important;
+  }
+  .hero-brand-text{
+    display:none!important;
+  }
+  .hero-mini-stats{
+    display:grid!important;
+    grid-template-columns:repeat(3,1fr)!important;
+    gap:8px!important;
+    margin-top:12px!important;
+  }
+  .hero-mini-stats span{
+    padding:10px 7px!important;
+    font-size:11px!important;
+    text-align:center!important;
+    white-space:normal!important;
+  }
+  .hero-mini-stats b{
+    display:block!important;
+    font-size:17px!important;
+    margin-bottom:2px!important;
+  }
+
+  /* Блок маршрута — одна колонка, без сдавливания текста */
+  .home-block-v3{
+    margin-top:24px!important;
+  }
+  .home-title-v3{
+    margin-bottom:12px!important;
+  }
+  .home-title-v3 h2{
+    font-size:29px!important;
+    line-height:1.12!important;
+  }
+  .home-title-v3>p{
+    font-size:15px!important;
+    line-height:1.5!important;
+  }
+  .journey-v3{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    padding:8px!important;
+    border-radius:18px!important;
+  }
+  .journey-v3>i{
+    display:none!important;
+  }
+  .journey-v3 button{
+    padding:15px!important;
+  }
+  .journey-v3 button b{
+    font-size:17px!important;
+  }
+  .journey-v3 button small{
+    font-size:14px!important;
+    line-height:1.5!important;
+  }
+
+  .viewer-tip-v3{
+    padding:12px!important;
+    align-items:flex-start!important;
+  }
+  .viewer-tip-v3 p{
+    font-size:13px!important;
+  }
+
+  .popular-grid-v3{
+    grid-template-columns:1fr!important;
+  }
+  .popular-grid-v3 .popular-card{
+    min-height:96px!important;
+  }
+
+  /* Нижнее меню не должно перекрывать содержимое */
+  .mobile-nav{
+    bottom:calc(10px + env(safe-area-inset-bottom))!important;
+    left:10px!important;
+    right:10px!important;
+    width:auto!important;
+    border-radius:20px!important;
+  }
+
+  /* Внутренний поиск: не перекрывает адресную строку Safari */
+  .search-suggestions{
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:calc(100% + 8px)!important;
+    max-height:55vh!important;
+  }
+}
+
 </style>
 
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
