@@ -1,16 +1,18 @@
 {
-  "version": "final-mobile-nav",
-  "github_pages": true,
-  "responsive": ["desktop", "tablet", "mobile"],
-  "mobile_hotfixes": [
-    "search collapses after scrolling",
-    "fixed back button",
-    "back closes overlays before browser navigation"
+  "version": "FINAL_UX",
+  "js_syntax": "OK",
+  "changes": [
+    "Добавлен видимый крестик в предупреждении о заблокированном документе",
+    "Внутренняя кнопка Назад не выводит пользователя из кабинета",
+    "Поиск сообщает, если ничего не найдено",
+    "Поиск по материалу открывает найденный материал",
+    "Фон не прокручивается при открытом просмотрщике документа",
+    "Мобильный просмотрщик компактнее и понятнее",
+    "Добавлен М-Комплекс в управление стадом и кормлением",
+    "Hover интеграций сохранён без изменения"
   ],
-  "favicon": ["favicon.ico", "favicon.png", "apple-touch-icon.png"],
-  "contact_hotfix": {
-    "name": "Ганган Елизавета",
-    "role": "Менеджер по сопровождению",
-    "phone": "8 911 867-37-36"
-  }
+  "integrations_added": [
+    "М-Комплекс — система управления стадом",
+    "М-Комплекс — система управления кормлением"
+  ]
 }
