@@ -1,18 +1,29 @@
 {
-  "version": "FINAL_UX",
+  "version": "HOME_SEARCH_V2",
   "js_syntax": "OK",
-  "changes": [
-    "Добавлен видимый крестик в предупреждении о заблокированном документе",
-    "Внутренняя кнопка Назад не выводит пользователя из кабинета",
-    "Поиск сообщает, если ничего не найдено",
-    "Поиск по материалу открывает найденный материал",
-    "Фон не прокручивается при открытом просмотрщике документа",
-    "Мобильный просмотрщик компактнее и понятнее",
-    "Добавлен М-Комплекс в управление стадом и кормлением",
-    "Hover интеграций сохранён без изменения"
-  ],
-  "integrations_added": [
-    "М-Комплекс — система управления стадом",
-    "М-Комплекс — система управления кормлением"
+  "home": {
+    "product_cards_removed": true,
+    "welcome_hero": true,
+    "getting_started": 4,
+    "workflow_steps": 6,
+    "quick_access": 4,
+    "frequent_materials": 6
+  },
+  "search": {
+    "autocomplete": true,
+    "visible_suggestions": 5,
+    "keyboard_navigation": true,
+    "all_results_view": true,
+    "synonyms": true,
+    "desktop": true,
+    "tablet": true,
+    "mobile": true
+  },
+  "preserved": [
+    "mobile back",
+    "document fallback close",
+    "M-Комплекс integrations",
+    "favicon",
+    "contact hotfix"
   ]
 }
