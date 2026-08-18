@@ -2864,6 +2864,116 @@ body.overlay-open{overflow:hidden}
 }
 </style>
 
+
+<style id="calculator-refined-v16">
+.calculator-page{
+  --v16-border:#dfe8ef;--v16-text:#20384f;--v16-muted:#75889b;
+  --v16-shadow:0 10px 30px rgba(38,74,104,.055);
+}
+.calculator-page::before{
+  background:
+    radial-gradient(circle at 86% 6%,rgba(160,214,244,.13),transparent 31%),
+    radial-gradient(circle at 12% 45%,rgba(203,231,247,.10),transparent 28%)!important;
+}
+.calculator-page .calc-hero-v9,
+.calculator-page .calc-period-card,
+.calculator-page .farm-card,
+.calculator-page .calc-summary-v9{
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(248,251,253,.92))!important;
+  border:1px solid var(--v16-border)!important;
+  box-shadow:var(--v16-shadow)!important;
+  backdrop-filter:blur(12px) saturate(112%)!important;
+  -webkit-backdrop-filter:blur(12px) saturate(112%)!important;
+}
+.calculator-page .calc-hero-v9{
+  background:
+    radial-gradient(circle at 91% 16%,rgba(171,220,246,.18),transparent 28%),
+    linear-gradient(145deg,#fff,#f5faff)!important;
+}
+.calculator-page .period-chip.active{
+  background:#e9f5fc!important;border-color:#a9d5ed!important;color:#234f6d!important;box-shadow:none!important;
+}
+.calculator-page .farm-product{background:#fff!important;border-color:#e0e8ee!important;box-shadow:none!important}
+.calculator-page .farm-product.selected{
+  background:linear-gradient(145deg,#f4faff,#f7fcfa)!important;
+  border-color:#9bcde8!important;box-shadow:0 5px 15px rgba(65,126,164,.055)!important;
+}
+.calculator-page .farm-product.selected .product-check{background:#8cc8e9!important;border-color:#8cc8e9!important}
+.calculator-page .farm-index{background:#eef7fc!important;color:#336582!important;border:1px solid #d7eaf5!important}
+.calculator-page .add-farm-btn{
+  min-height:42px!important;padding:0 13px!important;border:1px solid #cfe2ee!important;
+  background:#f8fbfd!important;color:#315b75!important;box-shadow:none!important;font-size:12px!important;
+}
+.calculator-page .add-farm-btn:hover{background:#eef7fc!important;border-color:#b9d8e9!important;transform:none!important}
+.calculator-page .calc-dairy-note{background:#f8fbfd!important;border-color:#dce9f1!important;color:#6d8295!important}
+.calculator-page .summary-metric{background:#f9fbfd!important;border-color:#e0e8ef!important}
+.calculator-page .summary-metric.discount{background:#f6fbf8!important;border-color:#dcece3!important}
+.calculator-page .summary-final{
+  display:block!important;
+  background:linear-gradient(145deg,#f7fbfe,#f4fbf8)!important;
+  border:1px solid #d9e7ee!important;
+  box-shadow:0 10px 26px rgba(43,85,114,.055)!important;
+  padding:18px!important;
+}
+.calculator-page .summary-final::before{
+  background:linear-gradient(180deg,#a7d8f1,#afe0cc)!important;width:3px!important;
+}
+.calculator-page .summary-final > div:first-child{
+  display:flex!important;align-items:flex-end!important;justify-content:space-between!important;gap:18px!important;
+}
+.calculator-page .summary-final > div:first-child strong{font-size:31px!important;color:#1f4059!important}
+.calculator-page .summary-final > span{
+  display:inline-flex!important;margin-top:9px!important;background:#fff!important;
+  border:1px solid #deebe4!important;color:#5b786a!important;min-width:0!important;
+}
+.v16-final-breakdown{margin-top:14px;padding-top:13px;border-top:1px solid #e3ebf0}
+.v16-final-breakdown-title{
+  font-size:11px;font-weight:850;color:#6b8092;margin-bottom:8px;text-transform:uppercase;letter-spacing:.045em
+}
+.v16-breakdown-farm{padding:9px 10px;border:1px solid #e5ecf1;border-radius:12px;background:rgba(255,255,255,.76)}
+.v16-breakdown-farm+.v16-breakdown-farm{margin-top:7px}
+.v16-breakdown-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:5px}
+.v16-breakdown-head b{font-size:12px;color:#314f68}
+.v16-breakdown-head span{font-size:11px;font-weight:800;color:#3d627c;white-space:nowrap}
+.v16-breakdown-products{display:flex;gap:6px;flex-wrap:wrap}
+.v16-product-line{
+  display:inline-flex;align-items:center;gap:5px;padding:5px 7px;border-radius:9px;
+  background:#f5f9fc;border:1px solid #e4ecf1;font-size:10px;color:#657a8c;
+}
+.v16-product-line b{color:#345670;font-size:10px}
+.calculator-page .calc-action{background:#fff!important;border-color:#dbe6ed!important;color:#4f687c!important;box-shadow:none!important}
+.calculator-page #v9Share{background:#eef8f4!important;border-color:#d7e9df!important;color:#416d5a!important;box-shadow:none!important}
+.calculator-page .v15-discount-trigger{background:#fff!important;border-color:#dbe6ed!important;color:#526b7e!important;box-shadow:none!important}
+.calculator-page .v15-discount-trigger.active{background:#eef8fb!important;border-color:#c9e1ed!important;color:#2f637e!important}
+@media(max-width:767px){
+  .calculator-page .summary-final > div:first-child{display:block!important}
+  .calculator-page .summary-final > div:first-child strong{display:block!important;margin-top:2px!important}
+  .v16-breakdown-head{align-items:flex-start}
+  .v16-breakdown-products{display:grid;grid-template-columns:1fr}
+  .v16-product-line{justify-content:space-between}
+}
+</style>
+
+
+<style id="pdf-v16-style">
+.pdf-capture-mode{
+  width:1080px!important;max-width:1080px!important;background:#f7fafc!important;
+  padding:22px!important;border-radius:0!important;box-sizing:border-box!important;
+}
+.pdf-capture-mode .calc-share-bar,
+.pdf-capture-mode #v9AddFarmTop,
+.pdf-capture-mode .farm-delete,
+.pdf-capture-mode .v15-discount-trigger{display:none!important}
+.pdf-capture-mode .calc-hero-v9,
+.pdf-capture-mode .calc-period-card,
+.pdf-capture-mode .farm-card,
+.pdf-capture-mode .calc-summary-v9{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  background:#fff!important;box-shadow:0 3px 12px rgba(35,71,98,.045)!important;
+}
+.pdf-capture-mode .summary-final{background:linear-gradient(145deg,#f7fbfe,#f4fbf8)!important}
+</style>
+
 </head>
 <body>
 <button class="mobile-back-btn" id="mobileBackBtn" type="button" aria-label="Назад" title="Назад">
@@ -3655,7 +3765,6 @@ function renderCalculator(){
    </div>
 
    <section class="farms-list" id="v9Farms"></section>
-   <button class="add-farm-wide" type="button" id="v9AddFarmWide">＋ Добавить ещё хозяйство</button>
 
    <section class="calc-summary-v9">
      <div class="summary-top">
@@ -3671,6 +3780,10 @@ function renderCalculator(){
      <div class="summary-final">
        <div><small>Итого к оплате</small><strong id="v9Final">0 ₽</strong></div>
        <span id="v9FinalNote"></span>
+       <div class="v16-final-breakdown">
+         <div class="v16-final-breakdown-title">Что входит в расчёт</div>
+         <div id="v16FinalBreakdown"></div>
+       </div>
      </div>
      <div class="calc-share-bar">
        <button class="calc-action primary" id="v9Copy" type="button">⧉ Скопировать расчёт</button>
@@ -3688,7 +3801,6 @@ function renderCalculator(){
 
 function bindV9Calculator(){
  document.getElementById("v9AddFarmTop")?.addEventListener("click",v9AddFarm);
- document.getElementById("v9AddFarmWide")?.addEventListener("click",v9AddFarm);
  document.querySelectorAll("[data-period]").forEach(btn=>btn.addEventListener("click",()=>{
    const value=btn.dataset.period;
    calcV9.periodMode=value;
@@ -3794,6 +3906,19 @@ function renderV9CalculatorState(renderFarms=true){
  </div>`).join("");
  set("v9Monthly",v9Money(s.monthly));set("v9Gross",v9Money(s.gross));set("v9Discount",`−${v9Money(s.discountAmount)}`);set("v9Final",v9Money(s.final));
  set("v9FinalNote",`${v9PeriodLabel(calcV9.months)} · ${s.manualDiscount===null?"стандартная":"своя"} скидка ${s.disc}%`);
+
+ const finalBreakdown=document.getElementById("v16FinalBreakdown");
+ if(finalBreakdown)finalBreakdown.innerHTML=s.farms.map((f,i)=>{
+   const productRows=f.selected.map(k=>{
+     const perMonth=v9ProductPrice(k,f.heads);
+     return `<span class="v16-product-line"><span>${CALC_META[k].name}</span><b>${v9Money(perMonth)} / мес.</b></span>`;
+   }).join("");
+   return `<div class="v16-breakdown-farm">
+     <div class="v16-breakdown-head"><b>${f.name||`Хозяйство №${i+1}`} · ${f.heads} голов</b><span>${v9Money(f.monthly)} / мес.</span></div>
+     <div class="v16-breakdown-products">${productRows||'<span class="v16-product-line">Продукты не выбраны</span>'}</div>
+   </div>`;
+ }).join("");
+
  if(!renderFarms){
    // update visible farm totals without re-rendering fields currently being edited
    calcV9.farms.forEach(f=>{
@@ -3860,47 +3985,58 @@ function v15ResetDiscount(){
 
 async function v9BuildPdfFile(){
   const target=document.querySelector(".calculator-page");
-  if(!target) throw new Error("Расчёт не найден");
+  if(!target)throw new Error("Расчёт не найден");
+  if(!(window.html2canvas&&window.jspdf&&window.jspdf.jsPDF))return null;
 
-  // Prefer a real PDF screenshot when helper libraries are available.
-  if(window.html2canvas && window.jspdf && window.jspdf.jsPDF){
-    const previous=target.classList.contains("pdf-capture-mode");
-    target.classList.add("pdf-capture-mode");
-    try{
-      const canvas=await window.html2canvas(target,{
-        scale:Math.min(3.2,Math.max(2.4,(window.devicePixelRatio||1)*1.6)),
-        backgroundColor:"#f7fafc",
-        useCORS:true,
-        logging:false,
-        scrollX:0,
-        scrollY:-window.scrollY
-      });
-      const {jsPDF}=window.jspdf;
-      const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
-      const pageW=210,pageH=297,margin=8;
-      const imgW=pageW-margin*2;
-      const ratio=imgW/canvas.width;
-      const pagePxH=(pageH-margin*2)/ratio;
-      let sourceY=0,page=0;
+  const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+  const host=document.createElement("div");
+  host.style.cssText="position:fixed;left:-20000px;top:0;width:1080px;background:#f7fafc;z-index:-1;pointer-events:none;";
+  const clone=target.cloneNode(true);
+  clone.classList.add("pdf-capture-mode");
+  clone.style.width="1080px";
+  clone.style.maxWidth="1080px";
+  host.appendChild(clone);
+  document.body.appendChild(host);
 
-      while(sourceY<canvas.height){
-        const sliceH=Math.min(pagePxH,canvas.height-sourceY);
-        const slice=document.createElement("canvas");
-        slice.width=canvas.width;
-        slice.height=Math.ceil(sliceH);
-        slice.getContext("2d").drawImage(canvas,0,sourceY,canvas.width,sliceH,0,0,canvas.width,sliceH);
-        const data=slice.toDataURL("image/png");
-        if(page>0)pdf.addPage();
-        pdf.addImage(data,"PNG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
-        sourceY+=sliceH;
-        page++;
-      }
-      return new File([pdf.output("blob")],`AGROINTELLECT-raschet-${new Date().toISOString().slice(0,10)}.pdf`,{type:"application/pdf"});
-    }finally{
-      if(!previous)target.classList.remove("pdf-capture-mode");
+  try{
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+    const canvas=await window.html2canvas(clone,{
+      scale:isMobile?1.65:2.1,
+      width:1080,
+      windowWidth:1080,
+      backgroundColor:"#f7fafc",
+      useCORS:true,
+      logging:false,
+      imageTimeout:5000
+    });
+    const {jsPDF}=window.jspdf;
+    const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
+    const pageW=210,pageH=297,margin=8;
+    const imgW=pageW-margin*2;
+    const ratio=imgW/canvas.width;
+    const pagePxH=(pageH-margin*2)/ratio;
+    let sourceY=0,page=0;
+
+    while(sourceY<canvas.height){
+      const sliceH=Math.min(pagePxH,canvas.height-sourceY);
+      const slice=document.createElement("canvas");
+      slice.width=canvas.width;
+      slice.height=Math.ceil(sliceH);
+      const ctx=slice.getContext("2d",{alpha:false});
+      ctx.fillStyle="#f7fafc";
+      ctx.fillRect(0,0,slice.width,slice.height);
+      ctx.drawImage(canvas,0,sourceY,canvas.width,sliceH,0,0,canvas.width,sliceH);
+      const data=slice.toDataURL("image/jpeg",0.94);
+      if(page>0)pdf.addPage();
+      pdf.addImage(data,"JPEG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
+      sourceY+=sliceH;
+      page++;
+      await new Promise(r=>setTimeout(r,0));
     }
+    return new File([pdf.output("blob")],`AGROINTELLECT-raschet-${new Date().toISOString().slice(0,10)}.pdf`,{type:"application/pdf"});
+  }finally{
+    host.remove();
   }
-  return null;
 }
 
 async function v9PrintCalculation(){
@@ -3909,21 +4045,35 @@ async function v9PrintCalculation(){
   if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
   try{
     const file=await v9BuildPdfFile();
-    if(file){
-      const url=URL.createObjectURL(file);
+    if(!file){window.print();return;}
+
+    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+    if(isMobile&&navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
+      try{
+        await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text:"PDF расчёта стоимости",files:[file]});
+        if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
+        return;
+      }catch(e){
+        if(e?.name==="AbortError")return;
+      }
+    }
+
+    const url=URL.createObjectURL(file);
+    if(isMobile){
+      const preview=window.open(url,"_blank");
+      if(!preview)window.location.href=url;
+      setTimeout(()=>URL.revokeObjectURL(url),60000);
+    }else{
       const a=document.createElement("a");
       a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url),1200);
-      if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
-      return;
+      setTimeout(()=>URL.revokeObjectURL(url),1500);
     }
-    // Safe fallback: print the current calculation page, which can be saved as PDF.
-    window.print();
+    if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
   }catch(e){
     console.error(e);
-    window.print();
+    alert("На этом устройстве автоматическое создание PDF не завершилось. Попробуйте «Поделиться» — на телефоне эта кнопка отправляет PDF-файл через системное меню.");
   }finally{
-    setTimeout(()=>{if(btn){btn.disabled=false;btn.classList.remove("done");btn.textContent=old||"PDF / Печать";}},1400);
+    setTimeout(()=>{if(btn){btn.disabled=false;btn.classList.remove("done");btn.textContent=old||"PDF / Печать";}},1500);
   }
 }
 
@@ -3933,31 +4083,37 @@ async function v9ShareCalculation(){
   if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
   try{
     const file=await v9BuildPdfFile();
-    if(file){
-      if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
-        try{
-          await navigator.share({
-            title:"Расчёт АГРОИНТЕЛЛЕКТ",
-            text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",
-            files:[file]
-          });
-          return;
-        }catch(e){
-          if(e?.name==="AbortError")return;
-        }
+    if(!file){alert("PDF-библиотека не загрузилась. Обновите страницу и повторите.");return;}
+
+    if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
+      try{
+        await navigator.share({
+          title:"Расчёт АГРОИНТЕЛЛЕКТ",
+          text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",
+          files:[file]
+        });
+        return;
+      }catch(e){
+        if(e?.name==="AbortError")return;
       }
-      const url=URL.createObjectURL(file);
+    }
+
+    const url=URL.createObjectURL(file);
+    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+    if(isMobile){
+      const preview=window.open(url,"_blank");
+      if(!preview)window.location.href=url;
+      alert("Открылся PDF. Используйте системную кнопку «Поделиться», чтобы отправить его в Telegram.");
+      setTimeout(()=>URL.revokeObjectURL(url),60000);
+    }else{
       const a=document.createElement("a");
       a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),1500);
-      alert("PDF скачан. Если браузер не поддерживает отправку файла напрямую, прикрепите этот PDF в Telegram или другой мессенджер.");
-      return;
+      alert("PDF скачан. Прикрепите его в Telegram или другой мессенджер.");
     }
-    window.print();
   }catch(e){
     console.error(e);
-    try{await navigator.clipboard.writeText(v9CalculationText())}catch(_){}
-    alert("Не удалось создать PDF автоматически. Расчёт скопирован, а PDF можно сохранить через «Печать».");
+    alert("Не удалось сформировать PDF на этом устройстве. Обновите страницу и повторите.");
   }finally{
     if(btn){btn.disabled=false;btn.textContent=old||"↗ Поделиться";}
   }

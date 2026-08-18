@@ -1,15 +1,22 @@
 {
-  "version": "SKY_GLASS_V15",
-  "base": "FIXED_V13",
-  "design": "soft sky-blue glass, no saturated royal-blue blocks",
-  "custom_discount": "manual discount 0–100%; replaces standard period discount while active",
-  "pdf": "high-resolution html2canvas capture, PNG slices into A4 PDF",
-  "share": "Web Share sends generated PDF file when browser/OS supports file sharing; otherwise PDF downloads",
+  "version": "REFINED_V16",
+  "base": "SKY_GLASS_V15",
+  "fixes": [
+    "removed large duplicate add-farm button",
+    "small add-farm button restyled to a neutral cabinet style",
+    "calculator colors softened to match the personal cabinet",
+    "final payment block lists included products and monthly prices by farm",
+    "mobile PDF generation uses a lower-memory fixed-width clone",
+    "mobile PDF button prefers the system file share sheet",
+    "Telegram receives the generated PDF through the phone OS share sheet when supported",
+    "desktop PDF still downloads directly"
+  ],
   "tested": [
     "desktop 1440x1000",
     "mobile 390x844",
-    "custom discount apply/reset",
-    "contacts/calculator structure retained"
+    "2 farms",
+    "final breakdown",
+    "no horizontal overflow"
   ],
   "js_syntax": "OK"
 }
