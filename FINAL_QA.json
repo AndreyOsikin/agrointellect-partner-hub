@@ -1,22 +1,20 @@
 {
-  "version": "REFINED_V16",
-  "base": "SKY_GLASS_V15",
-  "fixes": [
-    "removed large duplicate add-farm button",
-    "small add-farm button restyled to a neutral cabinet style",
-    "calculator colors softened to match the personal cabinet",
-    "final payment block lists included products and monthly prices by farm",
-    "mobile PDF generation uses a lower-memory fixed-width clone",
-    "mobile PDF button prefers the system file share sheet",
-    "Telegram receives the generated PDF through the phone OS share sheet when supported",
-    "desktop PDF still downloads directly"
+  "version": "RESTORED_V17",
+  "critical_fix": "Вернул папку assets, .nojekyll и favicon.ico. Предыдущая рекомендация удалить assets была ошибочной.",
+  "asset_references": [
+    "assets/agrointellect-logo-full.webp",
+    "assets/agrointellect-logo-tile.webp",
+    "assets/employee-egorov.webp",
+    "assets/employee-gangan.webp",
+    "assets/employee-osokin.webp",
+    "assets/employee-popova.webp",
+    "assets/employee-zykov.webp",
+    "assets/product-milk.webp",
+    "assets/product-musoft.webp",
+    "assets/product-onlinefarm.webp"
   ],
-  "tested": [
-    "desktop 1440x1000",
-    "mobile 390x844",
-    "2 farms",
-    "final breakdown",
-    "no horizontal overflow"
-  ],
+  "missing_assets": [],
+  "design": "повышен контраст калькулятора без возврата к яркому синему",
+  "pdf_share": "логика V16 сохранена",
   "js_syntax": "OK"
 }
