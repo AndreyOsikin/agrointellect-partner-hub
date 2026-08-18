@@ -1,20 +1,13 @@
 {
-  "version": "RESTORED_V17",
-  "critical_fix": "Вернул папку assets, .nojekyll и favicon.ico. Предыдущая рекомендация удалить assets была ошибочной.",
-  "asset_references": [
-    "assets/agrointellect-logo-full.webp",
-    "assets/agrointellect-logo-tile.webp",
-    "assets/employee-egorov.webp",
-    "assets/employee-gangan.webp",
-    "assets/employee-osokin.webp",
-    "assets/employee-popova.webp",
-    "assets/employee-zykov.webp",
-    "assets/product-milk.webp",
-    "assets/product-musoft.webp",
-    "assets/product-onlinefarm.webp"
+  "version": "MOBILE_PDF_FIX_V18",
+  "base": "RESTORED_V17",
+  "critical_fix": [
+    "PDF no longer captures the full long calculator in one huge canvas",
+    "each logical block is captured separately to reduce iPhone memory use",
+    "15-second hard timeout prevents buttons from staying on 'Готовим PDF…'",
+    "mobile PDF/share uses the system file share sheet when available",
+    "print-to-PDF fallback remains available"
   ],
-  "missing_assets": [],
-  "design": "повышен контраст калькулятора без возврата к яркому синему",
-  "pdf_share": "логика V16 сохранена",
+  "assets": "restored assets from V17 retained",
   "js_syntax": "OK"
 }

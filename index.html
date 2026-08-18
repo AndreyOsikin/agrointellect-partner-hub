@@ -3055,6 +3055,26 @@ body{background:#f3f6f9!important}
 }
 </style>
 
+
+<style id="pdf-mobile-fix-v18">
+.v18-pdf-mode,.v18-pdf-mode *{
+  animation:none!important;transition:none!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+.v18-pdf-mode::before,.v18-pdf-mode::after{display:none!important}
+.v18-pdf-mode .calc-hero-v9,
+.v18-pdf-mode .calc-period-card,
+.v18-pdf-mode .farm-card,
+.v18-pdf-mode .calc-summary-v9{
+  background:#fff!important;
+  box-shadow:none!important;
+  border:1px solid #d7e3ea!important;
+}
+.v18-pdf-mode .summary-final{
+  background:linear-gradient(145deg,#f1f8fc,#f0f9f5)!important;
+}
+</style>
+
 </head>
 <body>
 <button class="mobile-back-btn" id="mobileBackBtn" type="button" aria-label="Назад" title="Назад">
@@ -4064,57 +4084,112 @@ function v15ResetDiscount(){
  calcV9.manualDiscount=null;v15CloseDiscount();renderV9CalculatorState(false);v15RefreshDiscountTrigger();
 }
 
-async function v9BuildPdfFile(){
-  const target=document.querySelector(".calculator-page");
-  if(!target)throw new Error("Расчёт не найден");
-  if(!(window.html2canvas&&window.jspdf&&window.jspdf.jsPDF))return null;
+async function v18WithTimeout(promise,ms,label){
+  let timer;
+  const timeout=new Promise((_,reject)=>{timer=setTimeout(()=>reject(new Error(label||"Превышено время ожидания")),ms)});
+  try{return await Promise.race([promise,timeout])}finally{clearTimeout(timer)}
+}
 
-  const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+function v18CloneForPdf(){
+  const source=document.querySelector(".calculator-page");
+  if(!source)throw new Error("Расчёт не найден");
   const host=document.createElement("div");
-  host.style.cssText="position:fixed;left:-20000px;top:0;width:1080px;background:#f7fafc;z-index:-1;pointer-events:none;";
-  const clone=target.cloneNode(true);
-  clone.classList.add("pdf-capture-mode");
-  clone.style.width="1080px";
-  clone.style.maxWidth="1080px";
+  host.id="v18PdfHost";
+  host.style.cssText="position:fixed;left:-10000px;top:0;width:900px;background:#f7fafc;z-index:-1;pointer-events:none;opacity:1;";
+  const clone=source.cloneNode(true);
+  clone.classList.add("pdf-capture-mode","v18-pdf-mode");
+  clone.style.cssText="width:900px!important;max-width:900px!important;margin:0!important;padding:18px!important;background:#f7fafc!important;";
+  // Keep only content relevant to the commercial calculation.
+  clone.querySelectorAll(".calc-share-bar,#v9AddFarmTop,#v9AddFarmWide,.farm-delete,.v15-discount-trigger,.calc-help").forEach(el=>el.remove());
   host.appendChild(clone);
   document.body.appendChild(host);
+  return {host,clone};
+}
+
+async function v18CanvasSection(el,scale){
+  return await v18WithTimeout(window.html2canvas(el,{
+    scale,
+    backgroundColor:"#f7fafc",
+    useCORS:true,
+    allowTaint:false,
+    logging:false,
+    imageTimeout:3500,
+    scrollX:0,
+    scrollY:0,
+    windowWidth:900,
+    removeContainer:true,
+    onclone:(doc)=>{
+      doc.documentElement.style.setProperty("scroll-behavior","auto");
+      doc.querySelectorAll("*").forEach(n=>{
+        n.style.animation="none";
+        n.style.transition="none";
+      });
+    }
+  }),8000,"Не удалось подготовить изображение расчёта");
+}
+
+async function v9BuildPdfFile(){
+  if(!(window.html2canvas&&window.jspdf&&window.jspdf.jsPDF)){
+    throw new Error("PDF-библиотеки не загрузились");
+  }
+
+  const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+  const scale=isMobile?1.25:1.6;
+  const {host,clone}=v18CloneForPdf();
 
   try{
     await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-    const canvas=await window.html2canvas(clone,{
-      scale:isMobile?1.65:2.1,
-      width:1080,
-      windowWidth:1080,
-      backgroundColor:"#f7fafc",
-      useCORS:true,
-      logging:false,
-      imageTimeout:5000
-    });
+
+    // Capture the page in several compact logical blocks.
+    const sections=[
+      clone.querySelector(".calc-hero-v9"),
+      clone.querySelector(".calc-period-card"),
+      ...clone.querySelectorAll(".farm-card"),
+      clone.querySelector(".calc-summary-v9")
+    ].filter(Boolean);
+
     const {jsPDF}=window.jspdf;
     const pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4",compress:true});
-    const pageW=210,pageH=297,margin=8;
-    const imgW=pageW-margin*2;
-    const ratio=imgW/canvas.width;
-    const pagePxH=(pageH-margin*2)/ratio;
-    let sourceY=0,page=0;
+    const pageW=210,pageH=297,margin=8,gap=3;
+    const usableW=pageW-margin*2;
+    const usableH=pageH-margin*2;
+    let y=margin;
+    let pageIndex=0;
 
-    while(sourceY<canvas.height){
-      const sliceH=Math.min(pagePxH,canvas.height-sourceY);
-      const slice=document.createElement("canvas");
-      slice.width=canvas.width;
-      slice.height=Math.ceil(sliceH);
-      const ctx=slice.getContext("2d",{alpha:false});
-      ctx.fillStyle="#f7fafc";
-      ctx.fillRect(0,0,slice.width,slice.height);
-      ctx.drawImage(canvas,0,sourceY,canvas.width,sliceH,0,0,canvas.width,sliceH);
-      const data=slice.toDataURL("image/jpeg",0.94);
-      if(page>0)pdf.addPage();
-      pdf.addImage(data,"JPEG",margin,margin,imgW,sliceH*ratio,undefined,"FAST");
-      sourceY+=sliceH;
-      page++;
-      await new Promise(r=>setTimeout(r,0));
+    for(const section of sections){
+      const canvas=await v18CanvasSection(section,scale);
+      const imgData=canvas.toDataURL("image/jpeg",0.9);
+      const hMm=canvas.height*(usableW/canvas.width);
+
+      // If one section is taller than a page, split its canvas.
+      if(hMm>usableH){
+        const pxPerMm=canvas.width/usableW;
+        const pagePx=Math.floor(usableH*pxPerMm);
+        let sy=0;
+        while(sy<canvas.height){
+          const sh=Math.min(pagePx,canvas.height-sy);
+          const slice=document.createElement("canvas");
+          slice.width=canvas.width;slice.height=sh;
+          const ctx=slice.getContext("2d",{alpha:false});
+          ctx.fillStyle="#f7fafc";ctx.fillRect(0,0,slice.width,slice.height);
+          ctx.drawImage(canvas,0,sy,canvas.width,sh,0,0,canvas.width,sh);
+          if(pageIndex>0)pdf.addPage();
+          pdf.addImage(slice.toDataURL("image/jpeg",0.9),"JPEG",margin,margin,usableW,sh/pxPerMm,undefined,"FAST");
+          pageIndex++;sy+=sh;
+        }
+        y=margin;
+        continue;
+      }
+
+      if(y+hMm>pageH-margin){
+        pdf.addPage();pageIndex++;y=margin;
+      }
+      pdf.addImage(imgData,"JPEG",margin,y,usableW,hMm,undefined,"FAST");
+      y+=hMm+gap;
     }
-    return new File([pdf.output("blob")],`AGROINTELLECT-raschet-${new Date().toISOString().slice(0,10)}.pdf`,{type:"application/pdf"});
+
+    const blob=pdf.output("blob");
+    return new File([blob],`AGROINTELLECT-raschet-${new Date().toISOString().slice(0,10)}.pdf`,{type:"application/pdf"});
   }finally{
     host.remove();
   }
@@ -4122,81 +4197,91 @@ async function v9BuildPdfFile(){
 
 async function v9PrintCalculation(){
   const btn=document.getElementById("v9Print");
-  const old=btn?.textContent;
+  const old=btn?.textContent||"PDF / Печать";
   if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
   try{
-    const file=await v9BuildPdfFile();
-    if(!file){window.print();return;}
-
+    const file=await v18WithTimeout(v9BuildPdfFile(),15000,"Создание PDF заняло слишком много времени");
     const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+
+    // On iPhone/Android, system share is more reliable than forced blob download.
     if(isMobile&&navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
-      try{
-        await navigator.share({title:"Расчёт АГРОИНТЕЛЛЕКТ",text:"PDF расчёта стоимости",files:[file]});
-        if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
-        return;
-      }catch(e){
-        if(e?.name==="AbortError")return;
-      }
+      await navigator.share({
+        title:"Расчёт АГРОИНТЕЛЛЕКТ",
+        text:"PDF расчёта стоимости",
+        files:[file]
+      });
+      if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
+      return;
     }
 
     const url=URL.createObjectURL(file);
     if(isMobile){
-      const preview=window.open(url,"_blank");
-      if(!preview)window.location.href=url;
-      setTimeout(()=>URL.revokeObjectURL(url),60000);
+      // Safe fallback if file sharing is unavailable.
+      const w=window.open(url,"_blank");
+      if(!w)location.href=url;
+      setTimeout(()=>URL.revokeObjectURL(url),120000);
     }else{
       const a=document.createElement("a");
       a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url),1500);
+      setTimeout(()=>URL.revokeObjectURL(url),2000);
     }
-    if(btn){btn.classList.add("done");btn.textContent="✓ PDF готов";}
   }catch(e){
-    console.error(e);
-    alert("На этом устройстве автоматическое создание PDF не завершилось. Попробуйте «Поделиться» — на телефоне эта кнопка отправляет PDF-файл через системное меню.");
+    console.error("PDF error:",e);
+    if(e?.name!=="AbortError"){
+      alert("Не удалось сформировать PDF на этом телефоне. Страница расчёта откроется в режиме печати — выберите «Сохранить как PDF».");
+      setTimeout(()=>window.print(),50);
+    }
   }finally{
-    setTimeout(()=>{if(btn){btn.disabled=false;btn.classList.remove("done");btn.textContent=old||"PDF / Печать";}},1500);
+    if(btn){
+      setTimeout(()=>{
+        btn.disabled=false;
+        btn.classList.remove("done");
+        btn.textContent=old;
+      },500);
+    }
   }
 }
 
 async function v9ShareCalculation(){
   const btn=document.getElementById("v9Share");
-  const old=btn?.textContent;
+  const old=btn?.textContent||"↗ Поделиться";
   if(btn){btn.disabled=true;btn.textContent="Готовим PDF…";}
   try{
-    const file=await v9BuildPdfFile();
-    if(!file){alert("PDF-библиотека не загрузилась. Обновите страницу и повторите.");return;}
+    const file=await v18WithTimeout(v9BuildPdfFile(),15000,"Создание PDF заняло слишком много времени");
 
     if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){
-      try{
-        await navigator.share({
-          title:"Расчёт АГРОИНТЕЛЛЕКТ",
-          text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",
-          files:[file]
-        });
-        return;
-      }catch(e){
-        if(e?.name==="AbortError")return;
-      }
+      await navigator.share({
+        title:"Расчёт АГРОИНТЕЛЛЕКТ",
+        text:"Расчёт стоимости АГРОИНТЕЛЛЕКТ",
+        files:[file]
+      });
+      return;
     }
 
     const url=URL.createObjectURL(file);
-    const isMobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
-    if(isMobile){
-      const preview=window.open(url,"_blank");
-      if(!preview)window.location.href=url;
-      alert("Открылся PDF. Используйте системную кнопку «Поделиться», чтобы отправить его в Telegram.");
-      setTimeout(()=>URL.revokeObjectURL(url),60000);
+    const mobile=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia("(max-width:767px)").matches;
+    if(mobile){
+      const w=window.open(url,"_blank");
+      if(!w)location.href=url;
+      alert("PDF открыт. Нажмите системную кнопку «Поделиться» и выберите Telegram.");
+      setTimeout(()=>URL.revokeObjectURL(url),120000);
     }else{
       const a=document.createElement("a");
       a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
-      setTimeout(()=>URL.revokeObjectURL(url),1500);
-      alert("PDF скачан. Прикрепите его в Telegram или другой мессенджер.");
+      setTimeout(()=>URL.revokeObjectURL(url),2000);
     }
   }catch(e){
-    console.error(e);
-    alert("Не удалось сформировать PDF на этом устройстве. Обновите страницу и повторите.");
+    console.error("Share PDF error:",e);
+    if(e?.name!=="AbortError"){
+      alert("PDF не удалось сформировать автоматически. Обновите страницу и повторите.");
+    }
   }finally{
-    if(btn){btn.disabled=false;btn.textContent=old||"↗ Поделиться";}
+    if(btn){
+      setTimeout(()=>{
+        btn.disabled=false;
+        btn.textContent=old;
+      },400);
+    }
   }
 }
 
