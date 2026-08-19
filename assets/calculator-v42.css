@@ -1,0 +1,50 @@
+/* v42 — compact product frames + summary integration switch */
+.calculator-page .farm-body{grid-template-columns:210px minmax(0,1fr) 170px!important;gap:10px!important;align-items:center!important}
+.calculator-page .farm-products{gap:8px!important}
+.calculator-page .farm-product{
+  min-height:72px!important;height:72px!important;padding:8px 48px 8px 10px!important;
+  border-radius:14px!important;display:grid!important;grid-template-columns:38px minmax(0,1fr)!important;
+  grid-template-rows:auto auto!important;column-gap:9px!important;align-items:center!important;
+}
+.calculator-page .farm-product img{width:34px!important;height:34px!important;grid-row:1/3!important;border-radius:9px!important;padding:3px!important}
+.calculator-page .farm-product b{margin:0!important;font-size:13px!important;line-height:1.15!important;align-self:end!important}
+.calculator-page .farm-product span{margin:2px 0 0!important;font-size:10.5px!important;line-height:1.1!important;align-self:start!important}
+.calculator-page .farm-product .product-check{
+  width:30px!important;height:18px!important;right:10px!important;top:50%!important;transform:translateY(-50%)!important;
+  border-radius:999px!important;background:#dfe7ee!important;border:0!important;color:transparent!important;box-shadow:none!important;
+}
+.calculator-page .farm-product .product-check:after{
+  content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;left:2px;top:2px;
+  box-shadow:0 1px 3px rgba(31,60,90,.18);transition:.16s ease
+}
+.calculator-page .farm-product.selected .product-check{background:#66b2e5!important;transform:translateY(-50%)!important}
+.calculator-page .farm-product.selected .product-check:after{left:14px}
+.calculator-page .farm-herd{padding:11px 12px!important;border-radius:14px!important}
+.calculator-page .farm-herd input{height:44px!important}
+.calculator-page .farm-total{min-height:72px!important;padding:10px 12px!important;border-radius:14px!important}
+.calculator-page .farm-card{padding:14px 16px!important}
+
+/* summary switch */
+#v42IntegrationWrap{margin-top:12px;display:flex;justify-content:flex-end}
+.v42-integration{
+  min-width:340px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:12px 14px;border:1px solid #dce6ee;border-radius:15px;background:#f8fbfd;color:#29455f
+}
+.v42-integration-copy b{display:block;font-size:12.5px;line-height:1.25}
+.v42-integration-copy span{display:block;margin-top:3px;font-size:10.5px;line-height:1.3;color:#7b8da0}
+.v42-switch{position:relative;flex:0 0 auto;width:34px;height:20px;border:0;border-radius:999px;background:#d9e2ea;padding:0;transition:.16s}
+.v42-switch:after{content:"";position:absolute;width:16px;height:16px;left:2px;top:2px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(29,56,83,.2);transition:.16s}
+.v42-switch.on{background:#62afe2}
+.v42-switch.on:after{left:16px}
+
+@media(max-width:1100px){
+ .calculator-page .farm-body{grid-template-columns:190px minmax(0,1fr)!important}
+ .calculator-page .farm-total{grid-column:1/3!important}
+}
+@media(max-width:860px){
+ .calculator-page .farm-body{grid-template-columns:1fr!important}
+ .calculator-page .farm-total{grid-column:auto!important}
+ .calculator-page .farm-products{grid-template-columns:1fr!important}
+ .calculator-page .farm-product{height:66px!important;min-height:66px!important}
+ #v42IntegrationWrap{justify-content:stretch}.v42-integration{min-width:0;width:100%}
+}
