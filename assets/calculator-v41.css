@@ -1,0 +1,50 @@
+/* Partner Hub calculator v41 — compact toggles + cleaner herd input. */
+.calculator-page .farm-product{
+  min-height:86px!important;
+  padding:12px 54px 12px 12px!important;
+  border-radius:16px!important;
+}
+.calculator-page .farm-product img{
+  width:34px!important;height:34px!important;border-radius:9px!important;padding:4px!important;
+}
+.calculator-page .farm-product b{font-size:13px!important;line-height:1.25!important;margin-top:5px!important}
+.calculator-page .farm-product span{font-size:10.5px!important;margin-top:2px!important}
+
+/* Turn the old check marker into a compact switch. */
+.calculator-page .farm-product .product-check{
+  position:absolute!important;right:13px!important;top:50%!important;
+  width:34px!important;height:20px!important;min-width:34px!important;
+  transform:translateY(-50%)!important;
+  border:1px solid #c8d5df!important;border-radius:999px!important;
+  background:#dce5ed!important;color:transparent!important;
+  box-shadow:none!important;font-size:0!important;
+  transition:background .18s ease,border-color .18s ease!important;
+}
+.calculator-page .farm-product .product-check::after{
+  content:""!important;position:absolute!important;width:14px!important;height:14px!important;
+  left:2px!important;top:2px!important;border-radius:50%!important;background:#fff!important;
+  box-shadow:0 1px 4px rgba(31,64,94,.18)!important;transition:transform .18s ease!important;
+}
+.calculator-page .farm-product.selected .product-check{
+  background:#63afe2!important;border-color:#63afe2!important;transform:translateY(-50%)!important;
+}
+.calculator-page .farm-product.selected .product-check::after{transform:translateX(14px)!important}
+.calculator-page .farm-product.selected{border-color:#9fcfe9!important;background:#f2f9fd!important}
+
+/* Manual herd input. */
+.calculator-page .farm-herd input{
+  appearance:textfield!important;-moz-appearance:textfield!important;
+  font-size:18px!important;font-weight:750!important;
+  min-height:46px!important;background:#fff!important;
+}
+.calculator-page .farm-herd input::-webkit-outer-spin-button,
+.calculator-page .farm-herd input::-webkit-inner-spin-button{-webkit-appearance:none!important;margin:0!important}
+.calculator-page .farm-herd small{font-size:10.5px!important;line-height:1.35!important}
+
+@media(max-width:767px){
+  .calculator-page .farm-product{min-height:66px!important;padding:9px 52px 9px 9px!important}
+  .calculator-page .farm-product img{width:36px!important;height:36px!important}
+  .calculator-page .farm-product .product-check{right:11px!important;width:32px!important;height:19px!important;min-width:32px!important}
+  .calculator-page .farm-product .product-check::after{width:13px!important;height:13px!important;left:2px!important;top:2px!important}
+  .calculator-page .farm-product.selected .product-check::after{transform:translateX(13px)!important}
+}
