@@ -2,16 +2,24 @@ const SPREADSHEET_ID = '1qvrLJcVEeE9lsS5j3nGLzE_1niUQYCYTFtG8LgsR1og';
 const CACHE_KEY = 'partner_hub_cms_v1';
 
 function doGet(e) {
-  const output = ContentService.createTextOutput();
-  output.setMimeType(ContentService.MimeType.JSON);
+  const callbackRaw = String((e && e.parameter && e.parameter.callback) || '');
+  const callback = /^[A-Za-z_$][0-9A-Za-z_$\.]{0,120}$/.test(callbackRaw) ? callbackRaw : '';
+  let payload;
   try {
     const refresh = String((e && e.parameter && e.parameter.refresh) || '') === '1';
     const data = getCmsData_(refresh);
-    output.setContent(JSON.stringify({ ok: true, generatedAt: new Date().toISOString(), ...data }));
+    payload = { ok: true, generatedAt: new Date().toISOString(), ...data };
   } catch (err) {
-    output.setContent(JSON.stringify({ ok: false, error: String(err && err.message || err) }));
+    payload = { ok: false, error: String(err && err.message || err) };
   }
-  return output;
+
+  const json = JSON.stringify(payload);
+  if (callback) {
+    return ContentService.createTextOutput(callback + '(' + json + ');')
+      .setMimeType(ContentService.MimeType.JAVASCRIPT);
+  }
+  return ContentService.createTextOutput(json)
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function getCmsData_(refresh) {
