@@ -12,6 +12,8 @@
   let building=null;
   let warmTimer=null;
   const MAX_AGE=5*60*1000;
+  const SHARE_TITLE='Расчёт стоимости лицензии АГРОИНТЕЛЛЕКТ';
+  const SHARE_TEXT='Добрый день! Направляю Вам расчёт стоимости лицензии АГРОИНТЕЛЛЕКТ.';
 
   const isMobile=()=>/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||window.matchMedia('(max-width:767px)').matches;
   const canFileShare=file=>!!(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]})));
@@ -51,7 +53,7 @@
       <div class="v25-pdf-card" role="dialog" aria-modal="true" aria-labelledby="v25PdfTitle">
         <button class="v25-pdf-x" type="button" data-v25-close aria-label="Закрыть">×</button>
         <div class="v25-pdf-icon">PDF</div>
-        <h3 id="v25PdfTitle">PDF готов</h3>
+        <h3 id="v25PdfTitle">Расчёт готов</h3>
         <p id="v25PdfText">Нажмите «Поделиться PDF» — откроется системное меню телефона.</p>
         <div class="v25-pdf-actions">
           <button class="btn blue" id="v25PdfShare" type="button">Поделиться PDF</button>
@@ -69,12 +71,11 @@
     const shareBtn=sheet.querySelector('#v25PdfShare');
     const openBtn=sheet.querySelector('#v25PdfOpen');
     text.textContent=canFileShare(file)
-      ? 'Нажмите «Поделиться PDF» — откроется системное меню телефона. Выберите Telegram, WhatsApp, почту или другое приложение.'
+      ? 'Файл готов. Нажмите «Поделиться PDF» и выберите нужный мессенджер или почту.'
       : 'На этом устройстве системная отправка файла недоступна. Откройте PDF и используйте кнопку «Поделиться» браузера.';
     shareBtn.style.display=canFileShare(file)?'inline-flex':'none';
     shareBtn.onclick=()=>{
-      // IMPORTANT: navigator.share is called directly inside this second user gesture.
-      const p=navigator.share({title:'Расчёт АГРОИНТЕЛЛЕКТ',text:'Расчёт стоимости АГРОИНТЕЛЛЕКТ',files:[file]});
+      const p=navigator.share({title:SHARE_TITLE,text:SHARE_TEXT,files:[file]});
       Promise.resolve(p).then(()=>sheet.classList.remove('show')).catch(err=>{
         if(err?.name!=='AbortError')console.warn('System share failed:',err);
       });
@@ -93,28 +94,19 @@
     if(fresh())return cachedFile;
     const old=btn?.textContent||label;
     if(btn){btn.disabled=true;btn.textContent='Готовим PDF…';}
-    try{
-      return await build();
-    }finally{
-      if(btn){btn.disabled=false;btn.textContent=old;}
-    }
+    try{return await build();}
+    finally{if(btn){btn.disabled=false;btn.textContent=old;}}
   }
 
   window.v9ShareCalculation=async function(){
     const btn=document.getElementById('v9Share');
     try{
-      // Fresh prebuilt file: share immediately while user activation is alive.
       if(fresh() && canFileShare(cachedFile)){
-        const p=navigator.share({title:'Расчёт АГРОИНТЕЛЛЕКТ',text:'Расчёт стоимости АГРОИНТЕЛЛЕКТ',files:[cachedFile]});
-        await p;
+        await navigator.share({title:SHARE_TITLE,text:SHARE_TEXT,files:[cachedFile]});
         return;
       }
       const file=await getOrPrepare(btn,'↗ Поделиться');
-      if(isMobile()){
-        // A second explicit tap guarantees a fresh user activation for Web Share.
-        showReady(file,'share');
-        return;
-      }
+      if(isMobile()){showReady(file,'share');return;}
       const url=URL.createObjectURL(file);
       const a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),3000);
@@ -128,10 +120,7 @@
     const btn=document.getElementById('v9Print');
     try{
       const file=await getOrPrepare(btn,'PDF / Печать');
-      if(isMobile()){
-        showReady(file,'open');
-        return;
-      }
+      if(isMobile()){showReady(file,'open');return;}
       const url=URL.createObjectURL(file);
       const a=document.createElement('a');a.href=url;a.download=file.name;document.body.appendChild(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(url),3000);
@@ -141,7 +130,6 @@
     }
   };
 
-  // Invalidate after calculator edits, then silently prepare a fresh PDF.
   document.addEventListener('input',e=>{if(e.target.closest?.('.calculator-page'))invalidate();},true);
   document.addEventListener('change',e=>{if(e.target.closest?.('.calculator-page'))invalidate();},true);
   document.addEventListener('click',e=>{
