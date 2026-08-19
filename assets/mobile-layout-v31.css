@@ -1,0 +1,50 @@
+/* Partner Hub mobile polish v31 */
+@media(max-width:767px){
+  .content{padding:12px 10px 102px!important}
+  .workspace-head{padding:0 2px 12px!important}
+  h1{font-size:32px!important;line-height:1.05!important}
+  h2{font-size:24px!important}
+  .lead{font-size:14.5px!important;line-height:1.5!important}
+
+  /* Product page shortcut cards: compact, not giant empty panels */
+  .mobile-product-shortcut-v31{
+    width:100%!important;
+    min-height:52px!important;
+    height:52px!important;
+    max-height:52px!important;
+    padding:0 16px!important;
+    margin:0!important;
+    border-radius:15px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    font-size:15px!important;
+    font-weight:650!important;
+    line-height:1!important;
+    box-sizing:border-box!important;
+    box-shadow:0 5px 16px rgba(22,48,78,.045)!important;
+    overflow:hidden!important;
+  }
+  .mobile-product-shortcut-v31 + .mobile-product-shortcut-v31{margin-top:8px!important}
+  .mobile-product-shortcut-v31:first-of-type{background:#153756!important;color:#fff!important;border:1px solid #153756!important}
+
+  /* Remove inherited desktop stretching around action/navigation areas */
+  .product-actions,.workspace-actions,.quicklist,.tabs{min-height:0!important;height:auto!important}
+  .product-actions{gap:8px!important}
+  .overview,.overview-main,.quick-panel,.section-card{min-height:0!important;height:auto!important}
+  .product,.doc,.integration-card,.person,.benefit,.quickitem{min-height:0!important;height:auto!important}
+
+  /* Cleaner mobile surfaces */
+  .overview-main,.quick-panel,.section-card,.product,.doc,.integration-card,.person,.benefit{padding:16px!important}
+  .product{border-radius:17px!important}.product h2{font-size:25px!important;margin-top:14px!important}
+  .picon{width:54px!important;height:54px!important;border-radius:14px!important}
+  .quickitem{padding:11px!important}
+  .file-row{padding:10px!important}
+
+  /* Bottom nav stays readable without clipped labels */
+  .mobile-nav{height:70px!important;padding:5px 3px!important;left:10px!important;right:10px!important}
+  .mobile-nav-btn{padding:4px 2px!important}
+  .mobile-nav-btn span{font-size:9.5px!important;max-width:58px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+  .mobile-nav-btn svg{width:20px!important;height:20px!important}
+}
