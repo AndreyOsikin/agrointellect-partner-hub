@@ -1,0 +1,55 @@
+/* Calculator product controls v40 */
+.calculator-page .farm-body{grid-template-columns:220px minmax(0,1fr) 190px!important;gap:14px!important}
+.calculator-page .farm-products{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important}
+.calculator-page .farm-product{
+  min-height:92px!important;padding:14px 72px 14px 58px!important;border:1px solid #d9e4ec!important;border-radius:18px!important;
+  background:linear-gradient(145deg,#ffffff,#fbfdff)!important;box-shadow:0 5px 18px rgba(35,72,105,.035)!important;
+  display:flex!important;flex-direction:column!important;justify-content:center!important;text-align:left!important;position:relative!important;
+  color:#243f58!important;transform:none!important;
+}
+.calculator-page .farm-product:hover{border-color:#bed8e8!important;box-shadow:0 8px 22px rgba(45,100,138,.07)!important;transform:translateY(-1px)!important}
+.calculator-page .farm-product img{
+  position:absolute!important;left:13px!important;top:50%!important;transform:translateY(-50%)!important;width:34px!important;height:34px!important;
+  padding:4px!important;border-radius:10px!important;background:#fff!important;border:1px solid #dfe8ef!important;object-fit:contain!important;
+}
+.calculator-page .farm-product b{margin:0!important;font-size:13.5px!important;line-height:1.2!important;font-weight:750!important;color:#1f3d57!important}
+.calculator-page .farm-product span{margin:5px 0 0!important;font-size:0!important;color:#8092a4!important;line-height:1.2!important}
+.calculator-page .farm-product span:after{content:'Подключить к хозяйству';font-size:10.5px!important;font-weight:550!important}
+.calculator-page .farm-product.selected span:after{content:'Подключено';color:#4387b4!important}
+.calculator-page .farm-product .product-check{
+  position:absolute!important;right:14px!important;top:50%!important;transform:translateY(-50%)!important;width:46px!important;height:27px!important;
+  border:0!important;border-radius:999px!important;background:#d8e3ec!important;color:transparent!important;box-shadow:inset 0 0 0 1px rgba(75,105,132,.06)!important;
+  transition:background .2s ease!important;font-size:0!important;
+}
+.calculator-page .farm-product .product-check:after{
+  content:''!important;position:absolute!important;width:21px!important;height:21px!important;left:3px!important;top:3px!important;border-radius:50%!important;
+  background:#fff!important;box-shadow:0 2px 7px rgba(24,53,79,.18)!important;transition:transform .2s ease!important;
+}
+.calculator-page .farm-product.selected{
+  background:linear-gradient(145deg,#f3f9fd,#eef7fc)!important;border-color:#a8cee3!important;box-shadow:0 7px 20px rgba(64,129,169,.07)!important;
+}
+.calculator-page .farm-product.selected .product-check{background:linear-gradient(135deg,#55a6e5,#7ec4ec)!important;border:0!important;transform:translateY(-50%)!important}
+.calculator-page .farm-product.selected .product-check:after{transform:translateX(19px)!important}
+.calculator-page .farm-total{
+  padding:16px!important;border-radius:18px!important;background:linear-gradient(145deg,#f2f8fc,#eaf5fb)!important;border:1px solid #cfe3ef!important;
+  box-shadow:0 7px 20px rgba(58,112,146,.045)!important;
+}
+.calculator-page .farm-total small{font-size:10.5px!important;color:#7890a2!important}
+.calculator-page .farm-total strong{font-size:21px!important;line-height:1.15!important;color:#1f4a68!important;margin-top:6px!important}
+.calculator-page .farm-total span{font-size:10.5px!important;color:#4387b4!important;margin-top:7px!important}
+.calculator-page .summary-farms{gap:9px!important}
+.calculator-page .summary-farm{
+  padding:13px 15px!important;border-radius:16px!important;background:linear-gradient(145deg,#fff,#f8fbfd)!important;border:1px solid #dce7ee!important;
+  box-shadow:0 4px 14px rgba(40,78,109,.035)!important;
+}
+.calculator-page .summary-farm b{font-size:13.5px!important;color:#203f59!important}
+.calculator-page .summary-farm small{font-size:10.5px!important;color:#7a8fa1!important;margin-top:4px!important}
+.calculator-page .summary-farm-price strong{font-size:14px!important;color:#265779!important}.calculator-page .summary-farm-price span{font-size:10px!important;color:#8194a5!important;margin-top:3px!important}
+.calculator-page .summary-metric{background:#fbfdfe!important;border-color:#dce7ee!important}.calculator-page .summary-metric.discount{background:#f4faf7!important;border-color:#dcece3!important}
+@media(max-width:1100px){.calculator-page .farm-body{grid-template-columns:190px minmax(0,1fr)!important}.calculator-page .farm-total{grid-column:1/3!important}}
+@media(max-width:860px){.calculator-page .farm-body{grid-template-columns:1fr!important}.calculator-page .farm-total{grid-column:auto!important}.calculator-page .farm-products{grid-template-columns:1fr!important}}
+@media(max-width:767px){
+ .calculator-page .farm-product{min-height:76px!important;padding:11px 68px 11px 56px!important;border-radius:16px!important}
+ .calculator-page .farm-product img{left:12px!important;width:32px!important;height:32px!important}.calculator-page .farm-product b{font-size:13px!important}
+ .calculator-page .farm-product .product-check{right:12px!important;width:44px!important;height:26px!important}.calculator-page .farm-product .product-check:after{width:20px!important;height:20px!important}.calculator-page .farm-product.selected .product-check:after{transform:translateX(18px)!important}
+}
