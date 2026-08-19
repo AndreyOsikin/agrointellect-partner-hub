@@ -1,0 +1,39 @@
+/* v24 — contacts: compact circular portraits */
+.contacts-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:16px!important;
+}
+.person{
+  min-height:230px!important;
+  padding:24px!important;
+  align-items:flex-start!important;
+}
+.employee-photo{
+  width:84px!important;
+  height:84px!important;
+  min-width:84px!important;
+  border-radius:50%!important;
+  margin:0 0 18px 4px!important;
+  background:#eef4f8!important;
+  overflow:hidden!important;
+  box-shadow:0 8px 24px rgba(22,48,78,.08)!important;
+  border:3px solid #fff!important;
+  outline:1px solid #dfe7ef!important;
+}
+.employee-photo img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 28%!important;
+  border-radius:50%!important;
+}
+.person h3{margin-left:4px!important}
+.person .role{min-height:auto!important;margin-bottom:14px!important}
+@media(max-width:900px){
+  .contacts-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:620px){
+  .contacts-grid{grid-template-columns:1fr!important}
+  .person{min-height:0!important;padding:20px!important}
+  .employee-photo{width:76px!important;height:76px!important;min-width:76px!important}
+}
