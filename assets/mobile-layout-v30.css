@@ -1,0 +1,44 @@
+/* Partner Hub mobile polish v30 */
+@media (max-width:767px){
+  :root{--mobile-card-radius:18px;--mobile-gap:12px}
+  body{background:#f5f7fa!important}
+  .content{padding:14px 12px 104px!important}
+  .topbar{height:58px!important;padding:0 12px!important;background:rgba(246,248,250,.96)!important;backdrop-filter:blur(16px)!important}
+  .top-brand{gap:8px!important}.top-brand img{width:28px!important;height:28px!important}.top-brand strong{font-size:15px!important}
+  h1{font-size:34px!important;line-height:1.06!important;margin-top:6px!important;margin-bottom:10px!important}
+  h2{font-size:25px!important}.lead{font-size:15px!important;line-height:1.55!important}
+  .kicker{font-size:11px!important;letter-spacing:.1em!important}
+
+  .welcome-copy,.welcome-brand,.product,.doc,.integration-card,.person,.benefit,.overview-main,.quick-panel,.section-card,.integration-intro,
+  .calculator-page .calc-hero-v9,.calculator-page .calc-period-card,.calculator-page .farm-card,.calculator-page .calc-summary-v9{
+    border-radius:var(--mobile-card-radius)!important;box-shadow:0 7px 22px rgba(22,48,78,.055)!important;border:1px solid #e1e8ef!important;
+  }
+
+  .workspace-head{padding:2px 0 14px!important}.workspace-actions{gap:7px!important}.workspace-actions .btn{min-height:40px!important;padding:0 12px!important}
+  .tabs{gap:2px!important;margin:0 -12px 14px!important;padding:0 12px!important}.tab{padding:10px 12px!important;font-size:13px!important}
+
+  .welcome-copy,.welcome-brand{padding:18px!important}.welcome-logo{width:68px!important;height:68px!important}.welcome-stats{gap:7px!important;margin-top:14px!important}
+  .welcome-stats>div{padding:10px 12px!important;border-radius:12px!important}
+
+  .product-stage,.room-grid,.integration-grid,.contacts-grid,.benefit-grid{gap:var(--mobile-gap)!important}
+  .product{padding:18px!important}.picon{width:58px!important;height:58px!important;border-radius:15px!important}.product h2{font-size:26px!important;margin-top:16px!important}.product p{font-size:14.5px!important;line-height:1.5!important}.mini-feature{font-size:12.5px!important}.product-actions{margin-top:14px!important;gap:7px!important}.product-actions .btn{min-height:41px!important;font-size:12.5px!important}
+
+  .overview-main,.quick-panel,.section-card,.benefit,.doc,.integration-card{padding:17px!important}.benefit h3,.doc h3,.integration-card h3{font-size:17px!important}.benefit p,.doc p,.integration-card p{font-size:13px!important;line-height:1.5!important}
+  .quickitem{padding:12px!important;border-radius:13px!important}.fileico{width:38px!important;height:38px!important}.quickitem b{font-size:13px!important}
+
+  .library{border-radius:16px!important;overflow:hidden!important}.file-row{padding:11px!important;gap:9px!important}.file-row strong{font-size:13px!important}.file-row small{font-size:11px!important}.iconbtn{height:34px!important;padding:0 9px!important}
+
+  .integration-intro{padding:18px!important;margin-bottom:12px!important}.integration-intro h1{font-size:32px!important}.integration-search{height:44px!important;margin-top:14px!important}.systems{gap:7px!important}.system{padding:7px 9px!important;font-size:12px!important}
+
+  .person{padding:17px!important}.employee-photo{width:72px!important;height:72px!important;min-width:72px!important;min-height:72px!important;margin-bottom:12px!important}.person h3{font-size:17px!important}.person .role{font-size:12px!important}.person .contactline{font-size:12.5px!important}
+
+  .calculator-page .calc-hero-v9,.calculator-page .calc-period-card,.calculator-page .farm-card,.calculator-page .calc-summary-v9{padding:16px!important}
+  .calculator-page .period-chip{min-height:42px!important}.calculator-page .farm-product{padding:12px!important;border-radius:13px!important}.calculator-page .summary-metric{padding:13px!important}.calculator-page .summary-final{padding:16px!important}
+
+  .mobile-nav{left:12px!important;right:12px!important;bottom:max(8px,env(safe-area-inset-bottom))!important;width:auto!important;height:72px!important;border:1px solid #dfe7ef!important;border-radius:22px!important;box-shadow:0 12px 34px rgba(19,48,77,.12)!important;padding:6px 4px!important}
+  .mobile-nav-btn{border-radius:16px!important;min-width:0!important;gap:3px!important}.mobile-nav-btn svg{width:21px!important;height:21px!important}.mobile-nav-btn span{font-size:10px!important}.mobile-nav-btn.active{background:#e9f4ff!important;box-shadow:none!important}
+
+  .mobile-back{bottom:92px!important;left:18px!important;width:48px!important;height:48px!important;box-shadow:0 9px 24px rgba(21,48,78,.11)!important}
+
+  #mobilePdfSheetV25 .v25-pdf-card{padding:22px 18px 18px!important;border-radius:22px!important}.v25-pdf-actions{display:grid!important;grid-template-columns:1fr!important}.v25-pdf-actions .btn{width:100%!important;min-height:46px!important}
+}
