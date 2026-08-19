@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>АГРОИНТЕЛЛЕКТ — Партнёрский кабинет</title>
-<link rel="icon" type="image/png" sizes="32x32" href="./favicon.png?v=26">
-<link rel="shortcut icon" href="./favicon.ico?v=26">
-<link rel="apple-touch-icon" href="./apple-touch-icon.png?v=26">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon.png?v=27">
+<link rel="shortcut icon" href="./favicon.ico?v=27">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png?v=27">
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f6f8fa;font-family:Inter,"Segoe UI Variable Text","Segoe UI",Arial,sans-serif}
 #appFrame{display:block;width:100%;height:100dvh;border:0;background:#f6f8fa;opacity:0;transition:opacity .18s ease}
@@ -44,7 +44,8 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f6f8fa;fon
       injectScript(doc,'partner-hub-cms-loader','cms/cms-loader.js?v=2');
       injectScript(doc,'partner-hub-mobile-pdf-v25','assets/mobile-pdf-v25.js?v=25');
       injectScript(doc,'partner-hub-mobile-pdf-v26','assets/mobile-pdf-v26.js?v=26');
-      doc.documentElement.dataset.partnerHubTheme='v26';
+      injectScript(doc,'partner-hub-mobile-pdf-v27','assets/mobile-pdf-v27.js?v=27');
+      doc.documentElement.dataset.partnerHubTheme='v27';
       frame.classList.add('ready');
       boot.classList.add('hide');
     }catch(err){
