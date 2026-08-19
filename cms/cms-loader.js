@@ -1,5 +1,5 @@
 /* Partner Hub CMS loader. Embedded data remains the fallback. */
-window.PARTNER_HUB_CMS_URL = window.PARTNER_HUB_CMS_URL || '';
+window.PARTNER_HUB_CMS_URL = window.PARTNER_HUB_CMS_URL || 'https://script.google.com/macros/s/AKfycbxLvvKeiI5HBvFvso9488rIBWqCh49vt8NJLNbW6P4iv-f9NCVzkSfN2gMM-_LgvIDE/exec';
 
 (function(){
   const url = window.PARTNER_HUB_CMS_URL || localStorage.getItem('partnerHubCmsUrl') || '';
