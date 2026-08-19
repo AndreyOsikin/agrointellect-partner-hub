@@ -1,0 +1,169 @@
+:root{
+  --ui-bg:#f6f8fa;
+  --ui-surface:#ffffff;
+  --ui-surface-soft:#f2f6fa;
+  --ui-surface-blue:#eef6ff;
+  --ui-text:#172033;
+  --ui-text-strong:#102a43;
+  --ui-muted:#64748b;
+  --ui-line:#e2e8f0;
+  --ui-line-strong:#cfdae6;
+  --ui-blue:#1687f8;
+  --ui-blue-hover:#0d73db;
+  --ui-blue-soft:#e9f4ff;
+  --ui-blue-soft-2:#d9edff;
+  --ui-navy:#0f2742;
+  --ui-navy-2:#183a5d;
+  --ui-shadow:0 12px 34px rgba(22,48,78,.065);
+  --ui-shadow-hover:0 18px 46px rgba(22,48,78,.105);
+}
+
+html,body{background:var(--ui-bg)!important;color:var(--ui-text)!important}
+body{font-family:Inter,"Segoe UI Variable Text","Segoe UI",Arial,sans-serif!important;letter-spacing:-.006em}
+
+/* Global surfaces */
+.rail,.overview-main,.section-card,.library,.doc,.integration-card,.person,.calc,
+.calc-period-card,.farm-card,.calc-summary-v9,.welcome-copy,.welcome-brand,.quick-panel,
+.help-panel,.drawerpanel,.search,.homehead .search-big{border-color:var(--ui-line)!important}
+
+.content{max-width:1460px!important;padding-left:44px!important;padding-right:44px!important}
+.rail{background:rgba(255,255,255,.96)!important;box-shadow:6px 0 28px rgba(21,48,78,.025)!important}
+.topbar{background:rgba(246,248,250,.92)!important;border-bottom-color:rgba(218,226,235,.9)!important}
+
+/* Brand/navigation */
+.railbtn{color:#667b91!important}
+.railbtn:hover{background:var(--ui-blue-soft)!important;color:var(--ui-blue-hover)!important}
+.railbtn.active{
+  background:linear-gradient(145deg,var(--ui-blue),#5bb5ff)!important;
+  color:#fff!important;
+  box-shadow:0 10px 25px rgba(22,135,248,.22)!important;
+}
+.tip{background:var(--ui-navy)!important}
+.top-brand strong,.breadcrumb b{color:var(--ui-navy)!important}
+.mobile-nav{background:rgba(255,255,255,.97)!important;border-top-color:var(--ui-line)!important}
+.mobile-nav-btn{color:#74869a!important}
+.mobile-nav-btn.active{color:var(--ui-blue)!important;background:var(--ui-blue-soft)!important}
+
+/* Typography */
+h1,h2,h3,.product h2,.integration-card h3,.person h3{color:var(--ui-text-strong)!important}
+.kicker,.benefit .num{color:var(--ui-blue)!important}
+.lead,.product p,.integration-card p,.role,.contactline,.library-head p{color:var(--ui-muted)!important}
+
+/* Controls */
+.btn,.iconbtn,.copy-btn,.drawerhead .close,.help-close,.mobile-search-overlay-close{
+  border-color:var(--ui-line-strong)!important;
+}
+.btn.primary{background:var(--ui-navy)!important;border-color:var(--ui-navy)!important;color:#fff!important}
+.btn.primary:hover{background:var(--ui-navy-2)!important}
+.btn.blue,.calc-action.primary,#v9Share{
+  background:linear-gradient(135deg,var(--ui-blue),#56b2ff)!important;
+  border-color:transparent!important;
+  color:#fff!important;
+}
+.btn.ghost{background:#f7f9fb!important;color:#526b82!important}
+.iconbtn,.copy-btn{background:var(--ui-blue-soft)!important;color:#126fd1!important}
+.iconbtn:hover,.copy-btn:hover{background:var(--ui-blue-soft-2)!important}
+.copy-btn.copied{background:#dceeff!important;color:#075fb6!important}
+
+/* Search/focus */
+.search,.search-big,.integration-search,.calc input,.farm-herd input{
+  background:#fff!important;border-color:var(--ui-line)!important;box-shadow:none!important;
+}
+.search:focus-within,.search-big:focus-within,.integration-search:focus,.calc input:focus,.farm-herd input:focus{
+  border-color:#8cc7ff!important;box-shadow:0 0 0 4px rgba(22,135,248,.09)!important;outline:none!important;
+}
+
+/* Home hero */
+.welcome-copy{
+  background:radial-gradient(circle at 94% 6%,rgba(22,135,248,.09),transparent 30%),linear-gradient(145deg,#fff,#f8fbff)!important;
+  box-shadow:var(--ui-shadow)!important;
+}
+.welcome-brand{
+  background:radial-gradient(circle at 84% 14%,rgba(89,180,255,.18),transparent 32%),linear-gradient(155deg,#edf7ff,#fff)!important;
+  box-shadow:var(--ui-shadow)!important;
+}
+.welcome-logo{box-shadow:0 14px 34px rgba(22,72,121,.09)!important}
+.welcome-stats>div{background:rgba(255,255,255,.82)!important;border-color:#dce8f2!important}
+
+/* Product identity — one coherent blue family, no green */
+.product{box-shadow:var(--ui-shadow)!important;border:1px solid rgba(220,229,238,.85)!important}
+.product:hover{box-shadow:var(--ui-shadow-hover)!important}
+.product.online{background:linear-gradient(155deg,#fff 0%,#f1f8ff 68%,#e1f0ff 100%)!important}
+.product.musoft{background:linear-gradient(155deg,#fff 0%,#f4f7ff 68%,#e8efff 100%)!important}
+.product.milk{background:linear-gradient(155deg,#fff 0%,#f0f8fc 68%,#e3f2f8 100%)!important}
+.picon{color:var(--ui-blue)!important;box-shadow:0 12px 28px rgba(28,65,104,.085)!important}
+.product.musoft .picon{color:#4e76cf!important}
+.product.milk .picon{color:#327eaa!important}
+.dot{background:var(--ui-blue)!important}
+.demo-credentials,.credential{border-color:#dbe6ef!important}
+.credential{background:rgba(255,255,255,.88)!important}
+
+/* Tabs/cards/library */
+.tab.active{color:var(--ui-navy)!important}
+.tab.active:after{background:var(--ui-blue)!important}
+.quote{border-left-color:var(--ui-blue)!important;background:var(--ui-blue-soft)!important;color:#405a74!important}
+.quick-panel{background:linear-gradient(145deg,#eef6ff,#fff)!important}
+.fileico{background:#eef5fc!important;color:#1876d7!important}
+.video .fileico{background:#eef3ff!important;color:#4f70c9!important}
+.file-row:hover{background:#f7fbff!important}
+.system:hover{background:#e8f4ff!important;color:#0870db!important}
+.integration-card.featured{background:linear-gradient(145deg,#f8fbff,#eef7ff)!important;border-color:#cfe3f6!important}
+.integration-icon{background:#e8f4ff!important;color:#1477d5!important}
+.avatar{background:linear-gradient(145deg,#e7f3ff,#f6faff)!important;color:#1877d7!important}
+.person{box-shadow:var(--ui-shadow)!important}
+.person:hover{box-shadow:var(--ui-shadow-hover)!important}
+
+/* Calculator — remove all green/mixed states and align with Partner Hub */
+.calculator-page{
+  --v17-bg:#f6f8fa!important;
+  --v17-card:#fff!important;
+  --v17-text:#17324a!important;
+  --v17-muted:#667b8f!important;
+  --v17-line:#d8e3ec!important;
+}
+.calculator-page .calc-shell-v9,
+.calculator-page .calc-hero-v9,
+.calculator-page .calc-period-card,
+.calculator-page .farm-card,
+.calculator-page .calc-summary-v9{background:var(--ui-surface)!important;border-color:var(--ui-line)!important;box-shadow:var(--ui-shadow)!important}
+.calculator-page .period-chip{background:#fff!important;border-color:#d5e2ea!important;color:#35536c!important}
+.calculator-page .period-chip.active{background:#e7f4ff!important;border-color:#87c4f5!important;color:#145f99!important;box-shadow:none!important}
+.calculator-page .calc-period-summary{background:linear-gradient(145deg,#eef7ff,#f4f9fd)!important;border-color:#cae2f4!important}
+.calculator-page .calc-period-summary strong{color:#214d70!important}
+.calculator-page .calc-period-summary span{color:#2d7fb4!important}
+.calculator-page .farm-index{background:#e8f4fb!important;border-color:#cde5f2!important;color:#2e6485!important}
+.calculator-page .farm-product{background:#fff!important;border-color:#d8e4eb!important;color:#2b485f!important}
+.calculator-page .farm-product.selected{background:linear-gradient(145deg,#edf7ff,#f6fbff)!important;border-color:#7dbde2!important;box-shadow:0 5px 16px rgba(62,130,172,.08)!important}
+.calculator-page .farm-product.selected .product-check{background:#5aa9df!important;border-color:#5aa9df!important;color:#fff!important}
+.calculator-page .farm-total{background:#eef7fc!important;border-color:#d2e6f1!important}
+.calculator-page .add-farm-btn{background:#eef7fb!important;border-color:#bcdbea!important;color:#2c617f!important}
+.calculator-page .summary-metric.discount{background:#edf6ff!important;border-color:#cfe3f6!important}
+.calculator-page .summary-metric.discount strong{color:#24689a!important}
+.calculator-page .summary-final{background:linear-gradient(145deg,#edf7ff,#f8fbfe)!important;border-color:#cbdfea!important;box-shadow:0 8px 22px rgba(40,87,116,.055)!important}
+.calculator-page .summary-final>div:first-child strong{color:#173d59!important}
+.calculator-page .summary-final>span{background:#fff!important;border-color:#d3e3ee!important;color:#4f6d83!important}
+.calculator-page #v9Share{background:linear-gradient(135deg,var(--ui-blue),#56b2ff)!important;border-color:transparent!important;color:#fff!important}
+.v18-pdf-mode .summary-final{background:linear-gradient(145deg,#edf7ff,#f8fbfe)!important}
+
+/* Catch legacy green-tinted inline blocks without changing semantic states */
+[style*="#f0f9f5"],[style*="#f1f9f5"],[style*="#eef8f4"],[style*="#f0f9f5"]{background:#eef7ff!important}
+[style*="#34795a"],[style*="#3f705a"],[style*="#547364"]{color:#24689a!important}
+
+/* Drawer/help */
+.drawerhead{background:rgba(255,255,255,.98)!important;border-bottom-color:var(--ui-line)!important}
+.drawerhead .close:hover{background:var(--ui-blue-soft)!important;color:#0b70da!important}
+.app-toast{background:rgba(15,39,66,.97)!important}
+
+/* Motion and geometry consistency */
+.product,.doc,.integration-card,.person,.overview-main,.section-card,.library,.calc-period-card,.farm-card,.calc-summary-v9{border-radius:22px!important}
+.btn,.iconbtn,.copy-btn,input,.search,.search-big,.integration-search{transition:.18s ease!important}
+
+@media(max-width:900px){
+  .content{padding-left:20px!important;padding-right:20px!important}
+  .welcome-copy,.welcome-brand{border-radius:24px!important}
+}
+@media(max-width:767px){
+  .content{padding:22px 14px 96px!important}
+  .product,.doc,.integration-card,.person,.overview-main,.section-card,.library,.calc-period-card,.farm-card,.calc-summary-v9{border-radius:18px!important}
+  h1{letter-spacing:-.035em!important}
+}
