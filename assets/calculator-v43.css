@@ -1,0 +1,31 @@
+/* v43 — compact frames without shrinking readable content */
+.calculator-page .farm-card{padding:14px 16px!important}
+.calculator-page .farm-body{grid-template-columns:190px minmax(0,1fr) 170px!important;gap:10px!important;align-items:center!important}
+.calculator-page .farm-products{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+.calculator-page .farm-product{
+ position:relative!important;box-sizing:border-box!important;height:58px!important;min-height:58px!important;
+ padding:8px 48px 8px 48px!important;border-radius:13px!important;overflow:hidden!important;
+ display:flex!important;flex-direction:column!important;justify-content:center!important;align-items:flex-start!important;
+ background:#fff!important;border:1px solid #d8e5ee!important;box-shadow:none!important;text-align:left!important
+}
+.calculator-page .farm-product.selected{background:#eef8fe!important;border-color:#9bcdec!important;box-shadow:none!important}
+.calculator-page .farm-product img{position:absolute!important;left:9px!important;top:50%!important;transform:translateY(-50%)!important;width:29px!important;height:29px!important;box-sizing:border-box!important;padding:3px!important;border-radius:8px!important;background:#fff!important;border:1px solid #dce7ef!important;object-fit:contain!important}
+.calculator-page .farm-product b{display:block!important;max-width:100%!important;margin:0!important;font-size:13px!important;line-height:1.15!important;font-weight:750!important;color:#183b57!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+.calculator-page .farm-product span{display:block!important;margin:3px 0 0!important;font-size:0!important;line-height:1!important;white-space:nowrap!important}
+.calculator-page .farm-product span:after{content:'Добавить продукт';font-size:10.5px!important;font-weight:550!important;color:#8194a5!important}
+.calculator-page .farm-product.selected span:after{content:'Подключено';color:#3885b8!important}
+.calculator-page .farm-product .product-check{position:absolute!important;right:9px!important;top:50%!important;transform:translateY(-50%)!important;width:34px!important;height:20px!important;border:0!important;border-radius:999px!important;background:#dbe5ed!important;color:transparent!important;font-size:0!important;box-shadow:none!important}
+.calculator-page .farm-product .product-check:after{content:''!important;position:absolute!important;width:16px!important;height:16px!important;left:2px!important;top:2px!important;border-radius:50%!important;background:#fff!important;box-shadow:0 1px 4px rgba(29,56,83,.18)!important;transition:left .16s ease!important;transform:none!important}
+.calculator-page .farm-product.selected .product-check{background:#58ace0!important;transform:translateY(-50%)!important}
+.calculator-page .farm-product.selected .product-check:after{left:16px!important;transform:none!important}
+.calculator-page .farm-herd{padding:9px 10px!important;border-radius:13px!important}.calculator-page .farm-herd input{height:40px!important}
+.calculator-page .farm-total{min-height:58px!important;padding:9px 11px!important;border-radius:13px!important}
+
+/* Integration switch belongs inside final payment card */
+.calculator-page .summary-final{position:relative!important}
+#v42IntegrationWrap{margin:12px 0 0!important;display:block!important;width:100%!important}
+.v42-integration{box-sizing:border-box!important;width:100%!important;min-width:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;padding:11px 13px!important;border:1px solid #d7e5ee!important;border-radius:13px!important;background:rgba(255,255,255,.7)!important}
+.v42-integration-copy b{font-size:12.5px!important}.v42-integration-copy span{font-size:10.5px!important}
+.v42-switch{width:36px!important;height:21px!important;cursor:pointer!important}.v42-switch:after{width:17px!important;height:17px!important}.v42-switch.on:after{left:17px!important}
+@media(max-width:1100px){.calculator-page .farm-body{grid-template-columns:180px minmax(0,1fr)!important}.calculator-page .farm-total{grid-column:1/3!important}}
+@media(max-width:860px){.calculator-page .farm-body{grid-template-columns:1fr!important}.calculator-page .farm-total{grid-column:auto!important}.calculator-page .farm-products{grid-template-columns:1fr!important}.calculator-page .farm-product{height:58px!important;min-height:58px!important}}
