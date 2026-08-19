@@ -1,0 +1,69 @@
+/* Partner Hub share modal v39 — unified button system */
+#shareCalcV38 .sc38card{
+  width:min(420px,calc(100% - 28px));
+  padding:24px;
+  border-radius:26px;
+  border:1px solid #e3eaf1;
+  box-shadow:0 24px 64px rgba(35,62,89,.16);
+}
+#shareCalcV38 .sc38x{
+  width:36px;height:36px;border-radius:12px;
+  background:#f5f8fb;color:#6f8396;
+  transition:.18s ease;
+}
+#shareCalcV38 .sc38x:active{transform:scale(.96);background:#edf2f7}
+#shareCalcV38 .sc38primary,
+#shareCalcV38 .sc38actions button{
+  box-sizing:border-box;
+  font:inherit;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:-.01em;
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+#shareCalcV38 .sc38primary{
+  width:100%;
+  min-height:50px;
+  margin-top:20px;
+  border:1px solid rgba(68,143,219,.22);
+  border-radius:15px;
+  background:linear-gradient(135deg,#6fb5ec 0%,#559fe4 100%);
+  color:#fff;
+  box-shadow:0 8px 20px rgba(73,145,213,.20);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0 18px;
+}
+#shareCalcV38 .sc38primary:hover{box-shadow:0 10px 24px rgba(73,145,213,.26)}
+#shareCalcV38 .sc38primary:active{transform:translateY(1px) scale(.995);box-shadow:0 5px 14px rgba(73,145,213,.18)}
+#shareCalcV38 .sc38actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+}
+#shareCalcV38 .sc38actions button{
+  min-height:46px;
+  padding:0 16px;
+  border:1px solid #dce6ef;
+  border-radius:14px;
+  background:#fbfcfd;
+  color:#29445f;
+  box-shadow:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#shareCalcV38 .sc38actions button:hover{background:#f5f8fb;border-color:#cfdae5}
+#shareCalcV38 .sc38actions button:active{transform:translateY(1px);background:#eef3f7}
+#shareCalcV38 .sc38actions button:focus,
+#shareCalcV38 .sc38primary:focus,
+#shareCalcV38 .sc38x:focus{outline:none;box-shadow:0 0 0 3px rgba(88,160,226,.16)}
+@media (max-width:420px){
+  #shareCalcV38 .sc38card{padding:20px;border-radius:22px}
+  #shareCalcV38 .sc38primary{min-height:48px}
+  #shareCalcV38 .sc38actions button{min-height:44px}
+}
