@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="color-scheme" content="light">
 <title>АГРОИНТЕЛЛЕКТ — Партнёрский кабинет</title>
-<link rel="icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon.png?v=24">
+<link rel="shortcut icon" href="./favicon.ico?v=24">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png?v=24">
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f6f8fa;font-family:Inter,"Segoe UI Variable Text","Segoe UI",Arial,sans-serif}
 #appFrame{display:block;width:100%;height:100dvh;border:0;background:#f6f8fa;opacity:0;transition:opacity .18s ease}
@@ -28,19 +30,19 @@ html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f6f8fa;fon
     if(doc.getElementById(id))return;
     const s=doc.createElement('script');s.id=id;s.src=src;s.defer=true;doc.head.appendChild(s);
   }
+  function injectCss(doc,id,href){
+    if(doc.getElementById(id))return;
+    const link=doc.createElement('link');link.id=id;link.rel='stylesheet';link.href=href;doc.head.appendChild(link);
+  }
   function applyTheme(){
     try{
       const doc=frame.contentDocument;
       if(!doc||!doc.head)return;
-      if(!doc.getElementById('unified-v22-theme')){
-        const link=doc.createElement('link');
-        link.id='unified-v22-theme';
-        link.rel='stylesheet';
-        link.href='assets/unified-v22.css?v=23';
-        doc.head.appendChild(link);
-      }
+      injectCss(doc,'unified-v22-theme','assets/unified-v22.css?v=23');
+      injectCss(doc,'contact-v24-theme','assets/contact-v24.css?v=24');
+      injectScript(doc,'partner-hub-content-v24','assets/content-v24.js?v=24');
       injectScript(doc,'partner-hub-cms-loader','cms/cms-loader.js?v=1');
-      doc.documentElement.dataset.partnerHubTheme='v23';
+      doc.documentElement.dataset.partnerHubTheme='v24';
       frame.classList.add('ready');
       boot.classList.add('hide');
     }catch(err){
