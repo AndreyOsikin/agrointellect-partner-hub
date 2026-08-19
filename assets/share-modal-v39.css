@@ -1,69 +1,55 @@
-/* Partner Hub share modal v39 — unified button system */
+/* Partner Hub share modal — polished compact button system */
 #shareCalcV38 .sc38card{
-  width:min(420px,calc(100% - 28px));
-  padding:24px;
-  border-radius:26px;
-  border:1px solid #e3eaf1;
-  box-shadow:0 24px 64px rgba(35,62,89,.16);
+  width:min(420px,calc(100% - 28px))!important;
+  padding:22px!important;
+  border-radius:24px!important;
+  border:1px solid #e2eaf1!important;
+  background:#fff!important;
+  box-shadow:0 22px 58px rgba(35,62,89,.14)!important;
 }
 #shareCalcV38 .sc38x{
-  width:36px;height:36px;border-radius:12px;
-  background:#f5f8fb;color:#6f8396;
-  transition:.18s ease;
+  width:34px!important;height:34px!important;border:0!important;outline:0!important;border-radius:11px!important;
+  background:#f4f7fa!important;color:#6f8396!important;box-shadow:none!important;
+  -webkit-appearance:none!important;appearance:none!important;transition:.16s ease!important;
 }
-#shareCalcV38 .sc38x:active{transform:scale(.96);background:#edf2f7}
+#shareCalcV38 .sc38x:hover{background:#edf2f6!important;color:#49657d!important}
+#shareCalcV38 .sc38x:active{transform:scale(.96)!important}
+
 #shareCalcV38 .sc38primary,
 #shareCalcV38 .sc38actions button{
-  box-sizing:border-box;
-  font:inherit;
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:-.01em;
-  transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease;
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
+  box-sizing:border-box!important;-webkit-appearance:none!important;appearance:none!important;
+  outline:0!important;font-family:inherit!important;font-size:14px!important;font-weight:700!important;
+  letter-spacing:-.01em!important;cursor:pointer!important;-webkit-tap-highlight-color:transparent!important;
+  transition:transform .16s ease,box-shadow .16s ease,background .16s ease,border-color .16s ease!important;
 }
 #shareCalcV38 .sc38primary{
-  width:100%;
-  min-height:50px;
-  margin-top:20px;
-  border:1px solid rgba(68,143,219,.22);
-  border-radius:15px;
-  background:linear-gradient(135deg,#6fb5ec 0%,#559fe4 100%);
-  color:#fff;
-  box-shadow:0 8px 20px rgba(73,145,213,.20);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:0 18px;
+  width:100%!important;height:46px!important;min-height:46px!important;margin-top:18px!important;padding:0 18px!important;
+  border:1px solid #8cc8eb!important;border-radius:13px!important;
+  background:linear-gradient(135deg,#78bde8 0%,#65afe2 100%)!important;color:#fff!important;
+  box-shadow:0 5px 14px rgba(79,151,204,.15)!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
 }
-#shareCalcV38 .sc38primary:hover{box-shadow:0 10px 24px rgba(73,145,213,.26)}
-#shareCalcV38 .sc38primary:active{transform:translateY(1px) scale(.995);box-shadow:0 5px 14px rgba(73,145,213,.18)}
-#shareCalcV38 .sc38actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:10px;
-}
+#shareCalcV38 .sc38primary:hover{background:linear-gradient(135deg,#70b8e5,#5ea9dd)!important;box-shadow:0 7px 17px rgba(79,151,204,.20)!important}
+#shareCalcV38 .sc38primary:active{transform:translateY(1px)!important;box-shadow:0 3px 10px rgba(79,151,204,.14)!important}
+
+#shareCalcV38 .sc38actions{display:grid!important;grid-template-columns:1fr 1fr!important;gap:9px!important;margin-top:9px!important}
 #shareCalcV38 .sc38actions button{
-  min-height:46px;
-  padding:0 16px;
-  border:1px solid #dce6ef;
-  border-radius:14px;
-  background:#fbfcfd;
-  color:#29445f;
-  box-shadow:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:100%!important;height:42px!important;min-height:42px!important;padding:0 14px!important;
+  border:1px solid #d7e2eb!important;outline:0!important;border-radius:12px!important;
+  background:#fff!important;color:#29445f!important;box-shadow:none!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
 }
-#shareCalcV38 .sc38actions button:hover{background:#f5f8fb;border-color:#cfdae5}
-#shareCalcV38 .sc38actions button:active{transform:translateY(1px);background:#eef3f7}
+#shareCalcV38 .sc38actions button:hover{background:#f7fafc!important;border-color:#c9d7e2!important;color:#1d3c56!important}
+#shareCalcV38 .sc38actions button:active{transform:translateY(1px)!important;background:#f0f5f8!important}
 #shareCalcV38 .sc38actions button:focus,
+#shareCalcV38 .sc38actions button:focus-visible,
 #shareCalcV38 .sc38primary:focus,
-#shareCalcV38 .sc38x:focus{outline:none;box-shadow:0 0 0 3px rgba(88,160,226,.16)}
-@media (max-width:420px){
-  #shareCalcV38 .sc38card{padding:20px;border-radius:22px}
-  #shareCalcV38 .sc38primary{min-height:48px}
-  #shareCalcV38 .sc38actions button{min-height:44px}
+#shareCalcV38 .sc38primary:focus-visible,
+#shareCalcV38 .sc38x:focus,
+#shareCalcV38 .sc38x:focus-visible{outline:0!important}
+
+@media(max-width:420px){
+ #shareCalcV38 .sc38card{padding:20px!important;border-radius:22px!important}
+ #shareCalcV38 .sc38primary{height:45px!important;min-height:45px!important}
+ #shareCalcV38 .sc38actions button{height:41px!important;min-height:41px!important}
 }
